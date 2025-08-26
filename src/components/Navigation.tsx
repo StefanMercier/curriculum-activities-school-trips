@@ -1,8 +1,19 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail } from "lucide-react";
+import LeadCaptureForm from "./LeadCaptureForm";
 
 const Navigation = () => {
+  const [showLeadForm, setShowLeadForm] = useState(false);
+
+  const handleLeadSubmit = (data: { name: string; email: string; school: string }) => {
+    console.log("Lead captured:", data);
+    // In a real app, you would send this to your backend
+    setShowLeadForm(false);
+    // Redirect to materials or show success message
+  };
+
   const navItems = [
     { label: "Vietnam Memorial", href: "#vietnam" },
     { label: "Lincoln Memorial", href: "#lincoln" },
@@ -20,12 +31,9 @@ const Navigation = () => {
               <img 
                 src="http://staging2.globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" 
                 alt="Global Educational Tours" 
-                className="h-10 w-auto mr-3"
+                className="h-10 w-auto"
               />
             </a>
-            <h1 className="text-xl font-bold text-primary">
-              DC Interactive Activities
-            </h1>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -43,14 +51,26 @@ const Navigation = () => {
           <div className="flex items-center space-x-4">
             <div className="hidden sm:flex items-center space-x-2 text-sm text-muted-foreground">
               <Phone className="h-4 w-4" />
-              <span>(202) 555-0123</span>
+              <span>802-377-3311</span>
             </div>
-            <Button variant="hero" size="sm">
+            <Button 
+              variant="hero" 
+              size="sm"
+              onClick={() => setShowLeadForm(true)}
+            >
               Access Materials
             </Button>
           </div>
         </div>
       </div>
+
+      {showLeadForm && (
+        <LeadCaptureForm
+          activityTitle="Educational Materials"
+          onClose={() => setShowLeadForm(false)}
+          onSubmit={handleLeadSubmit}
+        />
+      )}
     </nav>
   );
 };
