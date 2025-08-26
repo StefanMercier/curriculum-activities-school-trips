@@ -15,9 +15,6 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { label: "Vietnam Memorial", href: "#vietnam" },
-    { label: "Lincoln Memorial", href: "#lincoln" },
-    { label: "Korean War Memorial", href: "#korean" },
     { label: "More Activities", href: "#activities" },
     { label: "Teacher Resources", href: "#resources" },
   ];
