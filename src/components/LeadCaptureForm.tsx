@@ -8,14 +8,15 @@ import { X } from "lucide-react";
 interface LeadCaptureFormProps {
   activityTitle: string;
   onClose: () => void;
-  onSubmit: (data: { name: string; email: string; school: string }) => void;
+  onSubmit: (data: { firstName: string; lastName: string; email: string; location: string }) => void;
 }
 
 const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormProps) => {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
-    school: ""
+    location: ""
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -43,17 +44,30 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Your Name</Label>
-              <Input
-                id="name"
-                type="text"
-                placeholder="Enter your full name"
-                value={formData.name}
-                onChange={(e) => handleChange("name", e.target.value)}
-                required
-              />
+        <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="firstName">First Name</Label>
+                <Input
+                  id="firstName"
+                  type="text"
+                  placeholder="First name"
+                  value={formData.firstName}
+                  onChange={(e) => handleChange("firstName", e.target.value)}
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="lastName">Last Name</Label>
+                <Input
+                  id="lastName"
+                  type="text"
+                  placeholder="Last name"
+                  value={formData.lastName}
+                  onChange={(e) => handleChange("lastName", e.target.value)}
+                  required
+                />
+              </div>
             </div>
             
             <div className="space-y-2">
@@ -69,13 +83,13 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="school">School or Group Name & Location</Label>
+              <Label htmlFor="location">Location</Label>
               <Input
-                id="school"
+                id="location"
                 type="text"
                 placeholder="e.g., Lincoln High School, Washington DC"
-                value={formData.school}
-                onChange={(e) => handleChange("school", e.target.value)}
+                value={formData.location}
+                onChange={(e) => handleChange("location", e.target.value)}
                 required
               />
             </div>
@@ -84,7 +98,7 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
               type="submit" 
               variant="hero" 
               className="w-full mt-6"
-              disabled={!formData.name || !formData.email || !formData.school}
+              disabled={!formData.firstName || !formData.lastName || !formData.email || !formData.location}
             >
               Get Activity Materials
             </Button>

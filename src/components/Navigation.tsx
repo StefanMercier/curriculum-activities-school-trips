@@ -7,7 +7,7 @@ import LeadCaptureForm from "./LeadCaptureForm";
 const Navigation = () => {
   const [showLeadForm, setShowLeadForm] = useState(false);
 
-  const handleLeadSubmit = (data: { name: string; email: string; school: string }) => {
+  const handleLeadSubmit = (data: { firstName: string; lastName: string; email: string; location: string }) => {
     console.log("Lead captured:", data);
     // In a real app, you would send this to your backend
     setShowLeadForm(false);
