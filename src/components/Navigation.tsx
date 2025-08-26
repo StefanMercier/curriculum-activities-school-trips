@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Phone, Mail } from "lucide-react";
 
@@ -15,6 +16,13 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
+            <a href="https://globaleducationaltours.com" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="http://staging2.globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" 
+                alt="Global Educational Tours" 
+                className="h-10 w-auto mr-3"
+              />
+            </a>
             <h1 className="text-xl font-bold text-primary">
               DC Interactive Activities
             </h1>

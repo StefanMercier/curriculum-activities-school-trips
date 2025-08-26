@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,12 +16,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 221 39% 11%;
 
-    /* Deep navy - trustworthy, educational */
-    --primary: 221 83% 15%;
+    /* Brand green #749e46 - educational, trustworthy */
+    --primary: 85 37% 45%;
     --primary-foreground: 0 0% 98%;
-    --primary-hover: 221 83% 20%;
+    --primary-hover: 85 37% 40%;
 
-    /* Warm gold - professional, monuments */
+    /* Warm gold - for CTAs and highlights */
     --accent: 45 93% 47%;
     --accent-foreground: 221 39% 11%;
     --accent-hover: 45 93% 42%;
@@ -37,14 +38,14 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 221 83% 15%;
+    --ring: 85 37% 45%;
 
     --radius: 0.5rem;
 
     /* Design system tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(221 83% 15%), hsl(221 83% 25%));
-    --card-shadow: 0 4px 6px -1px hsl(221 83% 15% / 0.1);
-    --hero-shadow: 0 20px 25px -5px hsl(221 83% 15% / 0.3);
+    --hero-gradient: linear-gradient(135deg, hsl(85 37% 45%), hsl(85 37% 50%));
+    --card-shadow: 0 4px 6px -1px hsl(85 37% 45% / 0.1);
+    --hero-shadow: 0 20px 25px -5px hsl(85 37% 45% / 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
@@ -68,13 +69,13 @@
     --popover-foreground: 0 0% 98%;
 
     --primary: 0 0% 98%;
-    --primary-foreground: 221 83% 15%;
+    --primary-foreground: 85 37% 45%;
     --primary-hover: 220 14% 90%;
 
-    --secondary: 221 83% 20%;
+    --secondary: 85 37% 50%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 221 83% 20%;
+    --muted: 85 37% 50%;
     --muted-foreground: 215 20% 65%;
 
     --accent: 45 93% 47%;
@@ -84,8 +85,8 @@
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 221 83% 20%;
-    --input: 221 83% 20%;
+    --border: 85 37% 50%;
+    --input: 85 37% 50%;
     --ring: 45 93% 47%;
 
     --sidebar-background: 240 5.9% 10%;
@@ -105,6 +106,6 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }

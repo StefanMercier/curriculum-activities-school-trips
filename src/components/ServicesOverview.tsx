@@ -1,29 +1,37 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Landmark, Microscope, Building, Palette, Settings, Clock } from "lucide-react";
+import { Microscope, Settings, Clock } from "lucide-react";
 
 const ServicesOverview = () => {
   const services = [
     {
       id: "vietnam",
-      icon: Landmark,
+      image: "http://staging2.globaleducationaltours.com/wp-content/uploads/2025/07/IMG_5353-scaled.jpg",
       title: "Vietnam Veterans Memorial",
       description: "Interactive presentation exploring how design helps heal wounds from America's most divisive war.",
       features: ["4 Student Roles", "Printable Scripts", "Historical Context", "Interactive Q&A"],
     },
     {
       id: "lincoln",
-      icon: Building,
+      image: "http://staging2.globaleducationaltours.com/wp-content/uploads/2025/04/lincoln-memorial-washington-dc-abraham-lincoln-patriotic-landmark-brown-memory-stockpack-pixabay.jpg",
       title: "Lincoln Memorial",
       description: "Theatrical performance combining history with the memorial's architectural significance.",
       features: ["Role-Playing Activity", "Historical Perspectives", "Architecture Focus", "15-Minute Format"],
     },
     {
       id: "korean",
-      icon: Settings,
+      image: "http://staging2.globaleducationaltours.com/wp-content/uploads/2025/04/united-states-capitol-building-at-sunset-washington-dc-usa-stockpack-adobe-stock.jpg",
       title: "Korean War Memorial",
       description: "Explore 'The Forgotten War' through memorial statues and etched remembrances.",
       features: ["Memorial Design Focus", "Statue Analysis", "War Context", "Group Activities"],
+    },
+    {
+      id: "fdr",
+      image: "http://staging2.globaleducationaltours.com/wp-content/uploads/2025/08/DSC_1185.jpg",
+      title: "FDR Memorial",
+      description: "Interactive exploration of the four-term president's legacy through memorial design.",
+      features: ["Four Presidential Terms", "Disability Representation", "New Deal Programs", "Waterfall Symbolism"],
     },
     {
       id: "coming-soon",
@@ -38,13 +46,6 @@ const ServicesOverview = () => {
       title: "Teacher Resources",
       description: "Downloadable materials, preparation guides, and educational objectives.",
       features: ["Lesson Plans", "Assessment Rubrics", "Extension Activities", "Curriculum Alignment"],
-    },
-    {
-      id: "support",
-      icon: Palette,
-      title: "Implementation Support",
-      description: "Guidance for using activities effectively during your Washington DC visit.",
-      features: ["Activity Timing", "Group Management", "Safety Guidelines", "Logistics Tips"],
     },
   ];
 
@@ -67,12 +68,22 @@ const ServicesOverview = () => {
             return (
               <Card 
                 key={service.id} 
-                className="h-full hover:shadow-lg transition-shadow duration-300 border-0 shadow-md"
+                className="h-full hover:shadow-lg transition-shadow duration-300 border-0 shadow-md overflow-hidden"
               >
+                <div className="relative">
+                  {service.image ? (
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-48 object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-48 bg-primary/10 flex items-center justify-center">
+                      {IconComponent && <IconComponent className="h-16 w-16 text-primary" />}
+                    </div>
+                  )}
+                </div>
                 <CardHeader className="text-center pb-4">
-                  <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
-                    <IconComponent className="h-8 w-8 text-primary" />
-                  </div>
                   <CardTitle className="text-xl font-bold text-primary">
                     {service.title}
                   </CardTitle>
