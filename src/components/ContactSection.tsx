@@ -10,11 +10,11 @@ const ContactSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Ready to Plan Your Trip?
+            Ready to Use These Activities?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Contact our educational tour specialists to create the perfect 
-            learning experience for your student group.
+            Access our interactive educational materials and get support for 
+            implementing these activities with your student groups.
           </p>
         </div>
 
@@ -22,9 +22,9 @@ const ContactSection = () => {
           {/* Contact Form */}
           <Card className="shadow-lg border-0">
             <CardHeader>
-              <CardTitle className="text-2xl text-primary">Get Your Quote</CardTitle>
+              <CardTitle className="text-2xl text-primary">Request Access</CardTitle>
               <CardDescription>
-                Tell us about your group and we'll create a custom itinerary just for you.
+                Get access to all interactive activities and educational materials for your student group.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -79,18 +79,18 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
-                  Areas of Interest
-                </label>
-                <Textarea 
-                  placeholder="Tell us about your curriculum focus, learning objectives, or specific sites you'd like to visit..."
-                  className="min-h-[100px]"
-                />
-              </div>
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">
+                    Activities Needed
+                  </label>
+                  <Textarea 
+                    placeholder="Which memorial activities are you interested in? Any specific curriculum focus or learning objectives?"
+                    className="min-h-[100px]"
+                  />
+                </div>
 
               <Button variant="hero" size="lg" className="w-full text-lg py-3">
-                Submit Request
+                Request Materials Access
               </Button>
             </CardContent>
           </Card>
@@ -99,9 +99,9 @@ const ContactSection = () => {
           <div className="space-y-8">
             <Card className="shadow-lg border-0">
               <CardHeader>
-                <CardTitle className="text-2xl text-primary">Contact Information</CardTitle>
+                <CardTitle className="text-2xl text-primary">Get Support</CardTitle>
                 <CardDescription>
-                  Our educational tour specialists are here to help plan your perfect DC experience.
+                  Our educational specialists are here to help you implement these activities successfully.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -122,7 +122,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Email</h4>
-                    <p className="text-muted-foreground">info@dceducationaltours.com</p>
+                    <p className="text-muted-foreground">materials@dcinteractiveactivities.com</p>
                     <p className="text-sm text-muted-foreground">Response within 24 hours</p>
                   </div>
                 </div>
@@ -143,9 +143,9 @@ const ContactSection = () => {
                     <Clock className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Quick Response</h4>
-                    <p className="text-muted-foreground">Free consultation within 24 hours</p>
-                    <p className="text-sm text-muted-foreground">Custom quotes in 2-3 business days</p>
+                    <h4 className="font-semibold text-foreground">Material Access</h4>
+                    <p className="text-muted-foreground">Instant download access to activities</p>
+                    <p className="text-sm text-muted-foreground">Implementation support available</p>
                   </div>
                 </div>
               </CardContent>
@@ -154,14 +154,14 @@ const ContactSection = () => {
             <Card className="bg-accent/10 border-accent/20 shadow-lg">
               <CardContent className="p-6">
                 <h4 className="font-bold text-primary text-lg mb-2">
-                  🎓 Educator Discount Available
+                  📚 Free Educational Materials
                 </h4>
                 <p className="text-muted-foreground mb-4">
-                  Special pricing for public schools and educational non-profits. 
-                  Ask about our group discounts and seasonal promotions.
+                  All interactive activities and scripts are available free for educators. 
+                  Premium support and additional resources available for schools.
                 </p>
                 <Button variant="outline" size="sm" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-                  Learn About Discounts
+                  Access Free Materials
                 </Button>
               </CardContent>
             </Card>

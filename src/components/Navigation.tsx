@@ -3,11 +3,11 @@ import { Phone, Mail } from "lucide-react";
 
 const Navigation = () => {
   const navItems = [
-    { label: "Historical Tours", href: "#historical" },
-    { label: "Science & Museums", href: "#science" },
-    { label: "Government Tours", href: "#government" },
-    { label: "Cultural Activities", href: "#cultural" },
-    { label: "Custom Programs", href: "#custom" },
+    { label: "Vietnam Memorial", href: "#vietnam" },
+    { label: "Lincoln Memorial", href: "#lincoln" },
+    { label: "Korean War Memorial", href: "#korean" },
+    { label: "More Activities", href: "#activities" },
+    { label: "Teacher Resources", href: "#resources" },
   ];
 
   return (
@@ -16,7 +16,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <h1 className="text-xl font-bold text-primary">
-              DC Educational Tours
+              DC Interactive Activities
             </h1>
           </div>
           
@@ -38,7 +38,7 @@ const Navigation = () => {
               <span>(202) 555-0123</span>
             </div>
             <Button variant="hero" size="sm">
-              Request Quote
+              Access Materials
             </Button>
           </div>
         </div>

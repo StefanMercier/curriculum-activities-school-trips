@@ -5,46 +5,46 @@ import { Landmark, Microscope, Building, Palette, Settings, Clock } from "lucide
 const ServicesOverview = () => {
   const services = [
     {
-      id: "historical",
+      id: "vietnam",
       icon: Landmark,
-      title: "Historical Tours",
-      description: "Explore monuments, memorials, and historic sites that tell America's story.",
-      features: ["Lincoln Memorial", "Washington Monument", "Vietnam Memorial", "Capitol Hill"],
+      title: "Vietnam Veterans Memorial",
+      description: "Interactive presentation exploring how design helps heal wounds from America's most divisive war.",
+      features: ["4 Student Roles", "Printable Scripts", "Historical Context", "Interactive Q&A"],
     },
     {
-      id: "science",
-      icon: Microscope,
-      title: "Science & Museums",
-      description: "Hands-on learning at world-class museums and research institutions.",
-      features: ["Smithsonian Museums", "National Zoo", "Air & Space Museum", "Natural History"],
-    },
-    {
-      id: "government",
+      id: "lincoln",
       icon: Building,
-      title: "Government Tours",
-      description: "See democracy in action with exclusive access to government buildings.",
-      features: ["White House Tours", "Capitol Building", "Supreme Court", "Embassy Row"],
+      title: "Lincoln Memorial",
+      description: "Theatrical performance combining history with the memorial's architectural significance.",
+      features: ["Role-Playing Activity", "Historical Perspectives", "Architecture Focus", "15-Minute Format"],
     },
     {
-      id: "cultural",
-      icon: Palette,
-      title: "Cultural Activities",
-      description: "Experience the arts, culture, and diverse communities of DC.",
-      features: ["Kennedy Center", "National Gallery", "Cultural Festivals", "Neighborhood Tours"],
-    },
-    {
-      id: "custom",
+      id: "korean",
       icon: Settings,
-      title: "Custom Programs",
-      description: "Tailored itineraries designed for your specific curriculum needs.",
-      features: ["Grade-Level Specific", "Subject Integration", "Duration Flexible", "Budget Friendly"],
+      title: "Korean War Memorial",
+      description: "Explore 'The Forgotten War' through memorial statues and etched remembrances.",
+      features: ["Memorial Design Focus", "Statue Analysis", "War Context", "Group Activities"],
     },
     {
-      id: "logistics",
+      id: "coming-soon",
       icon: Clock,
-      title: "Full Planning Support",
-      description: "Complete trip coordination from transportation to accommodations.",
-      features: ["Transportation", "Lodging", "Meal Planning", "Emergency Support"],
+      title: "More Activities Coming",
+      description: "Additional interactive presentations for other DC monuments and museums.",
+      features: ["Washington Monument", "Jefferson Memorial", "Supreme Court", "Capitol Building"],
+    },
+    {
+      id: "resources",
+      icon: Microscope,
+      title: "Teacher Resources",
+      description: "Downloadable materials, preparation guides, and educational objectives.",
+      features: ["Lesson Plans", "Assessment Rubrics", "Extension Activities", "Curriculum Alignment"],
+    },
+    {
+      id: "support",
+      icon: Palette,
+      title: "Implementation Support",
+      description: "Guidance for using activities effectively during your Washington DC visit.",
+      features: ["Activity Timing", "Group Management", "Safety Guidelines", "Logistics Tips"],
     },
   ];
 
@@ -53,11 +53,11 @@ const ServicesOverview = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Educational Tour Programs
+            Interactive Memorial Activities
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive educational experiences designed to bring classroom learning to life 
-            through immersive tours and hands-on activities in Washington DC.
+            Engaging educational activities designed to prepare students for monument visits 
+            and enhance their on-site learning experience in Washington DC.
           </p>
         </div>
 
@@ -93,7 +93,7 @@ const ServicesOverview = () => {
                     variant="outline" 
                     className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                   >
-                    Learn More
+                    View Activity
                   </Button>
                 </CardContent>
               </Card>
@@ -103,7 +103,7 @@ const ServicesOverview = () => {
 
         <div className="text-center mt-16">
           <Button variant="hero" size="lg" className="text-lg px-8 py-4">
-            Request Custom Quote
+            Access All Activities
           </Button>
         </div>
       </div>

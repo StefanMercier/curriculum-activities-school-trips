@@ -17,24 +17,24 @@ const Hero = () => {
       <div className="container relative z-10 mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Educational Tours in
-            <span className="block text-accent"> Washington DC</span>
+            Interactive Educational
+            <span className="block text-accent"> Activities & Curriculum</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90">
-            Enriching curriculum-based experiences for student groups. 
-            Explore history, science, and government in the nation's capital.
+            Engaging student activities for Washington DC monuments and memorials. 
+            Interactive presentations, role-playing scripts, and hands-on learning materials.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button variant="hero" size="lg" className="text-lg px-8 py-4">
-              Plan Your Trip
+              Browse Activities
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-4 text-white border-white hover:bg-white hover:text-primary"
             >
-              View Programs
+              View Materials
             </Button>
           </div>
 
@@ -44,24 +44,24 @@ const Hero = () => {
               <div className="bg-accent/20 p-4 rounded-full mb-4">
                 <Users className="h-8 w-8 text-accent" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Student Groups</h3>
-              <p className="text-white/80">Tailored experiences for all grade levels and group sizes</p>
+              <h3 className="text-lg font-semibold mb-2">Interactive Scripts</h3>
+              <p className="text-white/80">Role-playing activities with printable student scripts</p>
             </div>
             
             <div className="flex flex-col items-center">
               <div className="bg-accent/20 p-4 rounded-full mb-4">
                 <BookOpen className="h-8 w-8 text-accent" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Curriculum Aligned</h3>
-              <p className="text-white/80">Activities designed to enhance classroom learning</p>
+              <h3 className="text-lg font-semibold mb-2">Curriculum Materials</h3>
+              <p className="text-white/80">Ready-to-use activities aligned with learning objectives</p>
             </div>
             
             <div className="flex flex-col items-center">
               <div className="bg-accent/20 p-4 rounded-full mb-4">
                 <MapPin className="h-8 w-8 text-accent" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">DC Expertise</h3>
-              <p className="text-white/80">Local guides with deep knowledge of the capital</p>
+              <h3 className="text-lg font-semibold mb-2">On-Site Learning</h3>
+              <p className="text-white/80">Engaging activities designed for monument visits</p>
             </div>
           </div>
         </div>
