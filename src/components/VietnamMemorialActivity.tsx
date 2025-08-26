@@ -1,9 +1,20 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Clock, BookOpen, Download } from "lucide-react";
+import LeadCaptureForm from "./LeadCaptureForm";
 
 const VietnamMemorialActivity = () => {
+  const [showLeadForm, setShowLeadForm] = useState(false);
+
+  const handleLeadSubmit = (data: { name: string; email: string; school: string }) => {
+    console.log("Lead captured:", data);
+    // In a real app, you would send this to your backend
+    setShowLeadForm(false);
+    // Redirect to materials or show success message
+  };
+
   const roles = [
     {
       title: "War Context Guide",
@@ -100,16 +111,32 @@ const VietnamMemorialActivity = () => {
               <CardTitle className="text-xl text-primary">Quick Access</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <Button className="w-full" variant="hero">
+              <Button 
+                className="w-full" 
+                variant="hero"
+                onClick={() => setShowLeadForm(true)}
+              >
                 Download Student Scripts
               </Button>
-              <Button className="w-full" variant="outline">
+              <Button 
+                className="w-full" 
+                variant="outline"
+                onClick={() => setShowLeadForm(true)}
+              >
                 View Teacher Guide
               </Button>
-              <Button className="w-full" variant="outline">
+              <Button 
+                className="w-full" 
+                variant="outline"
+                onClick={() => setShowLeadForm(true)}
+              >
                 Interactive Q&A Cards
               </Button>
-              <Button className="w-full" variant="outline">
+              <Button 
+                className="w-full" 
+                variant="outline"
+                onClick={() => setShowLeadForm(true)}
+              >
                 Assessment Rubric
               </Button>
             </CardContent>
@@ -171,10 +198,23 @@ const VietnamMemorialActivity = () => {
         </Card>
 
         <div className="text-center">
-          <Button variant="hero" size="lg" className="text-lg px-8 py-4">
+          <Button 
+            variant="hero" 
+            size="lg" 
+            className="text-lg px-8 py-4"
+            onClick={() => setShowLeadForm(true)}
+          >
             Access Complete Activity Package
           </Button>
         </div>
+
+        {showLeadForm && (
+          <LeadCaptureForm
+            activityTitle="Vietnam Veterans Memorial Activity"
+            onClose={() => setShowLeadForm(false)}
+            onSubmit={handleLeadSubmit}
+          />
+        )}
       </div>
     </section>
   );
