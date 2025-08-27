@@ -58,6 +58,24 @@ const destinations = [
     duration: "2-3 hours",
     isUnlocked: false,
     image: "/api/placeholder/400/300"
+  },
+  {
+    id: "montreal",
+    title: "Montreal",
+    description: "Old Montreal, Notre-Dame Basilica, Mount Royal Park",
+    activities: 5,
+    duration: "2-3 hours",
+    isUnlocked: false,
+    image: "/api/placeholder/400/300"
+  },
+  {
+    id: "quebec",
+    title: "Quebec City",
+    description: "Old Quebec, Château Frontenac, Plains of Abraham",
+    activities: 4,
+    duration: "2-3 hours",
+    isUnlocked: false,
+    image: "/api/placeholder/400/300"
   }
 ];
 
