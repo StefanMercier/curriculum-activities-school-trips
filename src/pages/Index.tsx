@@ -1,11 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import ServicesOverview from "@/components/ServicesOverview";
-import VietnamMemorialActivity from "@/components/VietnamMemorialActivity";
+import DestinationsOverview from "@/components/DestinationsOverview";
 import LincolnMemorialActivity from "@/components/LincolnMemorialActivity";
-import KoreanWarMemorialActivity from "@/components/KoreanWarMemorialActivity";
 import ContactSection from "@/components/ContactSection";
-import ActivityGate from "@/components/ActivityGate";
 
 const Index = () => {
   return (
@@ -14,11 +12,8 @@ const Index = () => {
       <main>
         <Hero />
         <ServicesOverview />
+        <DestinationsOverview />
         <LincolnMemorialActivity />
-        <ActivityGate>
-          <VietnamMemorialActivity />
-          <KoreanWarMemorialActivity />
-        </ActivityGate>
         <ContactSection />
       </main>
     </div>

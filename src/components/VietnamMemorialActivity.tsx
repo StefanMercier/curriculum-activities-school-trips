@@ -8,7 +8,7 @@ import LeadCaptureForm from "./LeadCaptureForm";
 const VietnamMemorialActivity = () => {
   const [showLeadForm, setShowLeadForm] = useState(false);
 
-  const handleLeadSubmit = (data: { firstName: string; lastName: string; email: string; location: string }) => {
+  const handleLeadSubmit = (data: { firstName: string; lastName: string; email: string; zipCode: string; phoneNumber: string }) => {
     console.log("Lead captured:", data);
     // In a real app, you would send this to your backend
     setShowLeadForm(false);

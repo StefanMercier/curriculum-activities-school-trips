@@ -8,7 +8,7 @@ import { X } from "lucide-react";
 interface LeadCaptureFormProps {
   activityTitle: string;
   onClose: () => void;
-  onSubmit: (data: { firstName: string; lastName: string; email: string; location: string }) => void;
+  onSubmit: (data: { firstName: string; lastName: string; email: string; zipCode: string; phoneNumber: string }) => void;
 }
 
 const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormProps) => {
@@ -16,7 +16,8 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
     firstName: "",
     lastName: "",
     email: "",
-    location: ""
+    zipCode: "",
+    phoneNumber: ""
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -83,13 +84,25 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="location">Location</Label>
+              <Label htmlFor="zipCode">Zip Code</Label>
               <Input
-                id="location"
+                id="zipCode"
                 type="text"
-                placeholder="e.g., Lincoln High School, Washington DC"
-                value={formData.location}
-                onChange={(e) => handleChange("location", e.target.value)}
+                placeholder="12345"
+                value={formData.zipCode}
+                onChange={(e) => handleChange("zipCode", e.target.value)}
+                required
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="phoneNumber">Phone Number</Label>
+              <Input
+                id="phoneNumber"
+                type="tel"
+                placeholder="(555) 123-4567"
+                value={formData.phoneNumber}
+                onChange={(e) => handleChange("phoneNumber", e.target.value)}
                 required
               />
             </div>
@@ -98,7 +111,7 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
               type="submit" 
               variant="hero" 
               className="w-full mt-6"
-              disabled={!formData.firstName || !formData.lastName || !formData.email || !formData.location}
+              disabled={!formData.firstName || !formData.lastName || !formData.email || !formData.zipCode || !formData.phoneNumber}
             >
               Get Activity Materials
             </Button>

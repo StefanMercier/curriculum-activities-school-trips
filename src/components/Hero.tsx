@@ -18,23 +18,23 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Interactive Educational
-            <span className="block text-accent"> Activities & Curriculum</span>
+            <span className="block text-accent"> Destination Curriculum</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90">
-            Engaging student activities for Washington DC monuments and memorials. 
-            Interactive presentations, role-playing scripts, and hands-on learning materials.
+            Engaging student activities for America's historic destinations. 
+            From Washington DC to Boston, interactive presentations and hands-on learning materials.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button variant="hero" size="lg" className="text-lg px-8 py-4">
-              Browse Activities
+              Browse Destinations
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-4 text-white border-white hover:bg-white hover:text-primary"
             >
-              View Materials
+              Try Free Sample
             </Button>
           </div>
 
@@ -60,8 +60,8 @@ const Hero = () => {
               <div className="bg-accent/20 p-4 rounded-full mb-4">
                 <MapPin className="h-8 w-8 text-accent" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">On-Site Learning</h3>
-              <p className="text-white/80">Engaging activities designed for monument visits</p>
+              <h3 className="text-lg font-semibold mb-2">Multiple Destinations</h3>
+              <p className="text-white/80">Activities for DC, NYC, Boston, and more historic locations</p>
             </div>
           </div>
         </div>
