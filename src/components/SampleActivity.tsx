@@ -12,25 +12,25 @@ const SampleActivity = () => {
       name: "Abraham Lincoln",
       description: "The 16th President of the United States",
       keyPoints: ["Emancipation Proclamation", "Preserving the Union", "Leadership during Civil War"],
-      costume: "Black suit, tall hat, beard"
+      costume: "Black suit, tall hat, beard (optional - great for school prep)"
     },
     {
       name: "Narrator", 
       description: "Guides the audience through Lincoln's story",
       keyPoints: ["Historical context", "Timeline of events", "Legacy explanation"],
-      costume: "Professional attire or period clothing"
+      costume: "Professional attire or period clothing (optional - consider for school)"
     },
     {
       name: "John Wilkes Booth",
       description: "Lincoln's assassin (handled sensitively)",
       keyPoints: ["Historical context only", "Consequences of actions", "Impact on nation"],
-      costume: "Period appropriate clothing"
+      costume: "Period appropriate clothing (optional - especially at destination)"
     },
     {
       name: "Memorial Guide",
       description: "Expert on the Lincoln Memorial",
       keyPoints: ["Memorial facts", "Symbolism", "Visitor information"],
-      costume: "Park ranger or guide uniform"
+      costume: "Park ranger or guide uniform (optional - very much optional at destination)"
     }
   ];
 
