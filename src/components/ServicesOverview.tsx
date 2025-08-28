@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import SampleActivity from "@/components/SampleActivity";
 
 const ServicesOverview = () => {
@@ -9,9 +10,9 @@ const ServicesOverview = () => {
             Interactive Curriculum Activities
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-            Engaging educational activities designed to create a more engaging experience for students on their educational tours to Washington, New York, and Boston.
+            The goal of these curriculum activities is to create a more engaging experience for students on their educational tours to Washington, New York, and Boston.
           </p>
-          <div className="max-w-5xl mx-auto text-lg text-muted-foreground space-y-4">
+          <div className="max-w-5xl mx-auto text-lg text-muted-foreground space-y-4 mb-12">
             <p>
               For example, you can have your students take on the role of Lincoln, John Wilkes Booth, and other historical characters and prepare a presentation in front of their schoolmates when they are at the Lincoln Memorial.
             </p>

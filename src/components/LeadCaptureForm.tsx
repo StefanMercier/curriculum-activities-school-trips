@@ -8,7 +8,7 @@ import { X } from "lucide-react";
 interface LeadCaptureFormProps {
   activityTitle: string;
   onClose: () => void;
-  onSubmit: (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string }) => void;
+  onSubmit: (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => void;
 }
 
 const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormProps) => {
@@ -18,7 +18,8 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
     email: "",
     schoolGroup: "",
     zipCode: "",
-    phoneNumber: ""
+    phoneNumber: "",
+    hasOrganizedTrip: ""
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -121,11 +122,26 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
               </div>
             </div>
             
+            <div className="space-y-2">
+              <Label htmlFor="hasOrganizedTrip">Have you organized a school trip in the past?</Label>
+              <select
+                id="hasOrganizedTrip"
+                value={formData.hasOrganizedTrip}
+                onChange={(e) => handleChange("hasOrganizedTrip", e.target.value)}
+                className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground"
+                required
+              >
+                <option value="">Please select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            
             <Button 
               type="submit" 
               variant="hero" 
               className="w-full mt-6"
-              disabled={!formData.firstName || !formData.lastName || !formData.email || !formData.schoolGroup || !formData.zipCode || !formData.phoneNumber}
+              disabled={!formData.firstName || !formData.lastName || !formData.email || !formData.schoolGroup || !formData.zipCode || !formData.phoneNumber || !formData.hasOrganizedTrip}
             >
               Get Activity Materials
             </Button>

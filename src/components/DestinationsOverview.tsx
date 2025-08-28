@@ -8,18 +8,18 @@ const destinations = [
   {
     id: "washington-dc",
     title: "Washington DC",
-    description: "Lincoln Memorial, Vietnam Memorial, Korean War Memorial, Washington Monument",
-    activities: 8,
+    description: "Lincoln Memorial, Vietnam Veterans Memorial, FDR Memorial, Korean War Memorial",
+    activities: 10,
     duration: "2-3 hours",
-    isUnlocked: false,
+    isUnlocked: true,
     image: "/api/placeholder/400/300"
   },
   {
     id: "new-york",
     title: "New York City",
     description: "Statue of Liberty, Ellis Island, 9/11 Memorial, Central Park",
-    activities: 6,
-    duration: "3-4 hours", 
+    activities: 0,
+    duration: "Coming Soon",
     isUnlocked: false,
     image: "/api/placeholder/400/300"
   },
@@ -27,8 +27,8 @@ const destinations = [
     id: "boston",
     title: "Boston",
     description: "Freedom Trail, Boston Tea Party Ships, USS Constitution",
-    activities: 5,
-    duration: "2-3 hours",
+    activities: 0,
+    duration: "Coming Soon",
     isUnlocked: false,
     image: "/api/placeholder/400/300"
   },
@@ -36,8 +36,8 @@ const destinations = [
     id: "williamsburg",
     title: "Williamsburg",
     description: "Colonial Williamsburg, Governor's Palace, Capitol Building",
-    activities: 4,
-    duration: "2-3 hours",
+    activities: 0,
+    duration: "Coming Soon",
     isUnlocked: false,
     image: "/api/placeholder/400/300"
   },
@@ -45,8 +45,8 @@ const destinations = [
     id: "gettysburg",
     title: "Gettysburg",
     description: "Battlefield Tours, Visitor Center, Cemetery Ridge",
-    activities: 3,
-    duration: "1-2 hours",
+    activities: 0,
+    duration: "Coming Soon",
     isUnlocked: false,
     image: "/api/placeholder/400/300"
   },
@@ -54,8 +54,8 @@ const destinations = [
     id: "chicago",
     title: "Chicago", 
     description: "Architecture Tours, Millennium Park, Navy Pier",
-    activities: 4,
-    duration: "2-3 hours",
+    activities: 0,
+    duration: "Coming Soon",
     isUnlocked: false,
     image: "/api/placeholder/400/300"
   },
@@ -63,8 +63,8 @@ const destinations = [
     id: "montreal",
     title: "Montreal",
     description: "Old Montreal, Notre-Dame Basilica, Mount Royal Park",
-    activities: 5,
-    duration: "2-3 hours",
+    activities: 0,
+    duration: "Coming Soon",
     isUnlocked: false,
     image: "/api/placeholder/400/300"
   },
@@ -72,8 +72,8 @@ const destinations = [
     id: "quebec",
     title: "Quebec City",
     description: "Old Quebec, Château Frontenac, Plains of Abraham",
-    activities: 4,
-    duration: "2-3 hours",
+    activities: 0,
+    duration: "Coming Soon",
     isUnlocked: false,
     image: "/api/placeholder/400/300"
   }
@@ -93,7 +93,7 @@ const DestinationsOverview = () => {
     }
   };
 
-  const handleLeadSubmit = (data: { firstName: string; lastName: string; email: string; zipCode: string; phoneNumber: string }) => {
+  const handleLeadSubmit = (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => {
     console.log("Lead captured:", data);
     setShowLeadForm(false);
     // In a real app, this would unlock the destination
@@ -153,32 +153,16 @@ const DestinationsOverview = () => {
                   </div>
                 </div>
                 
-                <Button 
-                  className="w-full"
-                  variant={destination.isUnlocked ? "default" : "outline"}
-                  onClick={() => handleDestinationClick(destination)}
-                >
-                  {destination.isUnlocked ? "Explore Activities" : "Unlock Activities"}
-                </Button>
+                  <Button 
+                    variant="default"
+                    className="w-full bg-accent text-accent-foreground hover:bg-accent-hover"
+                    onClick={() => handleDestinationClick(destination)}
+                  >
+                    {destination.isUnlocked ? "Explore Activities" : (destination.activities > 0 ? "Unlock Activities" : "Coming Soon")}
+                  </Button>
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Sample Activity Section */}
-        <div className="mt-20 text-center">
-          <div className="bg-accent/10 border border-accent/20 rounded-lg p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-foreground">
-              Try Our Lincoln Memorial Activity - Free Sample
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Experience our interactive educational approach with this complimentary activity. 
-              See how our curriculum engages students with role-playing, historical context, and hands-on learning.
-            </p>
-            <Button variant="hero" size="lg" className="text-lg px-8">
-              Try Free Sample Activity
-            </Button>
-          </div>
         </div>
       </div>
 

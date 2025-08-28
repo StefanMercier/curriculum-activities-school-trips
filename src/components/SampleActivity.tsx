@@ -38,7 +38,7 @@ const SampleActivity = () => {
     <section id="sample-activity" className="py-0">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">See a Sample Curriculum Activity</h2>
+          <h2 className="text-4xl font-bold mb-4">See Our Lincoln Memorial Activity</h2>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -68,7 +68,7 @@ const SampleActivity = () => {
                 <div className="flex items-center gap-3">
                   <Clock className="h-6 w-6 text-primary" />
                   <div>
-                    <p className="font-semibold">30-45 minutes</p>
+                    <p className="font-semibold">15-20 minutes</p>
                     <p className="text-sm text-muted-foreground">Perfect class duration</p>
                   </div>
                 </div>
@@ -83,8 +83,8 @@ const SampleActivity = () => {
 
               <Button 
                 onClick={() => setIsExpanded(!isExpanded)}
-                variant="outline"
-                className="w-full mb-4"
+                variant="default"
+                className="w-full mb-4 bg-accent text-accent-foreground hover:bg-accent-hover"
               >
                 {isExpanded ? "Hide" : "View"} Activity Details
                 {isExpanded ? <ChevronUp className="ml-2 h-4 w-4" /> : <ChevronDown className="ml-2 h-4 w-4" />}
