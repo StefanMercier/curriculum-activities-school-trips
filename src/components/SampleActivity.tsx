@@ -35,7 +35,7 @@ const SampleActivity = () => {
   ];
 
   return (
-    <section className="py-16 bg-secondary">
+    <section id="sample-activity" className="py-0">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">See a Sample Curriculum Activity</h2>
@@ -176,11 +176,6 @@ const SampleActivity = () => {
           </Card>
         </div>
 
-        <div className="text-center">
-          <Button size="lg" className="text-lg px-8 py-4">
-            Try Our Lincoln Memorial Activity
-          </Button>
-        </div>
       </div>
     </section>
   );

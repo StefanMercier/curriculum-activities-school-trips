@@ -33,6 +33,10 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-4 text-accent border-white bg-white hover:bg-accent hover:text-white"
+              onClick={() => {
+                const sampleSection = document.getElementById('sample-activity');
+                sampleSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Try Free Sample
             </Button>
