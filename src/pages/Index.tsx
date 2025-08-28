@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import ServicesOverview from "@/components/ServicesOverview";
 import DestinationsOverview from "@/components/DestinationsOverview";
-import LincolnMemorialActivity from "@/components/LincolnMemorialActivity";
+import SampleActivity from "@/components/SampleActivity";
 import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
@@ -13,7 +13,7 @@ const Index = () => {
         <Hero />
         <ServicesOverview />
         <DestinationsOverview />
-        <LincolnMemorialActivity />
+        <SampleActivity />
         <ContactSection />
       </main>
     </div>

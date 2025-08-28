@@ -11,7 +11,7 @@ const destinations = [
     description: "Lincoln Memorial, Vietnam Memorial, Korean War Memorial, Washington Monument",
     activities: 8,
     duration: "2-3 hours",
-    isUnlocked: true,
+    isUnlocked: false,
     image: "/api/placeholder/400/300"
   },
   {

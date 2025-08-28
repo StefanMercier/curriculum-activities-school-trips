@@ -54,11 +54,11 @@ const ServicesOverview = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Interactive Memorial Activities
+            Interactive Curriculum Activities
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Engaging educational activities designed to prepare students for monument visits 
-            and enhance their on-site learning experience in Washington DC.
+            Engaging educational activities designed to prepare students for their destination visit, 
+            whether it's Washington, DC; New York City; Boston; and beyond.
           </p>
         </div>
 

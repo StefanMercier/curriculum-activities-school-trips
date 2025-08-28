@@ -8,7 +8,7 @@ import { X } from "lucide-react";
 interface LeadCaptureFormProps {
   activityTitle: string;
   onClose: () => void;
-  onSubmit: (data: { firstName: string; lastName: string; email: string; zipCode: string; phoneNumber: string }) => void;
+  onSubmit: (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string }) => void;
 }
 
 const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormProps) => {
@@ -16,6 +16,7 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
     firstName: "",
     lastName: "",
     email: "",
+    schoolGroup: "",
     zipCode: "",
     phoneNumber: ""
   });
@@ -82,36 +83,49 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
                 required
               />
             </div>
-            
+
             <div className="space-y-2">
-              <Label htmlFor="zipCode">Zip Code</Label>
+              <Label htmlFor="schoolGroup">School/Group Name</Label>
               <Input
-                id="zipCode"
+                id="schoolGroup"
                 type="text"
-                placeholder="12345"
-                value={formData.zipCode}
-                onChange={(e) => handleChange("zipCode", e.target.value)}
+                placeholder="Enter school or group name"
+                value={formData.schoolGroup}
+                onChange={(e) => handleChange("schoolGroup", e.target.value)}
                 required
               />
             </div>
             
-            <div className="space-y-2">
-              <Label htmlFor="phoneNumber">Phone Number</Label>
-              <Input
-                id="phoneNumber"
-                type="tel"
-                placeholder="(555) 123-4567"
-                value={formData.phoneNumber}
-                onChange={(e) => handleChange("phoneNumber", e.target.value)}
-                required
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="zipCode">Zip Code</Label>
+                <Input
+                  id="zipCode"
+                  type="text"
+                  placeholder="12345"
+                  value={formData.zipCode}
+                  onChange={(e) => handleChange("zipCode", e.target.value)}
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="phoneNumber">Phone Number</Label>
+                <Input
+                  id="phoneNumber"
+                  type="tel"
+                  placeholder="(555) 123-4567"
+                  value={formData.phoneNumber}
+                  onChange={(e) => handleChange("phoneNumber", e.target.value)}
+                  required
+                />
+              </div>
             </div>
             
             <Button 
               type="submit" 
               variant="hero" 
               className="w-full mt-6"
-              disabled={!formData.firstName || !formData.lastName || !formData.email || !formData.zipCode || !formData.phoneNumber}
+              disabled={!formData.firstName || !formData.lastName || !formData.email || !formData.schoolGroup || !formData.zipCode || !formData.phoneNumber}
             >
               Get Activity Materials
             </Button>

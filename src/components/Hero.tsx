@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/dc-hero.jpg";
+import heroImage from "@/assets/curriculum-hero.png";
 import { MapPin, Users, BookOpen } from "lucide-react";
 
 const Hero = () => {
@@ -32,7 +32,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="text-lg px-8 py-4 text-white border-white hover:bg-white hover:text-primary"
+              className="text-lg px-8 py-4 text-accent border-white bg-white hover:bg-accent hover:text-white"
             >
               Try Free Sample
             </Button>

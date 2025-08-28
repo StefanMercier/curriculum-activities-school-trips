@@ -16,7 +16,7 @@ const ContactSection = () => {
             Get Started with Interactive Activities
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to enhance your students' Washington DC experience? Contact us for curriculum materials, 
+            Ready to enhance your students' next school trip experience to Washington DC, New York, Boston, and beyond? Contact us for curriculum materials, 
             implementation guides, and educational support.
           </p>
         </div>
@@ -129,7 +129,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-primary">Phone Support</h3>
-                  <p className="text-muted-foreground">(202) 555-0123</p>
+                  <p className="text-muted-foreground">802-377-3311</p>
                   <p className="text-sm text-muted-foreground">Monday - Friday, 9 AM - 5 PM EST</p>
                 </div>
               </div>
@@ -140,7 +140,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-primary">Email Support</h3>
-                  <p className="text-muted-foreground">activities@globaleducationaltours.com</p>
+                  <p className="text-muted-foreground">info@goeducationaltours.com or activities@globeeducationaltours.com</p>
                   <p className="text-sm text-muted-foreground">Response within 24 hours</p>
                 </div>
               </div>
