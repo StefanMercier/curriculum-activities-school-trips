@@ -23,7 +23,7 @@ const washingtonActivities = [
     duration: "15-20 minutes",
     participants: "4-5 students",
     difficulty: "Intermediate",
-    isUnlocked: true
+    isUnlocked: false
   },
   {
     id: "jefferson-memorial",
@@ -32,7 +32,7 @@ const washingtonActivities = [
     duration: "15-20 minutes",
     participants: "4-5 students",
     difficulty: "Intermediate",
-    isUnlocked: true
+    isUnlocked: false
   },
   {
     id: "vietnam-memorial",

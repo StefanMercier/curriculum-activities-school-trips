@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lincoln Memorial Interactive Presentation</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .memorial-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 10px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Lincoln Memorial Interactive Presentation</h1>
+        <h2>Student Workshop Guide</h2>
+    </div>
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation brings Lincoln's legacy to life through student role-play at America's most iconic memorial.</p>
+        </section>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Abraham Lincoln</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"The rail-splitter who saved the Union. I rose from a one-room cabin to the presidency, holding our nation together through its darkest hour."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Childhood in Kentucky log cabin</li>
+                        <li>Self-taught lawyer in Illinois</li>
+                        <li>1860 election on anti-slavery platform</li>
+                        <li>Civil War leadership decisions</li>
+                        <li>Emancipation Proclamation</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"With malice toward none, with charity for all, I sought to bind up the nation's wounds - until that fateful night at Ford's Theatre."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. John Wilkes Booth</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"A famous actor whose hatred of Lincoln led to the most shocking crime in American history. My single act changed the course of Reconstruction."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Maryland theater family background</li>
+                        <li>Confederate sympathizer during Civil War</li>
+                        <li>Plot to kidnap, then kill Lincoln</li>
+                        <li>April 14, 1865 - Ford's Theatre</li>
+                        <li>12-day manhunt and death</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"'Sic semper tyrannis' - thus always to tyrants. My deed intended to save the South but doomed it to harsher Reconstruction."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Memorial Designer</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Daniel Chester French and I created this temple to democracy, where Lincoln sits eternally watching over the nation he preserved."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>1922 dedication ceremony</li>
+                        <li>36 columns for states in Union</li>
+                        <li>19-foot seated Lincoln statue</li>
+                        <li>Gettysburg Address and Second Inaugural carved in stone</li>
+                        <li>Alignment with Washington Monument</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Every detail honors Lincoln's legacy - from the marble to the murals, this memorial calls Americans to their highest ideals."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Civil Rights Witness</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"This memorial became the stage for America's ongoing struggle for equality, from Marian Anderson in 1939 to Dr. King in 1963."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Marian Anderson's Easter concert, 1939</li>
+                        <li>March on Washington, 1963</li>
+                        <li>Martin Luther King Jr.'s "I Have a Dream"</li>
+                        <li>Lincoln's unfinished work on equality</li>
+                        <li>Modern gatherings for justice</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Lincoln freed the slaves, but the memorial reminds us that the work of freedom is never finished. Each generation must claim it anew."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="quote">"In this temple, as in the hearts of the people for whom he saved the Union, the memory of Abraham Lincoln is enshrined forever."</div>
+            
+            <h4>Abraham Lincoln</h4>
+            <p>"Born in poverty, I educated myself by firelight. As president, I faced an impossible choice: preserve the Union or end slavery. The Emancipation Proclamation did both, though it cost 620,000 lives. I died believing we could heal as one nation."</p>
+            
+            <h4>John Wilkes Booth</h4>
+            <p>"Fame brought me close to power, hatred brought me to murder. I thought killing Lincoln would restore the old South, but my bullet only ensured harsher Reconstruction. One mad moment destroyed two lives and wounded a nation."</p>
+            
+            <h4>Memorial Designer</h4>
+            <p>"We built this temple on the National Mall's axis, where Lincoln's gaze meets Washington's obelisk. The 36 Doric columns represent states in 1865. Inside, Lincoln sits in contemplation, hands resting - not in triumph, but in sorrowful wisdom."</p>
+            
+            <h4>Civil Rights Witness</h4>
+            <p>"When Marian Anderson was banned from Constitution Hall, she sang here instead to 75,000 people. Twenty-four years later, Dr. King stood on these same steps, invoking Lincoln's promise that 'all men are created equal.' The memorial echoes with freedom songs."</p>
+        </div>
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why does Lincoln look sad in the statue?</button>
+                <p id="answer1" class="hidden">Daniel Chester French designed Lincoln to show the weight of leadership during civil war - contemplative and sorrowful, not triumphant.</p>
+                
+                <button onclick="showAnswer('answer2')">What's written on the walls?</button>
+                <p id="answer2" class="hidden">The Gettysburg Address on the south wall and Lincoln's Second Inaugural Address on the north wall - his greatest speeches about unity and healing.</p>
+                
+                <button onclick="showAnswer('answer3')">Why is it called a temple?</button>
+                <p id="answer3" class="hidden">The Greek temple design honors Lincoln as a martyr for democracy, making the memorial a sacred space for American ideals.</p>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand Lincoln's role in preserving the Union</li>
+                <li>Analyze the causes and consequences of assassination</li>
+                <li>Explore how memorials shape historical memory</li>
+                <li>Connect Lincoln's legacy to ongoing civil rights struggles</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Presented by</p>
+        <a href="https://globaleducationaltours.com" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

@@ -10,7 +10,7 @@ const destinations = [
     id: "washington-dc",
     title: "Washington DC",
     description: "Lincoln Memorial, Vietnam Veterans Memorial, FDR Memorial, Korean War Memorial",
-    activities: 7,
+    activities: 1,
     duration: "2-3 hours",
     isUnlocked: true,
     image: "/api/placeholder/400/300"
