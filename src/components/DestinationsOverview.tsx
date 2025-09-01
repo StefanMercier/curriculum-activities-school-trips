@@ -12,8 +12,8 @@ const destinations = [
   {
     id: "washington-dc",
     title: "Washington DC",
-    description: "Lincoln Memorial, MLK Memorial, Jefferson Memorial, Arlington Cemetery",
-    activities: 4,
+    description: "Lincoln Memorial, Washington Monument, US Capitol, MLK Memorial, Jefferson Memorial, Arlington Cemetery",
+    activities: 6,
     duration: "2-3 hours",
     isUnlocked: true,
     image: washingtonDCImg

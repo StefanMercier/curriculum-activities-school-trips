@@ -9,6 +9,8 @@ import lincolnMemorialImg from "@/assets/lincoln-memorial.jpg";
 import mlkMemorialImg from "@/assets/mlk-memorial.jpg";
 import jeffersonMemorialImg from "@/assets/jefferson-memorial.jpg";
 import arlingtonCemeteryImg from "@/assets/arlington-cemetery.jpg";
+import washingtonMonumentImg from "@/assets/washington-monument.jpg";
+import usCapitolImg from "@/assets/us-capitol.jpg";
 
 const washingtonActivities = [
   {
@@ -20,6 +22,26 @@ const washingtonActivities = [
     difficulty: "Intermediate",
     image: lincolnMemorialImg,
     isUnlocked: true
+  },
+  {
+    id: "washington-monument",
+    title: "Washington Monument Activity",
+    description: "Explore the engineering marvel and symbolism of America's tallest stone structure",
+    duration: "15-20 minutes",
+    participants: "4-5 students",
+    difficulty: "Intermediate",
+    image: washingtonMonumentImg,
+    isUnlocked: false
+  },
+  {
+    id: "us-capitol",
+    title: "US Capitol & DC History",
+    description: "Discover the nation's capital design and political compromise that created Washington DC",
+    duration: "18-22 minutes",
+    participants: "4-5 students",
+    difficulty: "Intermediate",
+    image: usCapitolImg,
+    isUnlocked: false
   },
   {
     id: "mlk-memorial",
@@ -39,33 +61,6 @@ const washingtonActivities = [
     participants: "4-5 students",
     difficulty: "Intermediate",
     image: jeffersonMemorialImg,
-    isUnlocked: false
-  },
-  {
-    id: "vietnam-memorial",
-    title: "Vietnam Veterans Memorial",
-    description: "Honor fallen heroes while learning about the Vietnam War's impact",
-    duration: "20-25 minutes", 
-    participants: "4-5 students",
-    difficulty: "Advanced",
-    isUnlocked: false
-  },
-  {
-    id: "fdr-memorial",
-    title: "FDR Memorial Activity",
-    description: "Explore FDR's presidency through interactive storytelling",
-    duration: "18-22 minutes",
-    participants: "4-5 students", 
-    difficulty: "Intermediate",
-    isUnlocked: false
-  },
-  {
-    id: "korean-war-memorial",
-    title: "Korean War Memorial",
-    description: "Learn about the forgotten war through dramatic presentations",
-    duration: "15-20 minutes",
-    participants: "4-5 students",
-    difficulty: "Intermediate", 
     isUnlocked: false
   },
   {
@@ -89,6 +84,10 @@ const WashingtonDC = () => {
       // Open the HTML activity in a new window
       if (activity.id === "lincoln-memorial") {
         window.open("/activities/lincoln-memorial.html", "_blank");
+      } else if (activity.id === "washington-monument") {
+        window.open("/activities/washington-monument.html", "_blank");
+      } else if (activity.id === "us-capitol") {
+        window.open("/activities/us-capitol.html", "_blank");
       } else if (activity.id === "mlk-memorial") {
         window.open("/activities/mlk-memorial.html", "_blank");
       } else if (activity.id === "jefferson-memorial") {

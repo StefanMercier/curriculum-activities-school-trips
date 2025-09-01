@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Washington, D.C. | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .memorial-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .dc-facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .map-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .quadrant-map {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            border: 2px solid #2c3e50;
+            border-radius: 5px;
+        }
+        .quadrant {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        .nw { top: 0; left: 0; background-color: #3498db; }
+        .ne { top: 0; right: 0; background-color: #2ecc71; }
+        .sw { bottom: 0; left: 0; background-color: #e74c3c; }
+        .se { bottom: 0; right: 0; background-color: #f39c12; }
+        .center-point {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: #2c3e50;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        .school-trip {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .trip-title {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .trip-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .trip-btn:hover {
+            background-color: #2980b9;
+        }
+        .did-you-know {
+            color: #3498db;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Washington, D.C.: Our Nation's Capital</h1>
+        <h2>Student Workshop Guide</h2>
+    </div>
+    
+    <img src="https://globaleducationaltours.com/wp-content/uploads/2025/04/united-states-capitol-building-at-sunset-washington-dc-usa-stockpack-adobe-stock.jpg" alt="United States Capitol Building at Sunset" class="memorial-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores the fascinating history, design, and significance of Washington, D.C. - the capital of the United States and a symbol of American democracy.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Establishment of the National Capital
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> Pierre Charles L'Enfant's Design
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> D.C. Geography and Layout
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Modern Washington, D.C.
+                </div>
+            </div>
+        </section>
+
+        <div class="school-trip">
+            <h3 class="trip-title">Experience Washington, D.C. Firsthand!</h3>
+            <p>Join Global Educational Tours for our immersive 3-Day Classic Washington, D.C. School Trip. Walk in the footsteps of presidents, explore iconic monuments, and bring American history to life!</p>
+            <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" class="trip-btn" target="_blank">Learn More About Our DC Trips</a>
+        </div>
+
+        <div class="did-you-know">Did You Know?</div>
+
+        <div class="dc-facts">
+            <div class="facts-title">Washington, D.C. Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Population: ≈ 712,000</div>
+                <div class="fact-item">Area: 68.3 sq mi</div>
+                <div class="fact-item">Motto: Justitia Omnibus (Justice for All)</div>
+                <div class="fact-item">Bird: Wood Thrush</div>
+                <div class="fact-item">Tree: Scarlet Oak</div>
+                <div class="fact-item">Flower: American Beauty Rose</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Historical Context Guide</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"After the American Revolution, the new nation needed a capital—but where should it be located? The decision would require one of the first major political compromises in U.S. history."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>The Residence Act of 1790 and the compromise between Hamilton, Jefferson, and Madison</li>
+                        <li>Why the Potomac River location was selected</li>
+                        <li>George Washington's personal role in choosing the exact site</li>
+                        <li>The original 10×10 mile diamond shape and boundary stones</li>
+                        <li>The meaning of "D.C." - District of Columbia</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"This political compromise didn't just determine where our capital would be—it established a symbol of national unity that would become a beacon of democracy worldwide."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. City Design Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"A French-born artist with no formal training in urban planning designed one of the world's most recognizable cities—before cars even existed!"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Pierre Charles L'Enfant's background and vision</li>
+                        <li>The symbolic placement of the Capitol at the center</li>
+                        <li>The grid system with lettered and numbered streets</li>
+                        <li>Diagonal avenues named after states</li>
+                        <li>Traffic circles and their original purpose</li>
+                        <li>Benjamin Banneker's role in preserving the plans</li>
+                    </ul>
+                    
+                    <div class="map-container">
+                        <div class="quadrant-map">
+                            <div class="quadrant nw">Northwest (NW)</div>
+                            <div class="quadrant ne">Northeast (NE)</div>
+                            <div class="quadrant sw">Southwest (SW)</div>
+                            <div class="quadrant se">Southeast (SE)</div>
+                            <div class="center-point"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"L'Enfant's brilliant design created not just a functional city but a symbolic representation of American democracy that continues to function over 200 years later."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Geography & Layout Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Washington's layout seems confusing at first, but it's actually a brilliantly simple system that makes navigation surprisingly easy once you understand it."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>The four quadrants (NW, NE, SW, SE) centered on the Capitol</li>
+                        <li>Numbered streets running north-south</li>
+                        <li>Lettered streets running east-west (A-W, skipping J)</li>
+                        <li>State-named diagonal avenues</li>
+                        <li>How addresses indicate quadrant and location</li>
+                        <li>Key landmarks and their symbolic placement</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"D.C.'s logical design reflects the Enlightenment values of order and reason that inspired the nation's founders, creating a city that's both functional and symbolic."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Modern D.C. Guide</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Beyond the monuments and government buildings, Washington, D.C. is a vibrant city with unique neighborhoods, a diverse population, and a complex political status."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>D.C.'s unique status as a federal district, not a state</li>
+                        <li>The "Taxation Without Representation" license plates</li>
+                        <li>Famous neighborhoods and their characteristics</li>
+                        <li>The role of the District's non-voting Congressional delegate</li>
+                        <li>Cultural institutions beyond the National Mall</li>
+                        <li>Demographics and diversity of the city</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Washington, D.C. is more than just the seat of government—it's a dynamic city with its own identity, culture, and unique place in American democracy."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Historical Context Guide</h4>
+                <p>"After experiencing the weaknesses of the Articles of Confederation, the Founding Fathers knew the new nation needed a permanent capital. The Residence Act of 1790 resulted from a famous compromise: Alexander Hamilton supported a southern Potomac location in exchange for southern support for his financial plan. President Washington personally selected the exact site—just 14 miles upstream from his Mount Vernon estate."</p>
+                
+                <h4>City Design Expert</h4>
+                <p>"Pierre Charles L'Enfant envisioned a capital that would rival European cities in grandeur while symbolizing American ideals. He placed the Capitol building on Jenkins Hill, making it the physical center of the city. From there, he designed a grid of streets intersected by diagonal avenues named after states, creating circles and squares that would serve as neighborhood centers. His vision was so grand that he was eventually dismissed for exceeding his budget and authority."</p>
+                
+                <h4>Geography & Layout Specialist</h4>
+                <p>"D.C. is divided into four quadrants centered on the Capitol building. Numbered streets run north-south, and lettered streets run east-west (skipping J). State-named diagonal avenues create the circles and squares. Addresses include the quadrant (e.g., 1600 Pennsylvania Ave NW), making navigation straightforward. The system was designed before automobiles but works perfectly even with modern traffic patterns."</p>
+                
+                <h4>Modern D.C. Guide</h4>
+                <p>"Today, D.C. is home to over 700,000 residents who pay federal taxes but lack voting representation in Congress. The city's 'Taxation Without Representation' license plates highlight this unique status. Beyond government, D.C. boasts diverse neighborhoods from historic Georgetown to vibrant Adams Morgan, a thriving arts scene, and some of the nation's best museums—most offering free admission to all visitors."</p>
+            </div>
+        </div>
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/L%27Enfant_plan.jpg/800px-L%27Enfant_plan.jpg" alt="L'Enfant's original plan for Washington, D.C." class="memorial-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">What does "D.C." stand for?</button>
+                <p id="answer1" class="hidden">District of Columbia. Columbia was a poetic name for America honoring Christopher Columbus, used before "United States" became standard.</p>
+                
+                <button onclick="showAnswer('answer2')">Why was the Potomac location chosen?</button>
+                <p id="answer2" class="hidden">It was a compromise between northern and southern states, and George Washington believed the area had commercial potential as a shipping center if connected to the western frontier by canal.</p>
+                
+                <button onclick="showAnswer('answer3')">How do DC's quadrants work?</button>
+                <p id="answer3" class="hidden">The city is divided into Northwest (NW), Northeast (NE), Southwest (SW), and Southeast (SE) quadrants centered on the U.S. Capitol building. Addresses include the quadrant abbreviation.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Design Your Capital City</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Sketch a street plan for an imaginary capital city</li>
+                    <li>Include symbolic elements representing their values</li>
+                    <li>Design a navigation system (like DC's lettered/numbered streets)</li>
+                    <li>Present their design and explain their choices</li>
+                </ol>
+            </div>
+            
+            <div class="dc-facts">
+                <div class="facts-title">Previous U.S. Capitals</div>
+                <div class="facts-grid">
+                    <div class="fact-item">Philadelphia, PA</div>
+                    <div class="fact-item">New York City, NY</div>
+                    <div class="fact-item">Baltimore, MD</div>
+                    <div class="fact-item">Lancaster, PA</div>
+                    <div class="fact-item">York, PA</div>
+                    <div class="fact-item">Princeton, NJ</div>
+                    <div class="fact-item">Annapolis, MD</div>
+                    <div class="fact-item">Trenton, NJ</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand the historical context behind the establishment of Washington, D.C.</li>
+                <li>Analyze the symbolic elements of L'Enfant's urban design</li>
+                <li>Navigate using D.C.'s quadrant and street naming system</li>
+                <li>Appreciate D.C.'s unique status in American government</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your school trip to Washington, D.C. with</p>
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
