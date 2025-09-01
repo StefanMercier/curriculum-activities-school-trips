@@ -17,6 +17,24 @@ const washingtonActivities = [
     isUnlocked: true
   },
   {
+    id: "mlk-memorial",
+    title: "MLK Memorial Activity",
+    description: "Students explore Dr. King's legacy through interactive roles and memorial symbolism",
+    duration: "15-20 minutes",
+    participants: "4-5 students",
+    difficulty: "Intermediate",
+    isUnlocked: true
+  },
+  {
+    id: "jefferson-memorial",
+    title: "Jefferson Memorial Activity", 
+    description: "Explore Jefferson's complex legacy as founder, author, and contradictions",
+    duration: "15-20 minutes",
+    participants: "4-5 students",
+    difficulty: "Intermediate",
+    isUnlocked: true
+  },
+  {
     id: "vietnam-memorial",
     title: "Vietnam Veterans Memorial",
     description: "Honor fallen heroes while learning about the Vietnam War's impact",
@@ -42,6 +60,15 @@ const washingtonActivities = [
     participants: "4-5 students",
     difficulty: "Intermediate", 
     isUnlocked: false
+  },
+  {
+    id: "arlington-cemetery",
+    title: "Arlington Cemetery Activity",
+    description: "Honor America's fallen heroes through interactive memorial experiences",
+    duration: "20-25 minutes",
+    participants: "4-5 students",
+    difficulty: "Advanced",
+    isUnlocked: false
   }
 ];
 
@@ -51,8 +78,14 @@ const WashingtonDC = () => {
 
   const handleActivityClick = (activity: typeof washingtonActivities[0]) => {
     if (activity.isUnlocked) {
-      // Navigate to specific activity or show activity details
-      console.log(`Accessing ${activity.title}`);
+      // Open the HTML activity in a new window
+      if (activity.id === "lincoln-memorial") {
+        window.open("/activities/lincoln-memorial.html", "_blank");
+      } else if (activity.id === "mlk-memorial") {
+        window.open("/activities/mlk-memorial.html", "_blank");
+      } else if (activity.id === "jefferson-memorial") {
+        window.open("/activities/jefferson-memorial.html", "_blank");
+      }
     } else {
       setSelectedActivity(activity.title);
       setShowLeadForm(true);

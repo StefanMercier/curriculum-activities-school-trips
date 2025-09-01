@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLK Memorial Interactive Presentation</title>
+    <!-- [CSS STYLES IDENTICAL TO PREVIOUS TEMPLATES] -->
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .memorial-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Martin Luther King Jr. Memorial Interactive Presentation</h1>
+        <h2>Student Workshop Guide</h2>
+    </div>
+    
+    <img src="https://www.nps.gov/mlkm/learn/photosmultimedia/images/MLK-iStock-478814894.jpg" alt="MLK Memorial Stone of Hope" class="memorial-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores how Dr. King's legacy of nonviolent resistance is embodied in the memorial's design and inscriptions, connecting his civil rights leadership to ongoing struggles for justice.</p>
+        </section>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Early Life Historian</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Before leading marches, Dr. King was a gifted child who skipped two grades, entered college at 15, and earned his PhD by age 26. His journey from Atlanta to the national stage began in classrooms and churches."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Childhood in segregated Atlanta</li>
+                        <li>Early admission to Morehouse College</li>
+                        <li>Doctoral studies at Boston University</li>
+                        <li>Influences: Christianity & Gandhi</li>
+                        <li>Role at Twelfth Baptist Church</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"These foundations prepared King to lead when history called - showing how education and faith can shape world-changing leaders."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Civil Rights Strategist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"The Montgomery Bus Boycott launched Dr. King into leadership at just 26 years old. His approach combined Christian love with strategic protest - changing America without violence."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Rosa Parks and the 381-day boycott</li>
+                        <li>Southern Christian Leadership Conference</li>
+                        <li>Selma marches and Voting Rights Act</li>
+                        <li>1963 March on Washington</li>
+                        <li>"I Have a Dream" at Lincoln Memorial</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"King showed how moral authority plus disciplined organization could dismantle injustice - a model still used by activists worldwide."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Memorial Designer</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"This memorial materializes Dr. King's words: 'Out of a mountain of despair, a stone of hope.' Every element carries deep symbolism about his struggle and vision."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Mountain of Despair vs Stone of Hope</li>
+                        <li>Why granite from China was chosen</li>
+                        <li>Multiple entryways symbolizing democracy</li>
+                        <li>14 inscribed quotes from speeches</li>
+                        <li>Controversy over "Drum Major" quote</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Like King's movement, the memorial invites participation - walk through it, touch the stone, and reflect on these timeless words."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Legacy Guide</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Dr. King's work remains unfinished. As you stand where cherry blossoms frame his statue each spring, consider how his dream lives through new generations."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Nobel Peace Prize at age 35</li>
+                        <li>1968 assassination and aftermath</li>
+                        <li>MLK Day establishment</li>
+                        <li>Modern movements he inspired</li>
+                        <li>Ongoing voting rights struggles</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"King taught us that justice is never given - it must be demanded with courage and love. How will you help build his 'beloved community'?"</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <div class="quote">"The arc of the moral universe is long, but it bends toward justice."</div>
+                
+                <h4>Early Life Historian</h4>
+                <p>"Young 'M.L.' skipped grades, entering Morehouse at 15. At Boston University, he merged Christian theology with Gandhi's nonviolence. As a pastor's assistant, he learned to connect faith with action - skills that would mobilize millions."</p>
+                
+                <h4>Civil Rights Strategist</h4>
+                <p>"The Montgomery Bus Boycott showed King's genius: combining economic pressure with moral authority. His 1963 'I Have a Dream' speech at the Lincoln Memorial reframed civil rights as America's unfinished promise. Notice how our memorial faces Jefferson's slavery contradiction and Lincoln's emancipation."</p>
+                
+                <h4>Memorial Designer</h4>
+                <p>"The Stone of Hope emerges from the Mountain of Despair, just as King emerged from segregation. The 30-foot statue isn't a portrait but an allegory - his arms crossed, holding papers, resolute yet open. The cherry blossoms framing it bloom each April 4th - the anniversary of his death."</p>
+                
+                <h4>Legacy Guide</h4>
+                <p>"King's last sermon described wanting to be remembered as a 'drum major for justice.' Though killed at 39, his ideas outlived him. The memorial's 14 inscriptions challenge us to continue his work on poverty, racism, and peace. Which quote speaks most to you today?"</p>
+            </div>
+        </div>
+        
+        <img src="https://www.nps.gov/mlkm/learn/photosmultimedia/images/MLK-iStock-485708032.jpg" alt="MLK Memorial Inscriptions" class="memorial-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why is the statue 30 feet tall?</button>
+                <p id="answer1" class="hidden">It matches the height of nearby Jefferson and Lincoln memorials, symbolizing King's equal importance in American history.</p>
+                
+                <button onclick="showAnswer('answer2')">What was controversial about the "Drum Major" quote?</button>
+                <p id="answer2" class="hidden">The shortened inscription omitted "yes, if you want to say I was a drum major, say I was a drum major for justice," making King seem arrogant. It was corrected in 2013.</p>
+                
+                <button onclick="showAnswer('answer3')">How does the memorial's location connect to King's life?</button>
+                <p id="answer3" class="hidden">It lies on a direct line between the Lincoln and Jefferson memorials - between emancipation and the Declaration's unfulfilled promises.</p>
+            </div>
+            
+            <div>
+                <h4>Group Activity: Quote Reflection</h4>
+                <p>Have students:</p>
+                <ol>
+                    <li>Find their favorite inscribed quote</li>
+                    <li>Identify which speech/year it comes from</li>
+                    <li>Consider what issue it addressed</li>
+                    <li>Discuss how it applies today</li>
+                    <li>Share with the group</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand nonviolent resistance as strategy</li>
+                <li>Analyze memorial symbolism in public art</li>
+                <li>Connect historical civil rights to current issues</li>
+                <li>Reflect on personal role in social justice</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Presented by</p>
+        <a href="https://globaleducationaltours.com" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

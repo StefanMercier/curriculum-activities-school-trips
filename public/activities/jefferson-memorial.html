@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jefferson Memorial Interactive Presentation</title>
+    <!-- [CSS STYLES IDENTICAL TO PREVIOUS TEMPLATES] -->
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .memorial-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 10px 0;
+        }
+        .panel {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .panel-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Thomas Jefferson Memorial Interactive Presentation</h1>
+        <h2>Student Workshop Guide</h2>
+    </div>
+    
+    <img src="https://www.nps.gov/thje/learn/photosmultimedia/images/TJ-iStock-478814894.jpg" alt="Jefferson Memorial Exterior" class="memorial-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores Jefferson's complex legacy as author of the Declaration of Independence, advocate for liberty, and slave owner - all reflected in the memorial's design and inscriptions.</p>
+        </section>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Founding Father Biographer</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"The 'silent member' of Congress who became our most eloquent voice for liberty - Jefferson's contradictions make him one of our most fascinating founders."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Early life in Virginia aristocracy</li>
+                        <li>Education at William & Mary</li>
+                        <li>Marriage to Martha Wayles Skelton</li>
+                        <li>Reluctant public speaker but gifted writer</li>
+                        <li>Drafting Declaration at age 33</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Jefferson proved ideas could be more powerful than swords - his words launched a revolution while his shyness kept him from the podium."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Political Career Guide</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"From Secretary of State to bitter rival of John Adams to Louisiana Purchase - Jefferson's political journey reshaped America."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Virginia Statute for Religious Freedom</li>
+                        <li>Conflict with Alexander Hamilton</li>
+                        <li>1796 election and "flaw" in Constitution</li>
+                        <li>Louisiana Purchase dilemma</li>
+                        <li>Embargo Act failures</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Jefferson's presidency showed even brilliant theorists must adapt to practical governance - sometimes compromising his small-government ideals."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Memorial Architect</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"This memorial's design echoes Jefferson's own architectural masterpiece - the University of Virginia Rotunda - creating a 'temple to liberty' on the Tidal Basin."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>1943 dedication on Jefferson's 200th birthday</li>
+                        <li>Plaster statue during WWII metal rationing</li>
+                        <li>Rotunda-inspired neoclassical design</li>
+                        <li>Alignment with White House axis</li>
+                        <li>Cherry trees from Japan</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Like Jefferson himself, this memorial balances beauty and meaning - its form and location symbolizing his enduring ideals."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Inscriptions Interpreter</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"These walls speak Jefferson's words - but reading them today reveals both timeless wisdom and painful contradictions about liberty."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <div class="panel">
+                        <div class="panel-title">Dome Inscription:</div>
+                        <p>"I have sworn upon the altar of god eternal hostility against every form of tyranny over the mind of man."</p>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-title">Panel 1 - Declaration of Independence:</div>
+                        <p>"We hold these truths to be self-evident..."</p>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-title">Panel 2 - Religious Freedom:</div>
+                        <p>"Almighty God hath created the mind free..."</p>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-title">Panel 3 - Slavery Contradiction:</div>
+                        <p>"Nothing is more certainly written in the book of fate than that these people are to be free."</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Jefferson's words challenge us to reconcile his visionary ideals with his personal failings - a tension still at America's heart."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Founding Father Biographer</h4>
+                <p>"Born to Virginia planters in 1743, the tall, freckled Jefferson preferred writing to speaking. At 33, he drafted the Declaration while others debated. His Virginia Statute for Religious Freedom became the First Amendment's foundation - yet he owned 600 slaves his entire life, freeing only a few in his will."</p>
+                
+                <h4>Political Career Guide</h4>
+                <p>"As Washington's Secretary of State, Jefferson clashed with Hamilton over federal power. The 1800 election tie with Burr required 36 House votes to resolve! His Louisiana Purchase doubled U.S. size despite his constitutional doubts. The failed Embargo Act showed governing was harder than philosophizing."</p>
+                
+                <h4>Memorial Architect</h4>
+                <p>"Dedicated April 13, 1943 - Jefferson's 200th birthday - the original plaster statue reflected WWII metal shortages. The design echoes Jefferson's UVA Rotunda, facing the White House across the Tidal Basin. The cherry blossoms framing it bloom each April, commemorating his birth."</p>
+                
+                <h4>Inscriptions Interpreter</h4>
+                <p>"Panel 3's words on slavery ring painfully ironic: 'Commerce between master and slave is despotism.' Yet nearby, Panel 2's religious freedom declaration remains groundbreaking: 'No man shall be compelled to support any religious worship.' Jefferson's genius and flaws are carved side by side."</p>
+            </div>
+        </div>
+        
+        <img src="https://www.nps.gov/thje/learn/photosmultimedia/images/TJ-iStock-485708032.jpg" alt="Jefferson Memorial Interior" class="memorial-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why does the memorial face the White House?</button>
+                <p id="answer1" class="hidden">It symbolizes Jefferson's ideological conflict with Federalists like Adams and Hamilton - his small-government philosophy still debates centralized power today.</p>
+                
+                <button onclick="showAnswer('answer2')">What's significant about Jefferson and Adams dying on July 4?</button>
+                <p id="answer2" class="hidden">Both signers died hours apart on July 4, 1826 - the Declaration's 50th anniversary. Adams' last words were "Jefferson survives," unaware his rival had died first.</p>
+                
+                <button onclick="showAnswer('answer3')">How did Jefferson's architecture influence DC?</button>
+                <p id="answer3" class="hidden">As Washington's first planner, Jefferson championed the city's neoclassical style. His designs for UVA and Monticello inspired the memorial's Roman elements.</p>
+            </div>
+            
+            <div>
+                <h4>Group Activity: Contradiction Discussion</h4>
+                <p>Have students:</p>
+                <ol>
+                    <li>Find the slavery inscription (Panel 3)</li>
+                    <li>Compare with "all men created equal" (Panel 1)</li>
+                    <li>Discuss how Jefferson reconciled these ideas</li>
+                    <li>Consider modern parallels where actions contradict beliefs</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand Enlightenment influences on Jefferson</li>
+                <li>Analyze political philosophy vs practical governance</li>
+                <li>Evaluate historical figures holistically</li>
+                <li>Connect 18th-century ideals to modern democracy</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Presented by</p>
+        <a href="https://globaleducationaltours.com" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

@@ -17,6 +17,7 @@ const Navigation = () => {
   const navItems = [
     { label: "More Activities", href: "#activities" },
     { label: "Teacher Resources", href: "#resources" },
+    { label: "Browse Destinations", href: "/#destinations" },
   ];
 
   return (
