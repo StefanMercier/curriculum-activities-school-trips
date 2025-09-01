@@ -11,6 +11,7 @@ import jeffersonMemorialImg from "@/assets/jefferson-memorial.jpg";
 import arlingtonCemeteryImg from "@/assets/arlington-cemetery.jpg";
 import washingtonMonumentImg from "@/assets/washington-monument.jpg";
 import usCapitolImg from "@/assets/us-capitol.jpg";
+import wwiiMemorialImg from "@/assets/wwii-memorial.jpg";
 
 const washingtonActivities = [
   {
@@ -41,6 +42,16 @@ const washingtonActivities = [
     participants: "4-5 students",
     difficulty: "Intermediate",
     image: usCapitolImg,
+    isUnlocked: false
+  },
+  {
+    id: "wwii-memorial",
+    title: "World War II Memorial",
+    description: "Honor the Greatest Generation through interactive exploration of WWII's global impact",
+    duration: "18-22 minutes",
+    participants: "4-5 students",
+    difficulty: "Advanced",
+    image: wwiiMemorialImg,
     isUnlocked: false
   },
   {
@@ -88,6 +99,8 @@ const WashingtonDC = () => {
         window.open("/activities/washington-monument.html", "_blank");
       } else if (activity.id === "us-capitol") {
         window.open("/activities/us-capitol.html", "_blank");
+      } else if (activity.id === "wwii-memorial") {
+        window.open("/activities/wwii-memorial.html", "_blank");
       } else if (activity.id === "mlk-memorial") {
         window.open("/activities/mlk-memorial.html", "_blank");
       } else if (activity.id === "jefferson-memorial") {

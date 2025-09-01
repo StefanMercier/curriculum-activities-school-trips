@@ -140,7 +140,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-primary">Email Support</h3>
-                  <p className="text-muted-foreground">info@goeducationaltours.com or activities@globeeducationaltours.com</p>
+                  <p className="text-muted-foreground">globaleducational@go.com or info@globeltours.com</p>
                   <p className="text-sm text-muted-foreground">Response within 24 hours</p>
                 </div>
               </div>

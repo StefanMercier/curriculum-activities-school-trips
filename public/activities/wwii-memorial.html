@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World War II Memorial | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .memorial-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .memorial-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .memorial-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .stat-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>World War II Memorial</h1>
+        <h2>Honoring the Greatest Generation</h2>
+    </div>
+    
+    <img src="https://www.nps.gov/common/uploads/structured_data/3C7B1F6C-1DD8-B71B-0B7B48D2C00371C1.jpg" alt="World War II Memorial" class="memorial-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores the World War II Memorial, which honors the 16 million who served in the American armed forces during World War II, the more than 400,000 who died, and the millions who supported the war effort from home. We'll examine the memorial's design, symbolism, and the historical context of the global conflict it commemorates.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Historical Context of World War II
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> Memorial Design and Architecture
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> Symbolism and Features
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> The Home Front and Legacy
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">World War II Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Duration: 1939-1945</div>
+                <div class="fact-item">US Involvement: 1941-1945</div>
+                <div class="fact-item">American Servicemembers: 16 million</div>
+                <div class="fact-item">American Lives Lost: 405,399</div>
+                <div class="fact-item">Memorial Dedicated: 2004</div>
+                <div class="fact-item">Location: National Mall</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. WWII Historian</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did a conflict that began in Europe become a global war that transformed America's role in the world and touched every aspect of American life?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>World War II lasted from 1939 to 1945, with US involvement from 1941-1945</li>
+                        <li>The war began with Germany's invasion of Poland in 1939</li>
+                        <li>US entered after Japan's attack on Pearl Harbor on December 7, 1941</li>
+                        <li>Two major theaters: European and Pacific</li>
+                        <li>Key Allied powers: US, Great Britain, Soviet Union, China</li>
+                        <li>Key Axis powers: Germany, Japan, Italy</li>
+                        <li>The war ended with VE Day (May 8, 1945) in Europe and VJ Day (September 2, 1945) in the Pacific</li>
+                    </ul>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Global Impact:</div>
+                        <p>World War II was the deadliest international conflict in history, with an estimated 70-85 million fatalities worldwide. It reshaped global politics, ended colonial empires, and led to the establishment of the United Nations.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"World War II transformed the United States from an isolationist nation to a global superpower and fundamentally changed American society, economics, and international relations for decades to come."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Memorial Design Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How does the World War II Memorial's design visually represent both the global scale of the conflict and the unity of the American response?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="memorial-card">
+                        <div class="memorial-name">Design and Construction</div>
+                        <p>Designed by architect Friedrich St.Florian, the memorial was dedicated on April 29, 2004, after a long campaign by World War II veterans. It occupies a prominent location on the National Mall between the Washington Monument and Lincoln Memorial.</p>
+                    </div>
+                    
+                    <div class="stat-grid">
+                        <div class="stat-item">7.4 acres total area</div>
+                        <div class="stat-item">56 granite pillars</div>
+                        <div class="stat-item">2 arches (Atlantic & Pacific)</div>
+                        <div class="stat-item">4,048 gold stars</div>
+                        <div class="stat-item">Rainbow Pool incorporated</div>
+                        <div class="stat-item">$182 million cost</div>
+                    </div>
+                    
+                    <ul>
+                        <li>The design symbolizes a "balanced and harmonious" vision of the world after the war</li>
+                        <li>Classical architecture connects to other monuments on the Mall</li>
+                        <li>Open and accessible design welcomes visitors to explore</li>
+                        <li>Combines solemn remembrance with celebration of victory</li>
+                        <li>Incorporates water, stone, and bronze elements</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The memorial's design masterfully balances celebration of victory with solemn remembrance, using classical architectural elements to connect with other monuments while creating a unique space for reflection on the scale and significance of World War II."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Symbolism Interpreter</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Every element of the World War II Memorial contains layers of meaning that tell the story of the conflict and those who fought and supported the war effort."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="memorial-card">
+                        <div class="memorial-name">Key Symbolic Elements</div>
+                        <ul>
+                            <li><strong>56 Granite Pillars:</strong> Represent the US states, territories, and District of Columbia during WWII</li>
+                            <li><strong>Two Arches:</strong> 43-foot arches labeled "Atlantic" and "Pacific" symbolize the two theaters of war</li>
+                            <li><strong>Freedom Wall:</strong> Features 4,048 gold stars, each representing 100 Americans who died in the war</li>
+                            <li><strong>Rainbow Pool:</strong> Original to the Mall, represents the peace and prosperity that followed victory</li>
+                            <li><strong>Bas-Relief Scenes:</strong> Depict wartime experiences from enlistment to homecoming</li>
+                            <li><strong>Quote Walls:</strong> Feature inscriptions from political and military leaders</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="memorial-card">
+                        <div class="memorial-name">Inscriptions and Quotes</div>
+                        <p>The memorial features powerful quotations that capture the spirit of the era:</p>
+                        <ul>
+                            <li>"Americans came to liberate, not to conquer, to restore freedom and to end tyranny" - FDR</li>
+                            <li>"They fought together as brothers-in-arms. They died together and now they sleep side by side. To them we have a solemn obligation." - Admiral Chester Nimitz</li>
+                            <li>"We are determined that before the sun sets on this terrible struggle, our flag will be recognized throughout the world as a symbol of freedom on the one hand and of overwhelming force on the other." - General George Marshall</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Through its powerful symbols—from the solemn gold stars to the triumphant arches—the memorial tells a comprehensive story of sacrifice, unity, and ultimate victory, honoring both those who fought and those who supported the war effort at home."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Home Front and Legacy Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"World War II wasn't just fought on distant battlefields—it transformed American society at home and created lasting changes that still affect us today."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="memorial-card">
+                        <div class="memorial-name">The American Home Front</div>
+                        <p>The memorial honors not just those who fought abroad but also the millions who supported the war effort at home:</p>
+                        <ul>
+                            <li>Factory workers producing war materials (Rosie the Riveter)</li>
+                            <li>Families coping with rationing and shortages</li>
+                            <li>Civil defense volunteers</li>
+                            <li>War bond purchasers</li>
+                            <li>Farmers increasing production to feed troops and allies</li>
+                            <li>Scientists and engineers developing new technologies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="memorial-card">
+                        <div class="memorial-name">Lasting Impacts of WWII</div>
+                        <p>The war created profound and lasting changes in American society:</p>
+                        <ul>
+                            <li>Accelerated civil rights movement (Double V Campaign)</li>
+                            <li>Expanded roles for women in workforce</li>
+                            <li>GI Bill provided education and housing for veterans</li>
+                            <li>Economic boom that created the middle class</li>
+                            <li>US emergence as a global superpower</li>
+                            <li>Beginning of the Baby Boom generation</li>
+                            <li>Development of technologies that transformed civilian life</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quote">
+                        "The American soldier and the American people, working and fighting together, won the war. We must remember that." - Harry S. Truman
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"World War II transformed America in countless ways, breaking down barriers at home while establishing the nation as a global leader abroad. The memorial honors not just the warriors but the entire nation that united to achieve victory."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>WWII Historian</h4>
+                <p>"World War II was a global conflict that lasted from 1939 to 1945, with the United States participating from 1941-1945 after the attack on Pearl Harbor. It involved two major theaters—the European front against Germany and Italy, and the Pacific front against Japan. The war mobilized 16 million Americans in uniform and resulted in 405,399 American deaths. It ended with Allied victory, first in Europe on VE Day (May 8, 1945) and then in the Pacific on VJ Day (September 2, 1945) after atomic bombs were dropped on Hiroshima and Nagasaki. The conflict transformed America from an isolationist nation to a global superpower."</p>
+                
+                <h4>Memorial Design Expert</h4>
+                <p>"The World War II Memorial, designed by Friedrich St.Florian and dedicated in 2004, occupies 7.4 acres on the National Mall between the Washington Monument and Lincoln Memorial. Its design features 56 granite pillars representing US states and territories during the war, two 43-foot arches symbolizing the Atlantic and Pacific theaters, and a Freedom Wall with 4,048 gold stars—each representing 100 Americans who died in the conflict. The memorial incorporates the existing Rainbow Pool and uses classical architecture to harmonize with other monuments on the Mall while creating a space for both celebration of victory and solemn remembrance of sacrifice."</p>
+                
+                <h4>Symbolism Interpreter</h4>
+                <p>"Every element of the World War II Memorial contains deep symbolism. The 56 pillars represent the unity of all states and territories during the war effort. The Atlantic and Pacific arches acknowledge the two distant theaters where Americans fought. The 4,048 gold stars on the Freedom Wall visually represent the staggering human cost of the war—each star equals 100 American deaths. Bronze bas-relief scenes depict various aspects of the wartime experience, from enlistment to combat to homecoming. Inscriptions from leaders like FDR and Admiral Nimitz capture the determination and sacrifice of what would become known as the Greatest Generation."</p>
+                
+                <h4>Home Front and Legacy Specialist</h4>
+                <p>"The memorial honors not just the 16 million who served in uniform but also the millions who supported the war effort at home—factory workers (represented by Rosie the Riveter), families coping with rationing, war bond purchasers, and farmers feeding troops and allies. World War II transformed American society, accelerating civil rights progress, expanding women's roles, creating the middle class through economic expansion and the GI Bill, and establishing the US as a global superpower. The war's legacy includes technological advances, changed social structures, and a new understanding of America's role in the world that continues to shape our nation today."</p>
+            </div>
+        </div>
+        
+        <img src="https://www.nps.gov/common/uploads/structured_data/3C7B20EF-1DD8-B71B-0B2891C3046C31E3.jpg" alt="World War II Memorial Freedom Wall with Gold Stars" class="memorial-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">What do the gold stars on the Freedom Wall represent?</button>
+                <p id="answer1" class="hidden">The 4,048 gold stars on the Freedom Wall each represent 100 American military deaths during World War II, for a total of 404,800 fallen servicemembers. The number was later adjusted to 405,399 based on updated records, but the stars remain a powerful visual representation of the war's tremendous human cost. The phrase "the price of freedom is visible here" reminds visitors of the sacrifice made by so many.</p>
+                
+                <button onclick="showAnswer('answer2')">Why are there 56 pillars at the memorial?</button>
+                <p id="answer2" class="hidden">The 56 granite pillars represent the 48 states of the Union during World War II, plus the 7 federal territories and the District of Columbia. They are arranged in order of their entry into the Union, alternating between the north and south sides of the memorial. The pillars symbolize how the entire nation—every state and territory—united in the war effort, emphasizing the collective national commitment required to achieve victory.</p>
+                
+                <button onclick="showAnswer('answer3')">How did World War II transform American society?</button>
+                <p id="answer3" class="hidden">World War II fundamentally transformed American society in numerous ways: it ended the Great Depression through massive wartime production; accelerated civil rights progress as African Americans served in segregated units and launched the Double V Campaign; expanded women's roles through organizations like WAC and WAVES and industrial jobs like "Rosie the Riveter"; created the middle class through the GI Bill which provided education and housing benefits; established the US as a global superpower; and sparked technological innovations that would later benefit civilian life. The war united the country as never before and shaped modern America.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Honoring Local Heroes</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Research World War II veterans from their local community</li>
+                    <li>Create profiles of these veterans including their service branches and roles</li>
+                    <li>Identify home front activities in their area (factories, training bases, etc.)</li>
+                    <li>Design a local memorial or exhibit honoring their community's WWII contributions</li>
+                    <li>Present their findings and designs to the larger group</li>
+                    <li>Discuss how national history connects to local stories</li>
+                    <li>Consider creating a digital archive of their research</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">WWII by the Numbers</div>
+                <div class="facts-grid">
+                    <div class="fact-item">16M Americans served</div>
+                    <div class="fact-item">405,399 US deaths</div>
+                    <div class="fact-item">670,846 US wounded</div>
+                    <div class="fact-item">140,000 POWs</div>
+                    <div class="fact-item">6M women entered workforce</div>
+                    <div class="fact-item">$296B war cost (2020 dollars)</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand the global scope and significance of World War II</li>
+                <li>Analyze the symbolism and design elements of the memorial</li>
+                <li>Recognize the contributions of both military personnel and home front supporters</li>
+                <li>Connect the war's outcomes to modern American society and global relations</li>
+                <li>Appreciate the scale of sacrifice represented by the memorial's elements</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your school trip to Washington, D.C. with</p>
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
