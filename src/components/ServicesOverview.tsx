@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import SampleActivity from "@/components/SampleActivity";
 
 const ServicesOverview = () => {
   return (
@@ -22,8 +21,6 @@ const ServicesOverview = () => {
           </div>
         </div>
       </div>
-      
-      <SampleActivity />
     </section>
   );
 };

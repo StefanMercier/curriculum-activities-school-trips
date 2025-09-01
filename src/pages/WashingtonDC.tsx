@@ -5,6 +5,9 @@ import { ArrowLeft, Users, Clock, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import lincolnMemorialImg from "@/assets/lincoln-memorial.jpg";
+import mlkMemorialImg from "@/assets/mlk-memorial.jpg";
+import jeffersonMemorialImg from "@/assets/jefferson-memorial.jpg";
 
 const washingtonActivities = [
   {
@@ -14,6 +17,7 @@ const washingtonActivities = [
     duration: "15-20 minutes",
     participants: "4-5 students",
     difficulty: "Intermediate",
+    image: lincolnMemorialImg,
     isUnlocked: true
   },
   {
@@ -23,6 +27,7 @@ const washingtonActivities = [
     duration: "15-20 minutes",
     participants: "4-5 students",
     difficulty: "Intermediate",
+    image: mlkMemorialImg,
     isUnlocked: false
   },
   {
@@ -32,6 +37,7 @@ const washingtonActivities = [
     duration: "15-20 minutes",
     participants: "4-5 students",
     difficulty: "Intermediate",
+    image: jeffersonMemorialImg,
     isUnlocked: false
   },
   {
@@ -117,6 +123,15 @@ const WashingtonDC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {washingtonActivities.map((activity) => (
               <Card key={activity.id} className="relative overflow-hidden hover:shadow-lg transition-shadow">
+                {activity.image && (
+                  <div className="aspect-video w-full overflow-hidden">
+                    <img 
+                      src={activity.image} 
+                      alt={activity.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
                 {!activity.isUnlocked && (
                   <div className="absolute top-4 right-4 z-10">
                     <div className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">

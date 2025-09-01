@@ -92,6 +92,16 @@ const SampleActivity = () => {
 
               {isExpanded && (
                 <div className="space-y-6 border-t pt-6">
+                  <div className="mb-6">
+                    <Button 
+                      onClick={() => window.open("/activities/lincoln-memorial.html", "_blank")}
+                      variant="default" 
+                      className="w-full mb-4"
+                    >
+                      <BookOpen className="mr-2 h-4 w-4" />
+                      View Full Interactive Activity
+                    </Button>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <Card>
                       <CardHeader>
