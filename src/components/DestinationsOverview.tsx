@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Users, Clock, Lock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import LeadCaptureForm from "./LeadCaptureForm";
 
 const destinations = [
@@ -80,13 +81,15 @@ const destinations = [
 ];
 
 const DestinationsOverview = () => {
+  const navigate = useNavigate();
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [selectedDestination, setSelectedDestination] = useState<string>("");
 
   const handleDestinationClick = (destination: typeof destinations[0]) => {
     if (destination.isUnlocked) {
-      // Navigate to destination activities or show activities
-      console.log(`Accessing ${destination.title} activities`);
+      if (destination.id === "washington-dc") {
+        navigate("/washington-dc");
+      }
     } else {
       setSelectedDestination(destination.title);
       setShowLeadForm(true);
@@ -154,8 +157,8 @@ const DestinationsOverview = () => {
                 </div>
                 
                   <Button 
-                    variant="default"
-                    className="w-full bg-accent text-accent-foreground hover:bg-accent-hover"
+                    variant={destination.isUnlocked ? "default" : "hero"}
+                    className={destination.isUnlocked ? "w-full" : "w-full bg-yellow-500 hover:bg-yellow-600 text-black"}
                     onClick={() => handleDestinationClick(destination)}
                   >
                     {destination.isUnlocked ? "Explore Activities" : (destination.activities > 0 ? "Unlock Activities" : "Coming Soon")}
