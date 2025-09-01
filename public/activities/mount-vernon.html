@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mount Vernon | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .mansion-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .mansion-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .mansion-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .stat-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Mount Vernon</h1>
+        <h2>Home of George Washington</h2>
+    </div>
+    
+    <img src="https://www.mountvernon.org/static/img/mount-vernon.72c7d7e1c1d4.jpg" alt="Mount Vernon Mansion" class="mansion-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores Mount Vernon, the beloved estate of George Washington. We'll examine the history of the mansion, its architectural features, Washington's life there, the complex story of slavery on the plantation, and the preservation efforts that allow us to visit this historic site today.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> History of the Mansion
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> Architectural Features
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> Washington's Life at Mount Vernon
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Slavery and Preservation
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">Mount Vernon Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Original Name: Little Hunting Creek</div>
+                <div class="fact-item">Acquired by GW: 1754</div>
+                <div class="fact-item">Mansion Size: 11,028 sq ft</div>
+                <div class="fact-item">Rooms: 21</div>
+                <div class="fact-item">Slaves: 300+</div>
+                <div class="fact-item">Visitors: 1 million/year</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Mansion Historian</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did a modest Virginia plantation house transform into the elegant home of America's first president and a symbol of the young nation?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Originally called Little Hunting Creek Plantation</li>
+                        <li>Built in 1735 by Augustine Washington, George's father</li>
+                        <li>Originally a 1.5 story house</li>
+                        <li>Named Mount Vernon by Lawrence Washington (George's half-brother) after Admiral Edward Vernon</li>
+                        <li>George Washington acquired it in 1754, inherited in 1761</li>
+                        <li>Over 45 years, expanded to 21-room residence</li>
+                        <li>Washington supervised all renovations personally, even during Revolutionary War</li>
+                    </ul>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Evolution of the Mansion:</div>
+                        <p>1735: 1.5 story house built by Augustine Washington → 1758: Raised to 2.5 stories → 1774: Added north and south wings, cupola, and piazza → Final form: 11,028 square feet with 21 rooms, 10 times larger than average colonial Virginia home</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Mount Vernon evolved from a modest plantation house into a sophisticated estate that reflected Washington's growing status from Virginia planter to leader of a new nation, with each renovation carefully designed to communicate his position and values."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Architecture Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Mount Vernon's architectural innovations and deceptive appearances reveal Washington's practical genius and desire to project an image of substance and stability."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="mansion-card">
+                        <div class="mansion-name">Key Architectural Features</div>
+                        <ul>
+                            <li><strong>Rustication:</strong> Wood beveled to look like stone blocks, painted with sand for stone texture</li>
+                            <li><strong>Piazza:</strong> Two-story porch facing Potomac River - Washington's innovation</li>
+                            <li><strong>Cupola:</strong> Topped with dove of peace weathervane</li>
+                            <li><strong>Asymmetrical Design:</strong> Practicality over perfect symmetry</li>
+                            <li><strong>Palladian Windows:</strong> Elegant classical elements</li>
+                            <li><strong>Interior Details:</strong> Washington personally selected all decorative elements</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mansion-card">
+                        <div class="mansion-name">The Dove of Peace Weathervane</div>
+                        <p>Commissioned by Washington during Constitutional Convention in 1787. Specifically requested a bird "with an olive branch in its Mouth" that would "traverse with the wind." Original copper weathervane now in museum due to air pollution damage, replaced with exact replica.</p>
+                    </div>
+                    
+                    <div class="stat-grid">
+                        <div class="stat-item">11,028 sq ft total area</div>
+                        <div class="stat-item">21 rooms</div>
+                        <div class="stat-item">10.75 ft average ceiling height (1st floor)</div>
+                        <div class="stat-item">7.25 ft average ceiling height (3rd floor)</div>
+                        <div class="stat-item">56 ft piazza length</div>
+                        <div class="stat-item">45 years of renovations</div>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Washington's architectural choices at Mount Vernon blended practical solutions with symbolic messaging, creating a home that appeared substantial and permanent while incorporating innovative features like the piazza that would influence American architecture for generations."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Washington's Life Interpreter</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did Mount Vernon serve as both private retreat and very public stage for the most famous man in America?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="mansion-card">
+                        <div class="mansion-name">Washington's Life at Mount Vernon</div>
+                        <ul>
+                            <li>Lived there as teenager with half-brother Lawrence</li>
+                            <li>Officially made home in 1759 after marrying Martha Custis</li>
+                            <li>Managed plantation as successful business venture</li>
+                            <li>Retired there after Revolutionary War and again after presidency</li>
+                            <li>Died in master bedroom on December 14, 1799</li>
+                            <li>Hosted 677 guests in 1798 alone</li>
+                            <li>Martha moved to third floor room after his death for privacy from visitors</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mansion-card">
+                        <div class="mansion-name">The Tombs</div>
+                        <p>Washington's will specified burial at Mount Vernon in a new brick tomb to replace deteriorating family vault. Original vault: quickly decaying, poorly situated. New tomb: built at foot of vineyard enclosure. Both George and Martha Washington rest there in marble sarcophagi. Congress wanted to move body to Capitol, but Washington's will and family wishes prevailed.</p>
+                    </div>
+                    
+                    <div class="quote">
+                        "I had rather be on my farm than be emperor of the world." - George Washington
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Mount Vernon was Washington's true home and refuge throughout his extraordinary public life—the place where he developed as a leader, managed his business interests, entertained countless visitors, and ultimately found his final resting place according to his precise instructions."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Slavery and Preservation Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"The story of Mount Vernon encompasses both the brilliance of its owner and the brutal reality of the enslaved people who built and maintained it."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="mansion-card">
+                        <div class="mansion-name">Slavery at Mount Vernon</div>
+                        <ul>
+                            <li>Over 300 enslaved people labored on the plantation</li>
+                            <li>153 were part of Martha's dowry (dower slaves)</li>
+                            <li>Others were rented from neighboring plantations</li>
+                            <li>Worked sunup to sundown, 6 days a week</li>
+                            <li>Lived in wretched conditions with minimal provisions</li>
+                            <li>Some resisted through escape (Hercules, Oney Judge), slow work, or sabotage</li>
+                            <li>Washington was a harsh master despite some reports of good treatment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mansion-card">
+                        <div class="mansion-name">Emancipation and Preservation</div>
+                        <p>Washington's will stipulated emancipation of his slaves upon Martha's death. Martha freed them in 1801 (possibly fearing they might hasten her death). Dower slaves returned to Custis estate. Mount Vernon declined until 1858 when Ann Pamela Cunningham founded Mount Vernon Ladies' Association. Purchased estate for $200,000 in 1858. First historic preservation organization in US. Now hosts 1 million visitors annually.</p>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Complex Legacy:</div>
+                        <p>Mount Vernon represents both the extraordinary achievements of George Washington and the brutal system of slavery that made his lifestyle possible. The preservation efforts allow us to confront this complex history and understand the full story of America's founding.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Mount Vernon's preservation allows us to honor Washington's accomplishments while honestly confronting the painful reality of slavery that underpinned his wealth and lifestyle, providing a more complete understanding of both the man and his times."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Mansion Historian</h4>
+                <p>"Mount Vernon began as a modest 1.5-story house called Little Hunting Creek Plantation, built in 1735 by Augustine Washington. George's half-brother Lawrence renamed it Mount Vernon after Admiral Edward Vernon. George acquired the property in 1754 and over 45 years transformed it into the 21-room mansion we see today. He personally supervised every renovation, even during the Revolutionary War, carefully designing the estate to reflect his status as a Virginia gentleman and later as leader of the new nation. The mansion grew from a simple plantation house to an 11,028-square-foot residence that dwarfed typical colonial homes."</p>
+                
+                <h4>Architecture Specialist</h4>
+                <p>"Mount Vernon features several architectural innovations. The wood exterior is rusticated—beveled and painted with sand to look like stone blocks, making the house appear more substantial. The two-story piazza facing the Potomac River was Washington's design innovation that would influence American architecture. The cupola features a dove of peace weathervane that Washington specifically commissioned during the Constitutional Convention. Interestingly, the facade isn't perfectly symmetrical—Washington prioritized practical solutions over perfect symmetry when the staircase forced asymmetrical window placement. These choices reveal his blend of practical genius and desire to project stability."</p>
+                
+                <h4>Washington's Life Interpreter</h4>
+                <p>"Mount Vernon was Washington's true home throughout his extraordinary life. He lived there as a teenager, officially moved in after marrying Martha in 1759, managed it as a successful business, retired there after both the Revolutionary War and his presidency, and died there in 1799. The estate hosted hundreds of visitors annually—677 in 1798 alone—making it both private home and very public stage. Washington specified in his will that he be buried at Mount Vernon in a new tomb, where both he and Martha now rest in marble sarcophagi. Despite Congressional efforts to move his body to the Capitol, his wishes to remain at his beloved home were respected."</p>
+                
+                <h4>Slavery and Preservation Expert</h4>
+                <p>"Over 300 enslaved people labored at Mount Vernon under brutal conditions. About half were Washington's property, while the others were Martha's dower slaves or rented from neighbors. They worked sunup to sundown six days a week and lived in wretched conditions. Some resisted through escape, slow work, or sabotage. Washington's will provided for emancipation of his slaves upon Martha's death, which she implemented in 1801. The estate declined until 1858 when Ann Pamela Cunningham's Mount Vernon Ladies' Association purchased it for preservation—the first such organization in America. Today, it honestly confronts the complex legacy of slavery that underpinned Washington's wealth while honoring his achievements."</p>
+            </div>
+        </div>
+        
+        <img src="https://www.mountvernon.org/static/img/estate-tomb.6b5f5e6a2a8a.jpg" alt="Washington's Tomb at Mount Vernon" class="mansion-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why does Mount Vernon look like it's made of stone when it's actually wood?</button>
+                <p id="answer1" class="hidden">Washington used a technique called rustication, where wood boards are beveled to look like stone blocks and then painted with sand while wet to create a stone-like texture. This made the house appear more substantial and expensive than wood construction, projecting an image of stability and permanence that reflected Washington's status. The deception was practical—stone was expensive and difficult to transport, while wood was readily available—but created the impressive appearance Washington desired.</p>
+                
+                <button onclick="showAnswer('answer2')">What was innovative about Mount Vernon's architecture?</button>
+                <p id="answer2" class="hidden">Mount Vernon featured several architectural innovations, most notably the two-story piazza facing the Potomac River. This grand porch was extremely rare on private residences in the 18th century and provided additional living space while taking advantage of river breezes. The design was widely copied and influenced American architecture. Washington also personally designed the dove of peace weathervane and made practical compromises like the asymmetrical facade when the staircase forced uneven window placement, showing his blend of aesthetic vision and practical problem-solving.</p>
+                
+                <button onclick="showAnswer('answer3')">How does Mount Vernon address the complex history of slavery?</button>
+                <p id="answer3" class="hidden">Mount Vernon today honestly confronts the reality that over 300 enslaved people lived and labored there under brutal conditions. Exhibits and tours discuss their lives, resistance, and the contradiction between Washington's fight for liberty and his ownership of slaves. The site acknowledges Washington as a harsh master despite some historical accounts suggesting good treatment. His will provided for emancipation of his slaves after Martha's death, which she implemented early. The preservation allows visitors to understand the full complexity of Washington's legacy and the system of slavery that made his lifestyle possible.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Design Your Historic Home</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Design a historic home that represents their values</li>
+                    <li>Include architectural features with symbolic meaning</li>
+                    <li>Consider how the design would function for both private life and public reception</li>
+                    <li>Address how they would acknowledge difficult aspects of their legacy</li>
+                    <li>Create a presentation explaining their design choices</li>
+                    <li>Discuss how architecture communicates values and status</li>
+                    <li>Compare their designs with Washington's choices at Mount Vernon</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">Mount Vernon by the Numbers</div>
+                <div class="facts-grid">
+                    <div class="fact-item">11,028 sq ft mansion</div>
+                    <div class="fact-item">21 rooms</div>
+                    <div class="fact-item">45 years of renovations</div>
+                    <div class="fact-item">300+ enslaved people</div>
+                    <div class="fact-item">677 guests in 1798</div>
+                    <div class="fact-item">1 million annual visitors</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand the historical development of Mount Vernon and its significance</li>
+                <li>Analyze the architectural features and their symbolic meanings</li>
+                <li>Recognize George Washington's personal connection to the estate</li>
+                <li>Examine the complex reality of slavery at Mount Vernon</li>
+                <li>Appreciate the importance of historic preservation efforts</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your school trip to Washington, D.C. with</p>
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

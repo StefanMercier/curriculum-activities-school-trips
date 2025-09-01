@@ -12,6 +12,7 @@ import arlingtonCemeteryImg from "@/assets/arlington-cemetery.jpg";
 import washingtonMonumentImg from "@/assets/washington-monument.jpg";
 import usCapitolImg from "@/assets/us-capitol.jpg";
 import wwiiMemorialImg from "@/assets/wwii-memorial.jpg";
+import mountVernonImg from "@/assets/mount-vernon.jpg";
 
 const washingtonActivities = [
   {
@@ -83,6 +84,16 @@ const washingtonActivities = [
     difficulty: "Advanced",
     image: arlingtonCemeteryImg,
     isUnlocked: false
+  },
+  {
+    id: "mount-vernon",
+    title: "Mount Vernon Activity",
+    description: "Explore George Washington's beloved estate and the complex history of slavery",
+    duration: "18-22 minutes",
+    participants: "4-5 students",
+    difficulty: "Advanced",
+    image: mountVernonImg,
+    isUnlocked: false
   }
 ];
 
@@ -107,6 +118,8 @@ const WashingtonDC = () => {
         window.open("/activities/jefferson-memorial.html", "_blank");
       } else if (activity.id === "arlington-cemetery") {
         window.open("/activities/arlington-cemetery.html", "_blank");
+      } else if (activity.id === "mount-vernon") {
+        window.open("/activities/mount-vernon.html", "_blank");
       }
     } else {
       setSelectedActivity(activity.title);
