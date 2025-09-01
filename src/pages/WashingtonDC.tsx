@@ -8,6 +8,7 @@ import LeadCaptureForm from "@/components/LeadCaptureForm";
 import lincolnMemorialImg from "@/assets/lincoln-memorial.jpg";
 import mlkMemorialImg from "@/assets/mlk-memorial.jpg";
 import jeffersonMemorialImg from "@/assets/jefferson-memorial.jpg";
+import arlingtonCemeteryImg from "@/assets/arlington-cemetery.jpg";
 
 const washingtonActivities = [
   {
@@ -74,6 +75,7 @@ const washingtonActivities = [
     duration: "20-25 minutes",
     participants: "4-5 students",
     difficulty: "Advanced",
+    image: arlingtonCemeteryImg,
     isUnlocked: false
   }
 ];
@@ -91,6 +93,8 @@ const WashingtonDC = () => {
         window.open("/activities/mlk-memorial.html", "_blank");
       } else if (activity.id === "jefferson-memorial") {
         window.open("/activities/jefferson-memorial.html", "_blank");
+      } else if (activity.id === "arlington-cemetery") {
+        window.open("/activities/arlington-cemetery.html", "_blank");
       }
     } else {
       setSelectedActivity(activity.title);

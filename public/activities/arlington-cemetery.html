@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arlington National Cemetery Interactive Presentation</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .memorial-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 10px 0;
+        }
+        .panel {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .panel-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .site-card {
+            background-color: #f0f7fc;
+            border-left: 4px solid #2c3e50;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .site-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Arlington National Cemetery Interactive Presentation</h1>
+        <h2>Student Workshop Guide</h2>
+    </div>
+    
+    <img src="https://www.arlingtoncemetery.mil/Portals/0/Images/Monuments-and-Memorials/ANC-Aerial-View.jpg" alt="Aerial view of Arlington National Cemetery" class="memorial-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores America's most hallowed military burial ground - from its origins as Robert E. Lee's estate to its current role as resting place for over 400,000 service members and notable Americans.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Stop 1:</strong> Tomb of the Unknown Soldier & Amphitheater
+                </div>
+                <div class="timeline-item">
+                    <strong>Stop 2:</strong> Arlington House (Robert E. Lee Memorial)
+                </div>
+                <div class="timeline-item">
+                    <strong>Stop 3:</strong> Kennedy Gravesites (JFK Eternal Flame)
+                </div>
+                <div class="timeline-item">
+                    <strong>Stop 4:</strong> Notable Memorials (USS Maine, Challenger, etc.)
+                </div>
+            </div>
+        </section>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Cemetery Historian</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"This sacred ground was once the home of Confederate General Robert E. Lee - transformed into a military cemetery as both practical necessity and act of Civil War retribution."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>George Washington Parke Custis's original estate</li>
+                        <li>Lee's connection through marriage</li>
+                        <li>1864 establishment as burial ground</li>
+                        <li>Tax seizure during Civil War</li>
+                        <li>Transition to national cemetery</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"From bitter Civil War origins, Arlington has become our nation's most revered military shrine - where sacrifice transcends historical divisions."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Tomb of the Unknown Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Guarded every minute of every day since 1937, this marble tomb holds unidentified remains from WWI, WWII, Korea, and Vietnam - representing all missing service members."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>1921 establishment after WWI</li>
+                        <li>Changing of the Guard ceremony details</li>
+                        <li>21-gun salute significance</li>
+                        <li>1998 Vietnam Unknown identification</li>
+                        <li>Memorial Amphitheater functions</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"This sacred sentinel post reminds us that while some heroes remain nameless, none are forgotten."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Kennedy Gravesites Guide</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"The eternal flame at JFK's grave fulfills his own words after visiting Arlington - 'I could stay here forever' - now joined by his wife, children, and brother RFK."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Jacqueline Kennedy's selection of site</li>
+                        <li>Eternal flame inspiration from Paris</li>
+                        <li>Original temporary grave in 1963</li>
+                        <li>RFK's 1968 burial after assassination</li>
+                        <li>1994 interment of Jacqueline Kennedy</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"These graves capture America's collective memory - both the promise and tragedy of the Kennedy legacy."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Notable Memorials Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Beyond presidents and generals, Arlington honors astronauts, journalists, and ordinary heroes - each memorial telling a unique American story."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <div class="site-card">
+                        <div class="site-title">Arlington House (Robert E. Lee Memorial)</div>
+                        <p>The Greek Revival mansion where Lee lived before the Civil War, now overlooking the cemetery with views of DC</p>
+                    </div>
+                    <div class="site-card">
+                        <div class="site-title">Challenger & Columbia Memorials</div>
+                        <p>Honoring the astronauts lost in both space shuttle disasters, located in Section 46</p>
+                    </div>
+                    <div class="site-card">
+                        <div class="site-title">USS Maine Mast Memorial</div>
+                        <p>The actual mast from the 1898 ship explosion that sparked the Spanish-American War</p>
+                    </div>
+                    <div class="site-card">
+                        <div class="site-title">Iran Rescue Mission Monument</div>
+                        <p>Commemorating the 8 servicemen killed in the failed 1980 hostage rescue attempt</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Each memorial adds another layer to Arlington's story - not just of war, but of exploration, sacrifice, and national memory."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Cemetery Historian</h4>
+                <p>"Robert E. Lee married into the Custis family, inheriting this estate from George Washington's adopted grandson. When Lee joined the Confederacy, the Union seized the land for back taxes. Quartermaster Montgomery Meigs deliberately buried Union dead here to prevent Lee's return - creating what would become our most sacred military cemetery."</p>
+                
+                <h4>Tomb of the Unknown Specialist</h4>
+                <p>"The sentinel's 21-step march symbolizes the 21-gun salute. Every movement is precise: the rifle always faces the tomb, gloves are spotless, and the guard never speaks. The Vietnam Unknown was identified in 1998 through DNA and removed, leaving three conflicts represented in this hallowed space."</p>
+                
+                <h4>Kennedy Gravesites Guide</h4>
+                <p>"Jacqueline Kennedy chose this spot after recalling JFK's comment during a 1963 visit. The eternal flame's design came from Paris' Arc de Triomphe. Nearby rest their stillborn daughter and son Patrick, along with RFK - creating a family plot that draws millions of visitors annually."</p>
+                
+                <h4>Notable Memorials Expert</h4>
+                <p>"The Challenger astronauts share Section 46 with Columbia's crew. The USS Maine mast stands over 229 sailors killed in Havana Harbor. Near the amphitheater, eight stars mark the Iran rescue mission disaster. Each tells a story of sacrifice beyond the famous names."</p>
+            </div>
+        </div>
+        
+        <img src="https://www.arlingtoncemetery.mil/Portals/0/Images/Monuments-and-Memorials/Tomb-of-the-Unknown-Soldier/Changing-of-the-Guard-3.jpg" alt="Changing of the Guard at Tomb of the Unknown Soldier" class="memorial-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why are graves arranged facing different directions?</button>
+                <p id="answer1" class="hidden">Sections are arranged chronologically by war era, with headstones facing east (traditional) except in Section 13 (Confederate graves face south). Officers may choose their orientation.</p>
+                
+                <button onclick="showAnswer('answer2')">What's special about the Sentinel's rifle?</button>
+                <p id="answer2" class="hidden">The M14 rifle always remains on the shoulder closest to visitors - symbolically placing the guard between the tomb and any threat. Glove inspections ensure flawless presentation.</p>
+                
+                <button onclick="showAnswer('answer3')">How many funerals occur daily?</button>
+                <p id="answer3" class="hidden">Arlington conducts 25-30 burials each weekday (fewer in winter), with over 400,000 interments total. The average is 6,900 burials annually.</p>
+            </div>
+            
+            <div>
+                <h4>Group Activity: Memorial Scavenger Hunt</h4>
+                <p>Have students locate and document:</p>
+                <ol>
+                    <li>Pierre L'Enfant's grave (near Arlington House)</li>
+                    <li>The "Nurses Memorial" in Section 21</li>
+                    <li>Audie Murphy's headstone (Section 46)</li>
+                    <li>The Canadian Cross of Sacrifice</li>
+                    <li>President Taft's granite monument</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand Arlington's Civil War origins</li>
+                <li>Analyze military traditions and ceremonies</li>
+                <li>Connect memorial designs to historical events</li>
+                <li>Practice respectful observation at gravesites</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Presented by</p>
+        <a href="https://globaleducationaltours.com" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

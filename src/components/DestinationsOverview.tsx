@@ -4,16 +4,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { MapPin, Users, Clock, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import LeadCaptureForm from "./LeadCaptureForm";
+import washingtonDCImg from "@/assets/washington-dc.jpg";
+import newYorkCityImg from "@/assets/new-york-city.jpg";
+import bostonImg from "@/assets/boston.jpg";
 
 const destinations = [
   {
     id: "washington-dc",
     title: "Washington DC",
-    description: "Lincoln Memorial, Vietnam Veterans Memorial, FDR Memorial, Korean War Memorial",
-    activities: 1,
+    description: "Lincoln Memorial, MLK Memorial, Jefferson Memorial, Arlington Cemetery",
+    activities: 4,
     duration: "2-3 hours",
     isUnlocked: true,
-    image: "/api/placeholder/400/300"
+    image: washingtonDCImg
   },
   {
     id: "new-york",
@@ -22,7 +25,7 @@ const destinations = [
     activities: 0,
     duration: "Coming Soon",
     isUnlocked: false,
-    image: "/api/placeholder/400/300"
+    image: newYorkCityImg
   },
   {
     id: "boston",
@@ -31,7 +34,7 @@ const destinations = [
     activities: 0,
     duration: "Coming Soon",
     isUnlocked: false,
-    image: "/api/placeholder/400/300"
+    image: bostonImg
   },
   {
     id: "williamsburg",
