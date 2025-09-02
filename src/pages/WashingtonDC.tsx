@@ -17,6 +17,7 @@ import pierreCharlesLenfantImg from "@/assets/pierre-charles-lenfant.jpg";
 import greekColumnsImg from "@/assets/greek-columns.jpg";
 import vietnamMemorialImg from "@/assets/vietnam-memorial.jpg";
 import koreanWarMemorialImg from "@/assets/korean-war-memorial.jpg";
+import whiteHouseImg from "@/assets/white-house.jpg";
 
 const washingtonActivities = [
   {
@@ -138,6 +139,16 @@ const washingtonActivities = [
     difficulty: "Intermediate",
     image: koreanWarMemorialImg,
     isUnlocked: false
+  },
+  {
+    id: "white-house",
+    title: "The White House & Surrounding Institutions",
+    description: "Explore the presidential residence and the executive institutions that form the heart of American power",
+    duration: "20-25 minutes",
+    participants: "4-5 students",
+    difficulty: "Advanced",
+    image: whiteHouseImg,
+    isUnlocked: false
   }
 ];
 
@@ -172,6 +183,8 @@ const WashingtonDC = () => {
         window.open("/activities/vietnam-memorial.html", "_blank");
       } else if (activity.id === "korean-war-memorial") {
         window.open("/activities/korean-war-memorial.html", "_blank");
+      } else if (activity.id === "white-house") {
+        window.open("/activities/white-house.html", "_blank");
       }
     } else {
       setSelectedActivity(activity.title);

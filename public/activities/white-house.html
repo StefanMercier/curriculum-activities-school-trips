@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The White House & Surrounding Institutions | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .whitehouse-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .building-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .building-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>The White House & Surrounding Institutions</h1>
+        <h2>Student Workshop Guide</h2>
+    </div>
+    
+    <img src="https://www.whitehouse.gov/wp-content/uploads/2021/01/about_the_white_house.jpg" alt="The White House" class="whitehouse-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores the White House and its surrounding institutions that form the heart of American executive power. We'll examine the history of the presidential residence, the significance of Lafayette Square, the function of the Eisenhower Executive Office Building, and the role of the Treasury Department.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> The White House - History and Architecture
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> Lafayette Square - History and Significance
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> Eisenhower Executive Office Building
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> U.S. Treasury Department
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">White House Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Address: 1600 Pennsylvania Ave</div>
+                <div class="fact-item">First occupied: November 1, 1800</div>
+                <div class="fact-item">Architect: James Hoban</div>
+                <div class="fact-item">Rooms: 132</div>
+                <div class="fact-item">Bathrooms: 35</div>
+                <div class="fact-item">Named "White House": 1901</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. White House Historian</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Why is the most powerful office in the world located at 1600 Pennsylvania Avenue, and how did it get its distinctive white appearance?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Designed by architect James Hoban as part of Pierre L'Enfant's plan</li>
+                        <li>First occupied by John Adams on November 1, 1800</li>
+                        <li>Burned by British troops in 1814 during War of 1812</li>
+                        <li>White paint used to mask fire damage, creating the iconic appearance</li>
+                        <li>Originally called "President's House" or "Executive Mansion"</li>
+                        <li>Theodore Roosevelt officially named it "White House" in 1901</li>
+                        <li>Major renovation under Truman (1948-1952) gutted the interior</li>
+                        <li>West Wing added during Taft administration in 1909</li>
+                    </ul>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">White House By The Numbers:</div>
+                        <p>• 132 rooms, 35 bathrooms, 6 levels</p>
+                        <p>• 412 doors, 147 windows, 28 fireplaces</p>
+                        <p>• 8 staircases, 3 elevators</p>
+                        <p>• Recreational facilities: tennis court, jogging track, swimming pool, movie theater, bowling lane</p>
+                        <p>• 5 full-time chefs</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The White House has evolved from a simple executive residence to a symbol of American democracy, balancing historic preservation with the functional needs of the modern presidency."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Lafayette Square Interpreter</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"This peaceful park across from the White House has witnessed everything from political protests to a historic murder that changed American legal history."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="building-card">
+                        <div class="building-name">Lafayette Square History</div>
+                        <p>Originally part of the White House grounds called "President's Park," it was separated when Thomas Jefferson had Pennsylvania Avenue cut through in 1804. Renamed in 1824 to honor Marquis de Lafayette, the French hero of the American Revolution. The park has served as a racetrack, graveyard, zoo, slave market, and soldier encampment.</p>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Statues and Monuments:</div>
+                        <p>• Center: Clark Mills' equestrian statue of Andrew Jackson (1853)</p>
+                        <p>• Four corners: Foreign Revolutionary War heroes</p>
+                        <p>• Marquis de Lafayette and Comte de Rochambeau (France)</p>
+                        <p>• Thaddeus Kosciuszko (Poland) and Friedrich Wilhelm von Steuben (Prussia)</p>
+                    </div>
+                    
+                    <ul>
+                        <li>The 1859 murder of Philip Barton Key by Congressman Daniel Sickles</li>
+                        <li>First use of "temporary insanity" defense in U.S. history</li>
+                        <li>Sickles' later role at Gettysburg where he lost a leg</li>
+                        <li>His preserved leg remains in a medical museum in Maryland</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Lafayette Square represents both the international alliances that built America and the dramatic personal and political stories that have unfolded at the doorstep of power."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. EEOB Architecture Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"The massive building next to the White House was almost demolished as a 'monstrosity' but now houses the offices of most White House staff."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="building-card">
+                        <div class="building-name">Eisenhower Executive Office Building</div>
+                        <p>Originally built to house the State, War, and Navy Departments, this impressive structure now contains offices for most White House staff. Designed by Alfred Mullett in the French Second Empire style, it took 17 years to complete (1871-1888).</p>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">EEOB By The Numbers:</div>
+                        <p>• Construction cost: $10,038,482.42</p>
+                        <p>• Total area: 662,598 square feet (15.21 acres)</p>
+                        <p>• Original rooms: 553</p>
+                        <p>• Exterior columns: 900</p>
+                        <p>• Windows: 1,572</p>
+                        <p>• Steps: 1,784 (76 less than Empire State Building)</p>
+                        <p>• Corridor length: 1.73 miles</p>
+                    </div>
+                    
+                    <ul>
+                        <li>Housed 16 Secretaries of the Navy, 21 Secretaries of War, and 24 Secretaries of State</li>
+                        <li>Many future presidents had offices here before their presidencies</li>
+                        <li>Almost demolished in 1957 until public outcry saved it</li>
+                        <li>Designated a National Historic Landmark in 1969</li>
+                        <li>Harry Truman called it "the greatest monstrosity in America"</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The EEOB represents both the grandeur of 19th-century architecture and the practical needs of growing government, surviving demolition threats to become an essential component of the executive branch."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Treasury Department Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"The building with Alexander Hamilton on its facade manages everything from printing money to collecting taxes, serving as the financial engine of the federal government."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="building-card">
+                        <div class="building-name">U.S. Treasury Department</div>
+                        <p>Established in 1789 to manage government revenue, the Treasury is administered by the Secretary of the Treasury, a Cabinet position. The first Secretary was Alexander Hamilton, who almost single-handedly created the nation's early financial system.</p>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Treasury Functions:</div>
+                        <p>• Produces all U.S. currency, coinage, and postage stamps</p>
+                        <p>• Collects taxes through the IRS</p>
+                        <p>• Manages government accounts and public debt</p>
+                        <p>• Supervises national banks and financial institutions</p>
+                        <p>• Advises on financial, monetary, and tax policy</p>
+                        <p>• Enforces finance and tax laws</p>
+                    </div>
+                    
+                    <ul>
+                        <li>Hamilton's portrait appears on the $10 bill with the Treasury building on the reverse</li>
+                        <li>The Treasurer of the United States' signature appears on all Federal Reserve notes</li>
+                        <li>From 1830-1901, responsible for weights and measures standards</li>
+                        <li>Works parallel to Office of Management and Budget for revenue estimation</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The Treasury Department represents the financial foundation of the federal government, managing everything from currency production to tax collection with a history stretching back to Alexander Hamilton's visionary leadership."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>White House Historian</h4>
+                <p>"The White House at 1600 Pennsylvania Avenue was first occupied by John Adams in 1800. Designed by James Hoban, it was burned by British troops in 1814 during the War of 1812. The fire damage was covered with white paint, creating its iconic appearance. Originally called the 'President's House' or 'Executive Mansion,' Theodore Roosevelt officially named it the 'White House' in 1901. The Truman renovation (1948-1952) completely gutted the interior while preserving the exterior walls. With 132 rooms, 35 bathrooms, and extensive recreational facilities, it serves as both home and office to the president."</p>
+                
+                <h4>Lafayette Square Interpreter</h4>
+                <p>"Lafayette Square was originally part of the White House grounds until Thomas Jefferson separated it by extending Pennsylvania Avenue in 1804. Renamed in 1824 to honor Marquis de Lafayette, it has served as a racetrack, graveyard, zoo, and slave market. The park features statues of Andrew Jackson and foreign Revolutionary War heroes. In 1859, it witnessed the murder of Philip Barton Key by Congressman Daniel Sickles, who used the first 'temporary insanity' defense in U.S. history. Sickles later lost a leg at Gettysburg, which remains preserved in a medical museum."</p>
+                
+                <h4>EEOB Architecture Specialist</h4>
+                <p>"The Eisenhower Executive Office Building was originally constructed for the State, War, and Navy Departments. Designed by Alfred Mullett in the French Second Empire style, it took 17 years to complete. With 1,784 steps and 1.73 miles of corridors, it was almost demolished in 1957 as a 'monstrosity' but saved by public outcry. It has housed 16 Navy Secretaries, 21 War Secretaries, and 24 Secretaries of State. Many future presidents had offices here before their elections. Now designated a National Historic Landmark, it houses most White House staff offices."</p>
+                
+                <h4>Treasury Department Expert</h4>
+                <p>"The Treasury Department was established in 1789 with Alexander Hamilton as its first secretary. He created the nation's financial system almost single-handedly. The department produces all U.S. currency, collects taxes through the IRS, manages government debt, and supervises financial institutions. Hamilton's portrait appears on the $10 bill with the Treasury building on the reverse. From 1830-1901, the Treasury was even responsible for weights and measures standards. It serves as the financial foundation of the federal government, estimating revenues while the Office of Management and Budget estimates spending."</p>
+            </div>
+        </div>
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/US_White_House_East_Wing_2008.jpg/1200px-US_White_House_East_Wing_2008.jpg" alt="White House East Wing" class="whitehouse-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why is the White House white?</button>
+                <p id="answer1" class="hidden">After British troops burned the building in 1814 during the War of 1812, white paint was used to cover the fire damage. This practical solution created the iconic white appearance that led to the name "White House," which was officially adopted by Theodore Roosevelt in 1901.</p>
+                
+                <button onclick="showAnswer('answer2')">What historical significance does Lafayette Square hold?</button>
+                <p id="answer2" class="hidden">Lafayette Square witnessed the first use of the "temporary insanity" defense in U.S. history when Congressman Daniel Sickles killed Philip Barton Key in 1859. It also features statues of foreign heroes who helped in the American Revolution and has served various functions throughout history, including as a racetrack, zoo, and slave market.</p>
+                
+                <button onclick="showAnswer('answer3')">What was the EEOB almost demolished?</button>
+                <p id="answer3" class="hidden">In 1957, President Eisenhower's advisory committee recommended demolishing the EEOB to build a modern office facility. However, public outcry and the high cost of demolition saved the building. Despite being called "the greatest monstrosity in America" by Harry Truman, it was designated a National Historic Landmark in 1969.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Design Your Executive Complex</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Design a new executive complex for the president and staff</li>
+                    <li>Consider security, functionality, and symbolic architecture</li>
+                    <li>Include spaces for both work and residence</li>
+                    <li>Plan public access and ceremonial spaces</li>
+                    <li>Present their designs to the larger group</li>
+                    <li>Discuss the balance between security and accessibility in democracy</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">Fascinating White House Trivia</div>
+                <div class="facts-grid">
+                    <div class="fact-item">John Adams was the first president to live there</div>
+                    <div class="fact-item">Electric vacuum cleaners first used in 1922</div>
+                    <div class="fact-item">Oldest possession: Gilbert Stuart's Washington portrait</div>
+                    <div class="fact-item">WWI: Sheep grazed lawn for Red Cross fundraising</div>
+                    <div class="fact-item">Movements tracked by Secret Service throughout</div>
+                    <div class="fact-item">Fireplace mantle bears John Adams' prayer</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand the historical development of the White House and surrounding institutions</li>
+                <li>Analyze the architectural significance of the EEOB and Treasury buildings</li>
+                <li>Recognize the functional roles of different executive branch buildings</li>
+                <li>Connect historical events to the physical spaces where they occurred</li>
+                <li>Appreciate the balance between historic preservation and modern governmental needs</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your school trip to Washington, D.C. with</p>
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
