@@ -15,6 +15,8 @@ import wwiiMemorialImg from "@/assets/wwii-memorial.jpg";
 import mountVernonImg from "@/assets/mount-vernon.jpg";
 import pierreCharlesLenfantImg from "@/assets/pierre-charles-lenfant.jpg";
 import greekColumnsImg from "@/assets/greek-columns.jpg";
+import vietnamMemorialImg from "@/assets/vietnam-memorial.jpg";
+import koreanWarMemorialImg from "@/assets/korean-war-memorial.jpg";
 
 const washingtonActivities = [
   {
@@ -116,6 +118,26 @@ const washingtonActivities = [
     difficulty: "Intermediate",
     image: greekColumnsImg,
     isUnlocked: false
+  },
+  {
+    id: "vietnam-memorial",
+    title: "Vietnam Veterans Memorial",
+    description: "Honor the 58,000+ Americans who died in Vietnam through this powerful black granite memorial",
+    duration: "20-25 minutes",
+    participants: "4-5 students",
+    difficulty: "Advanced",
+    image: vietnamMemorialImg,
+    isUnlocked: false
+  },
+  {
+    id: "korean-war-memorial",
+    title: "Korean War Memorial",
+    description: "Remember 'The Forgotten War' through 19 stainless steel statues and etched wall of faces",
+    duration: "18-22 minutes",
+    participants: "4-5 students",
+    difficulty: "Intermediate",
+    image: koreanWarMemorialImg,
+    isUnlocked: false
   }
 ];
 
@@ -146,6 +168,10 @@ const WashingtonDC = () => {
         window.open("/activities/pierre-charles-lenfant.html", "_blank");
       } else if (activity.id === "greek-columns") {
         window.open("/activities/greek-columns.html", "_blank");
+      } else if (activity.id === "vietnam-memorial") {
+        window.open("/activities/vietnam-memorial.html", "_blank");
+      } else if (activity.id === "korean-war-memorial") {
+        window.open("/activities/korean-war-memorial.html", "_blank");
       }
     } else {
       setSelectedActivity(activity.title);
