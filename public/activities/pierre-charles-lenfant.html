@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pierre Charles L'Enfant | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .memorial-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .dc-facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .map-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .quadrant-map {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            border: 2px solid #2c3e50;
+            border-radius: 5px;
+        }
+        .quadrant {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        .nw { top: 0; left: 0; background-color: #3498db; }
+        .ne { top: 0; right: 0; background-color: #2ecc71; }
+        .sw { bottom: 0; left: 0; background-color: #e74c3c; }
+        .se { bottom: 0; right: 0; background-color: #f39c12; }
+        .center-point {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: #2c3e50;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        .compass {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .compass-item {
+            text-align: center;
+            margin: 0 15px;
+        }
+        .compass-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .design-element {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .design-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Pierre Charles L'Enfant: Designing Washington, D.C.</h1>
+        <h2>Student Workshop Guide</h2>
+    </div>
+    
+    <img src="https://globaleducationaltours.com/wp-content/uploads/2025/08/Plan_of_the_city_intended_for_the_permanent_seat_of_the_government_of_the_United_States_-_projected_agreeable_to_the_direction_of_the_President_of_the_United_States._14726320702.jpg" alt="L'Enfant's original plan for Washington, D.C." class="memorial-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores how Pierre Charles L'Enfant designed Washington, D.C. and the fascinating story behind his visionary urban plan that still defines the city today.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> L'Enfant's Background and Arrival in America
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> The Visionary Design of Washington, D.C.
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> Street System and Navigation
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Legacy and Impact
+                </div>
+            </div>
+        </section>
+
+        <div class="dc-facts">
+            <div class="facts-title">Washington, D.C. Design Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Original size: 100 square miles</div>
+                <div class="fact-item">Planned in 1791</div>
+                <div class="fact-item">Numbered streets: N-S</div>
+                <div class="fact-item">Lettered streets: E-W</div>
+                <div class="fact-item">Diagonal avenues: State names</div>
+                <div class="fact-item">4 quadrants: NW, NE, SW, SE</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Historical Biographer</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"A French artist-turned-engineer with no formal training in urban planning created one of the world's most recognizable cities—before cars even existed!"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>L'Enfant's training at the Royal Academy of Painting and Sculpture in Paris</li>
+                        <li>His service in the American Revolutionary Army</li>
+                        <li>Recommendation by Marquis de Lafayette to George Washington</li>
+                        <li>His appointment as major of engineers in 1783</li>
+                        <li>Settlement in New York City and work as architect/engineer</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"L'Enfant's unique background as both artist and soldier gave him the perfect skills to design a capital that was both beautiful and strategically sound."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Urban Design Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"L'Enfant faced the challenge of turning a 'savage wilderness into a Garden of Eden'—and created a plan that still works perfectly over 200 years later."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <div class="design-element">
+                        <div class="design-title">Key Design Elements:</div>
+                        <p>• Capitol building placed on Jenkins Hill as the physical center</p>
+                        <p>• 400-foot-wide "Grand Avenue" (now the National Mall)</p>
+                        <p>• Diagonal avenues creating circles and squares at intersections</p>
+                        <p>• Planned equestrian statue of George Washington</p>
+                        <p>• Connection between Capitol and President's House (Pennsylvania Avenue)</p>
+                    </div>
+                    <ul>
+                        <li>Influences from European baroque style</li>
+                        <li>Familiarity with American cities but creating an original design</li>
+                        <li>Strategic placement of buildings for both function and symbolism</li>
+                        <li>Vision for elegant foreign ministries and cultural institutions</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"L'Enfant's design wasn't just practical—it was symbolic, creating a city that physically represents American democracy with its separation and balance of powers."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Navigation Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Washington's layout seems confusing at first, but it's actually a brilliantly simple system that makes navigation easy—even before GPS!"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="map-container">
+                        <div class="quadrant-map">
+                            <div class="quadrant nw">Northwest (NW)</div>
+                            <div class="quadrant ne">Northeast (NE)</div>
+                            <div class="quadrant sw">Southwest (SW)</div>
+                            <div class="quadrant se">Southeast (SE)</div>
+                            <div class="center-point"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="compass">
+                        <div class="compass-item">
+                            <div class="compass-icon">↑</div>
+                            <div>North: White House</div>
+                        </div>
+                        <div class="compass-item">
+                            <div class="compass-icon">→</div>
+                            <div>East: U.S. Capitol</div>
+                        </div>
+                        <div class="compass-item">
+                            <div class="compass-icon">↓</div>
+                            <div>South: Jefferson Memorial</div>
+                        </div>
+                        <div class="compass-item">
+                            <div class="compass-icon">←</div>
+                            <div>West: Lincoln Memorial</div>
+                        </div>
+                    </div>
+                    
+                    <ul>
+                        <li>Four quadrants centered on the Capitol building</li>
+                        <li>Numbered streets running north-south</li>
+                        <li>Lettered streets running east-west (A-W, skipping J)</li>
+                        <li>State-named diagonal avenues creating circles</li>
+                        <li>Addresses include quadrant abbreviation</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"L'Enfant's system was so well-designed that it continues to work perfectly today, even with modern traffic patterns he could never have imagined."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Legacy Guide</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Despite being fired before completing his work, L'Enfant's vision became the foundation for one of the world's great capital cities."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Disputes with commissioners including Thomas Jefferson</li>
+                        <li>Sudden dismissal from the project</li>
+                        <li>Andrew Ellicott and Benjamin Banneker's role in preserving the plan</li>
+                        <li>How the final implementation differed from L'Enfant's original vision</li>
+                        <li>Recognition of his work years after his death</li>
+                        <li>L'Enfant's plans and notes preserved in the Library of Congress</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Though he died in poverty and relative obscurity, L'Enfant's brilliant design ensured his legacy would endure as long as Washington itself stands."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Historical Biographer</h4>
+                <p>"Pierre Charles L'Enfant was born in France and trained as an artist before volunteering to fight in the American Revolution. His friendship with George Washington and recommendation by Lafayette led to his commission to design the new capital. Though just 36 years old with no formal urban planning experience, he envisioned a city that would rival European capitals in grandeur while symbolizing American democratic ideals."</p>
+                
+                <h4>Urban Design Expert</h4>
+                <p>"L'Enfant's design placed the Capitol building at the physical center of the city on Jenkins Hill, with the President's House connected via Pennsylvania Avenue. His plan featured a 400-foot-wide Grand Avenue (now the National Mall) lined with cultural institutions, diagonal avenues named after states creating traffic circles, and a logical grid system. He described his task as 'turning a savage wilderness into a Garden of Eden.'"</p>
+                
+                <h4>Navigation Specialist</h4>
+                <p>"D.C.'s layout is brilliantly simple: four quadrants centered on the Capitol, numbered streets running north-south, lettered streets running east-west (skipping J), and diagonal state-named avenues creating circles. The sun rises behind the Capitol (east) and sets behind the Lincoln Memorial (west). This system, designed before automobiles, works perfectly even with modern traffic."</p>
+                
+                <h4>Legacy Guide</h4>
+                <p>"Despite being fired over conflicts with commissioners including Thomas Jefferson, L'Enfant's vision endured. Andrew Ellicott and Benjamin Banneker preserved his plan, making only minor adjustments. Though he died poor and unrecognized, today L'Enfant is celebrated as the visionary behind one of the world's great capital cities. He's buried at Arlington Cemetery with a view of the city he designed."</p>
+            </div>
+        </div>
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/USA_-_Washington_DC_-_Capitol_Building_%2839254395141%29.jpg/800px-USA_-_Washington_DC_-_Capitol_Building_%2839254395141%29.jpg" alt="United States Capitol Building" class="memorial-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why was L'Enfant chosen for this project?</button>
+                <p id="answer1" class="hidden">George Washington knew L'Enfant from the Revolutionary War and trusted his vision. Lafayette recommended him, and his background as both artist and engineer made him uniquely qualified to create a capital that was both beautiful and functional.</p>
+                
+                <button onclick="showAnswer('answer2')">How did the street naming system work?</button>
+                <p id="answer2" class="hidden">Numbered streets run north-south, lettered streets run east-west (skipping J), and diagonal avenues are named after states. The four quadrants (NW, NE, SW, SE) are centered on the Capitol building.</p>
+                
+                <button onclick="showAnswer('answer3')">What happened to L'Enfant after he was fired?</button>
+                <p id="answer3" class="hidden">He struggled financially and never achieved similar recognition during his lifetime. He died in poverty in 1825, but was later reinterred at Arlington National Cemetery in 1909 with full honors, finally receiving recognition for his visionary work.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Design Your Capital City</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Sketch a street plan for an imaginary capital city</li>
+                    <li>Include symbolic elements representing their values</li>
+                    <li>Design a navigation system (like DC's lettered/numbered streets)</li>
+                    <li>Include elements for pedestrians, not just vehicles</li>
+                    <li>Present their design and explain their choices</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand L'Enfant's background and how it influenced his design</li>
+                <li>Analyze the symbolic elements of Washington's urban design</li>
+                <li>Navigate using D.C.'s quadrant and street naming system</li>
+                <li>Appreciate the challenges of urban planning and design</li>
+                <li>Recognize how historical figures overcome obstacles to leave lasting legacies</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your school trip to Washington, D.C. with</p>
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

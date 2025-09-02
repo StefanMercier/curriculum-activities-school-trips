@@ -13,6 +13,7 @@ import washingtonMonumentImg from "@/assets/washington-monument.jpg";
 import usCapitolImg from "@/assets/us-capitol.jpg";
 import wwiiMemorialImg from "@/assets/wwii-memorial.jpg";
 import mountVernonImg from "@/assets/mount-vernon.jpg";
+import pierreCharlesLenfantImg from "@/assets/pierre-charles-lenfant.jpg";
 
 const washingtonActivities = [
   {
@@ -94,6 +95,16 @@ const washingtonActivities = [
     difficulty: "Advanced",
     image: mountVernonImg,
     isUnlocked: false
+  },
+  {
+    id: "pierre-charles-lenfant",
+    title: "Pierre Charles L'Enfant",
+    description: "Discover the French architect who designed Washington DC's iconic street layout",
+    duration: "15-20 minutes",
+    participants: "4-5 students",
+    difficulty: "Intermediate",
+    image: pierreCharlesLenfantImg,
+    isUnlocked: false
   }
 ];
 
@@ -120,6 +131,8 @@ const WashingtonDC = () => {
         window.open("/activities/arlington-cemetery.html", "_blank");
       } else if (activity.id === "mount-vernon") {
         window.open("/activities/mount-vernon.html", "_blank");
+      } else if (activity.id === "pierre-charles-lenfant") {
+        window.open("/activities/pierre-charles-lenfant.html", "_blank");
       }
     } else {
       setSelectedActivity(activity.title);
