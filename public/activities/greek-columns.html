@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greek Columns in D.C. Architecture | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .column-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .column-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .column-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #f2f2f2;
+        }
+        .column-diagram {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .column-type {
+            text-align: center;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Greek Columns in Washington D.C. Architecture</h1>
+        <h2>Symbols of Democracy</h2>
+    </div>
+    
+    <img src="https://www.nps.gov/common/uploads/ogimage/park/1707.jpg" alt="Greek Columns at the Lincoln Memorial" class="column-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores the classical Greek architectural elements throughout Washington D.C., particularly the three orders of columns that adorn many government buildings. We'll examine how Pierre L'Enfant's vision incorporated these elements to symbolize America's democratic roots and where you can spot these architectural features throughout the city.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Greek Influence on American Democracy
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> Doric Columns - Strength and Simplicity
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> Ionic Columns - Elegance and Balance
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Corinthian Columns - Ornamentation and Grandeur
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">Greek Architecture Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Three classical orders</div>
+                <div class="fact-item">Doric: Oldest style</div>
+                <div class="fact-item">Ionic: Middle style</div>
+                <div class="fact-item">Corinthian: Most elaborate</div>
+                <div class="fact-item">Flutes: Vertical grooves</div>
+                <div class="fact-item">Capital: Top decoration</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Architectural Historian</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Why does Washington D.C. look like an ancient Greek city, and what does this tell us about America's founding ideals?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Pierre L'Enfant's 1791 plan incorporated classical architecture</li>
+                        <li>Greek democracy inspired American founders (demos = people, kratos = rule)</li>
+                        <li>Greek revival architecture popular during nation's founding period</li>
+                        <li>Symbolized connection to ancient democratic ideals</li>
+                        <li>Represented stability, order, and rational government</li>
+                        <li>Thomas Jefferson particularly admired classical architecture</li>
+                        <li>Three orders of columns represent different aesthetic principles</li>
+                    </ul>
+                    
+                    <div class="quote">
+                        "The introduction of Greek architecture into America was a political statement, connecting the new republic with the birthplace of democracy." - Architectural historian James Stevens Curl
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The pervasive use of Greek architectural elements throughout Washington D.C. was a deliberate choice to visually connect the young American republic with the ancient birthplace of democracy, representing the nation's foundational ideals."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Doric Column Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"The Doric column represents strength and simplicity—the oldest and most straightforward of the classical orders that you'll see throughout the city."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="column-card">
+                        <div class="column-name">Identifying Features</div>
+                        <ul>
+                            <li>Simplest of the three orders</li>
+                            <li>Plain, rounded capital (top)</li>
+                            <li>No base - rests directly on platform</li>
+                            <li>Fluted shafts (vertical grooves)</li>
+                            <li>Robust and masculine appearance</li>
+                            <li>Earliest Greek order (7th century BCE)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="column-card">
+                        <div class="column-name">Where to Find Doric Columns in D.C.</div>
+                        <ul>
+                            <li>Lincoln Memorial (exterior columns)</li>
+                            <li>Treasury Building (portico)</li>
+                            <li>Old Patent Office Building (now National Portrait Gallery)</li>
+                            <li>Many older federal buildings</li>
+                            <li>Doric elements in neoclassical buildings throughout city</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Symbolic Meaning:</div>
+                        <p>The Doric order represents strength, stability, and simplicity—values associated with the foundational principles of the republic. Its straightforward design reflects the honest, unadorned nature of democratic governance.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The sturdy, no-nonsense Doric columns found throughout Washington represent the strength and simplicity of democratic principles, serving as a visual reminder of government's foundational role."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Ionic Column Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"With their distinctive scrolls that resemble eyes, Ionic columns bring elegance and balance to Washington's architecture—the middle ground between simplicity and ornamentation."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="column-card">
+                        <div class="column-name">Identifying Features</div>
+                        <ul>
+                            <li>Slender, elegant proportions</li>
+                            <li>Volutes (scroll-like ornaments) on capital</li>
+                            <li>Remember: "Ionic" has an "I" which looks like an eye—the scrolls look like eyes</li>
+                            <li>Fluted shafts with more grooves than Doric</li>
+                            <li>Base between column and platform</li>
+                            <li>More decorative than Doric but less than Corinthian</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="column-card">
+                        <div class="column-name">Where to Find Ionic Columns in D.C.</div>
+                        <ul>
+                            <li>White House (north and south porticos)</li>
+                            <li>U.S. Capitol (various interiors)</li>
+                            <li>Thomas Jefferson Memorial (exterior)</li>
+                            <li>National Archives Building</li>
+                            <li>Many congressional office buildings</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Symbolic Meaning:</div>
+                        <p>The Ionic order represents balance, wisdom, and sophistication—the middle ground between masculine strength (Doric) and feminine ornamentation (Corinthian). Its elegant proportions suggest the refined balance of powers in democratic government.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The graceful Ionic columns found throughout the city symbolize the balanced wisdom needed for governance, with their distinctive scrolls serving as visual reminders of the thoughtful deliberation that democracy requires."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Corinthian Column Interpreter</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"The most elaborate and decorative of all columns, Corinthian columns represent the grandeur and aspiration of American democracy at its most ambitious."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="column-card">
+                        <div class="column-name">Identifying Features</div>
+                        <ul>
+                            <li>Most ornate of the three orders</li>
+                            <li>Capital decorated with acanthus leaves and scrolls</li>
+                            <li>Slender fluted shafts</li>
+                            <li>Elaborate base</li>
+                            <li>Latest development in Greek architecture</li>
+                            <li>Favorite of Roman architects</li>
+                            <li>Represents luxury and sophistication</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="column-card">
+                        <div class="column-name">Where to Find Corinthian Columns in D.C.</div>
+                        <ul>
+                            <li>U.S. Capitol Building (dome and rotunda)</li>
+                            <li>Supreme Court Building (exterior)</li>
+                            <li>Longworth House Office Building</li>
+                            <li>Russell Senate Office Building</li>
+                            <li>Many memorials and ceremonial spaces</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Symbolic Meaning:</div>
+                        <p>The Corinthian order represents aspiration, grandeur, and the highest ideals of civilization. Its elaborate decoration suggests the complexity and refinement of mature democratic institutions and the lofty goals of the American experiment.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The elaborate Corinthian columns adorning America's most important government buildings represent the highest aspirations of democracy—the grandeur, complexity, and refined ideals that the nation strives to achieve."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Architectural Historian</h4>
+                <p>"Washington D.C.'s classical architecture was a deliberate choice by city planner Pierre L'Enfant to connect the American republic with ancient Greek democracy. The word 'democracy' itself comes from Greek words 'demos' (people) and 'kratos' (rule). During the nation's founding period, Greek revival architecture was particularly popular as it symbolized the stability, order, and rational government that the founders envisioned. The three orders of columns—Doric, Ionic, and Corinthian—each represent different aspects of democratic ideals, from sturdy simplicity to refined grandeur."</p>
+                
+                <h4>Doric Column Specialist</h4>
+                <p>"Doric columns are the oldest and simplest of the classical orders. They're identified by their plain, rounded capitals and lack of a base—they rest directly on the platform. The shafts are fluted with vertical grooves, giving them a sturdy, masculine appearance. In Washington D.C., you can find Doric columns at the Lincoln Memorial, Treasury Building, and older federal buildings. They symbolize the strength and simplicity of democratic foundations—the no-nonsense principles upon which the republic was built."</p>
+                
+                <h4>Ionic Column Expert</h4>
+                <p>"Ionic columns represent the middle ground between simplicity and ornamentation. They're identified by their distinctive scroll-like ornaments called volutes on the capitals—remember 'Ionic' has an 'I' which looks like an eye, and the scrolls resemble eyes looking back at you. Ionic columns have slender, elegant proportions with fluted shafts and a base. You can find them at the White House, U.S. Capitol interiors, and Thomas Jefferson Memorial. They symbolize the balance and wisdom needed for democratic governance—the thoughtful deliberation between different branches of government."</p>
+                
+                <h4>Corinthian Column Interpreter</h4>
+                <p>"Corinthian columns are the most elaborate and decorative of the classical orders. They're identified by their capitals adorned with intricate acanthus leaves and scrolls, slender fluted shafts, and elaborate bases. Although developed by the Greeks, they were favored by Roman architects. In Washington D.C., they adorn the most important buildings including the U.S. Capitol dome, Supreme Court, and congressional offices. They represent the highest aspirations of democracy—the grandeur, complexity, and refined ideals that the American experiment strives to achieve."</p>
+            </div>
+        </div>
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/US_Supreme_Court_columns.jpg/1200px-US_Supreme_Court_columns.jpg" alt="Corinthian Columns at the Supreme Court" class="column-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why did American architects use Greek columns?</button>
+                <p id="answer1" class="hidden">American architects used Greek columns to visually connect the new republic with ancient Greek democracy. The founders admired Greek democratic ideals, and classical architecture symbolized stability, order, and rational government. Pierre L'Enfant specifically incorporated these elements in Washington D.C.'s design to represent the nation's foundational principles and connect America's democratic experiment with its philosophical origins in ancient Greece.</p>
+                
+                <button onclick="showAnswer('answer2')">What's the easiest way to tell the column types apart?</button>
+                <p id="answer2" class="hidden">Look at the capital (top) of the column: Doric columns have simple rounded capitals; Ionic columns have scroll-like volutes (remember "Ionic" has an "I" that looks like an eye, and the scrolls resemble eyes); Corinthian columns have elaborate decorations with acanthus leaves and scrolls. Also, Doric columns typically have no base, while Ionic and Corinthian columns do.</p>
+                
+                <button onclick="showAnswer('answer3')">Where can I see examples of each column type in D.C.?</button>
+                <p id="answer3" class="hidden">Doric: Lincoln Memorial exterior, Treasury Building; Ionic: White House porticos, Thomas Jefferson Memorial; Corinthian: U.S. Capitol dome, Supreme Court building. As you tour the city, you'll notice that simpler Doric columns often appear on older or more foundational buildings, while more elaborate Corinthian columns adorn buildings representing the highest functions of government.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Column Scavenger Hunt</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Identify examples of each column type during the tour</li>
+                    <li>Photograph or sketch different column capitals</li>
+                    <li>Note which buildings use which column styles</li>
+                    <li>Consider why certain buildings might use particular orders</li>
+                    <li>Create a presentation showing their findings</li>
+                    <li>Discuss how architectural choices communicate values</li>
+                    <li>Compare how ancient symbols are repurposed in modern contexts</li>
+                </ol>
+            </div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Column Type</th>
+                        <th>Key Features</th>
+                        <th>Symbolism</th>
+                        <th>D.C. Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Doric</strong></td>
+                        <td>Simple rounded capital, no base, fluted shaft</td>
+                        <td>Strength, simplicity, foundation</td>
+                        <td>Lincoln Memorial, Treasury Building</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ionic</strong></td>
+                        <td>Scroll volutes, base, slender fluted shaft</td>
+                        <td>Balance, wisdom, deliberation</td>
+                        <td>White House, Jefferson Memorial</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Corinthian</strong></td>
+                        <td>Acanthus leaves, elaborate capital, base</td>
+                        <td>Grandeur, aspiration, refinement</td>
+                        <td>U.S. Capitol, Supreme Court</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Identify the three classical orders of columns and their distinguishing features</li>
+                <li>Understand the symbolic connection between Greek architecture and American democracy</li>
+                <li>Recognize examples of different column types throughout Washington D.C.</li>
+                <li>Analyze how architectural choices communicate values and ideals</li>
+                <li>Appreciate the deliberate design choices that connect modern America to ancient democratic traditions</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your school trip to Washington, D.C. with</p>
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

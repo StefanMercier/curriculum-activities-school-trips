@@ -14,6 +14,7 @@ import usCapitolImg from "@/assets/us-capitol.jpg";
 import wwiiMemorialImg from "@/assets/wwii-memorial.jpg";
 import mountVernonImg from "@/assets/mount-vernon.jpg";
 import pierreCharlesLenfantImg from "@/assets/pierre-charles-lenfant.jpg";
+import greekColumnsImg from "@/assets/greek-columns.jpg";
 
 const washingtonActivities = [
   {
@@ -105,6 +106,16 @@ const washingtonActivities = [
     difficulty: "Intermediate",
     image: pierreCharlesLenfantImg,
     isUnlocked: false
+  },
+  {
+    id: "greek-columns",
+    title: "Greek Columns in DC Architecture",
+    description: "Explore the three classical orders of columns and their symbolic meanings in government buildings",
+    duration: "18-22 minutes",
+    participants: "4-5 students",
+    difficulty: "Intermediate",
+    image: greekColumnsImg,
+    isUnlocked: false
   }
 ];
 
@@ -133,6 +144,8 @@ const WashingtonDC = () => {
         window.open("/activities/mount-vernon.html", "_blank");
       } else if (activity.id === "pierre-charles-lenfant") {
         window.open("/activities/pierre-charles-lenfant.html", "_blank");
+      } else if (activity.id === "greek-columns") {
+        window.open("/activities/greek-columns.html", "_blank");
       }
     } else {
       setSelectedActivity(activity.title);
