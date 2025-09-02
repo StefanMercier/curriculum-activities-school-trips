@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smithsonian Museums | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .museum-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .museum-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .museum-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .exhibit-list {
+            columns: 2;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Smithsonian Institution Museums</h1>
+        <h2>Student Workshop Guide</h2>
+    </div>
+    
+    <img src="https://www.si.edu/sites/default/files/newsdesk/press_releases/2019_smithsonian_logo_black.jpg" alt="Smithsonian Institution Logo" class="museum-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores the Smithsonian Institution, the world's largest museum, education, and research complex. We'll examine its fascinating origin story, the diverse museums that comprise it, and the incredible collections that tell the story of America and human achievement.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Smithsonian Institution History
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> National Air and Space Museum
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> National Museum of American History
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> National Museum of Natural History
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 5:</strong> Steven F. Udvar-Hazy Center
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">Smithsonian Institution Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">19 museums and galleries</div>
+                <div class="fact-item">Founded: 1846</div>
+                <div class="fact-item">Founded with $500,000 gift</div>
+                <div class="fact-item">Over 155 million artifacts</div>
+                <div class="fact-item">Most visited: Natural History</div>
+                <div class="fact-item">Free admission to all museums</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Smithsonian History Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Why are America's national museums named after an Englishman who never even visited the United States?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>James Smithson's 1829 bequest of minerals, books, and $500,000 in gold</li>
+                        <li>His stipulation: located in Washington, named "Smithsonian Institution"</li>
+                        <li>Purpose: "for the increase and diffusion of knowledge among men"</li>
+                        <li>Congress's 11-year debate over how to use the gift</li>
+                        <li>Establishment of a government-run foundation for national museums</li>
+                        <li>First collection displayed at the Smithsonian Castle in 1855</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Smithson's generous gift and visionary purpose established what would become the world's largest museum and research complex, fulfilling his mission to increase and diffuse knowledge for all humanity."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Air and Space Museum Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"From the Wright brothers' first flight to walking on the moon, the National Air and Space Museum contains the actual artifacts that made aviation history."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="museum-card">
+                        <div class="museum-name">National Air and Space Museum</div>
+                        <p>Opened on July 4, 1976, this 200,000 square foot museum contains airplanes, rockets, balloons and space capsules that tell the story of aviation, space exploration, and technology. With 23 main exhibition galleries, it features iconic artifacts like the Apollo 11 command module, the Spirit of St. Louis, and Amelia Earhart's Red Vega airplane.</p>
+                        
+                        <div class="symbol-title">Major Exhibition Galleries:</div>
+                        <div class="exhibit-list">
+                            <ul>
+                                <li>Milestones of Flight</li>
+                                <li>The Golden Age of Flight</li>
+                                <li>How Things Fly</li>
+                                <li>Looking at Earth</li>
+                                <li>Lunar Exploration Vehicles</li>
+                                <li>Pioneers of Flight</li>
+                                <li>Exploring The Planets</li>
+                                <li>WWI: The Great War in the Air</li>
+                                <li>WWII: Aviation</li>
+                                <li>Apollo to the MOON</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="facts">
+                        <div class="facts-title">Did You Know?</div>
+                        <p>The Air and Space Museum once contained the most visited McDonald's in the world, located within the museum building.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The National Air and Space Museum preserves and displays the actual vehicles that conquered the skies and reached for the stars, inspiring new generations to continue pushing the boundaries of exploration."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. American History Interpreter</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Where else can you see the actual Star-Spangled Banner that inspired our national anthem and Dorothy's ruby slippers from The Wizard of Oz in the same building?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="museum-card">
+                        <div class="museum-name">National Museum of American History</div>
+                        <p>Opened in January 1964 as the sixth Smithsonian building on the National Mall, this museum's mission is to collect, care for and study objects that reflect the experience of the American people. Covering 75,000 square feet with three main exhibition levels, it houses over three million American artifacts.</p>
+                        
+                        <div class="symbol-title">Permanent Exhibits:</div>
+                        <ul>
+                            <li><strong>Within These Walls:</strong> Examines the lives of families that occupied a home from 16 Elm Street in Ipswich, Massachusetts</li>
+                            <li><strong>The Headsville Post Office:</strong> Moved entirely from West Virginia where it served for 100 years</li>
+                            <li><strong>The First Ladies Hall:</strong> Features over 800 items including inaugural gowns and presidential china</li>
+                            <li><strong>Personal Legacy: The Healing of a Nation:</strong> Displays items left at the Vietnam Veterans Memorial</li>
+                            <li><strong>The Star-Spangled Banner:</strong> The actual flag that flew over Fort McHenry in 1814</li>
+                            <li><strong>Ruby Slippers:</strong> Worn by Judy Garland in The Wizard of Oz</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The National Museum of American History preserves the diverse artifacts that tell the complex story of the American experience, from presidential history to popular culture."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Natural History and Udvar-Hazy Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"From the Hope Diamond to the Space Shuttle Discovery, the Smithsonian's collections span the depths of the earth to the reaches of space."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="museum-card">
+                        <div class="museum-name">National Museum of Natural History</div>
+                        <p>Established in 1910, this museum preserves over 121 million specimens of plants, animals, rocks, gems, minerals, fossils and human cultural artifacts. The centerpiece is the massive African Bush elephant in the entrance rotunda.</p>
+                        
+                        <div class="symbol-title">Key Exhibits:</div>
+                        <ul>
+                            <li><strong>The Insect Zoo:</strong> Live specimens including hissing cockroaches and leaf-cutter ants</li>
+                            <li><strong>The Harry Winston Gallery:</strong> Features the 45.5-carat Hope Diamond</li>
+                            <li><strong>The Dinosaur Hall:</strong> Reconstructions of fossils from 200 million years ago</li>
+                        </ul>
+                        
+                        <div class="facts">
+                            <div class="facts-title">Film Connection</div>
+                            <p>Portions of the movie "Night at the Museum" were filmed here, as well as at the Natural History Museum in New York City.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="museum-card">
+                        <div class="museum-name">Steven F. Udvar-Hazy Center</div>
+                        <p>This 760,000-square-foot annex near Dulles Airport was made possible by a $65 million gift from Steven F. Udvar-Hazy. It houses larger aviation artifacts that couldn't fit in the main Air and Space Museum, including:</p>
+                        
+                        <ul>
+                            <li><strong>Space Shuttle Discovery:</strong> The last shuttle to travel into space, displayed with its mission markings</li>
+                            <li><strong>Concorde:</strong> The last Concorde to fly, with 17,824 flight hours</li>
+                            <li><strong>SR-71 Blackbird:</strong> The legendary spy plane that could fly at Mach 3 at 80,000 feet</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">The Incredible SR-71 Story:</div>
+                        <p>Built for Cold War espionage, the SR-71 required titanium for its construction—most of which came from the Soviet Union, the very nation it was designed to spy on. The CIA created shell companies to secretly acquire Soviet titanium. Before retirement in 1990, one SR-71 set a record by flying from Los Angeles to Washington D.C. (2,299.7 miles) in just 64 minutes—a record that stands today.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"These Smithsonian facilities preserve everything from the smallest insects to the largest spacecraft, telling the complete story of natural history and human technological achievement."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Smithsonian History Expert</h4>
+                <p>"The Smithsonian Institution began with an unexpected gift from English scientist James Smithson, who left his estate to the United States in 1829 to create 'an establishment for the increase and diffusion of knowledge.' After 11 years of Congressional debate, the Smithsonian was established in Washington D.C., first displaying its collections in the Smithsonian Castle in 1855. Smithson never visited America, but his vision created what would become the world's largest museum and research complex, fulfilling his mission to share knowledge with all humanity."</p>
+                
+                <h4>Air and Space Museum Specialist</h4>
+                <p>"The National Air and Space Museum opened on July 4, 1976, containing 200,000 square feet of aviation and space history. Its 23 galleries display iconic artifacts like the Apollo 11 command module, the Spirit of St. Louis, and Amelia Earhart's airplane. Exhibits cover everything from the Wright brothers' first flight to lunar exploration and World War aviation. The museum once featured the world's most visited McDonald's, but today it focuses entirely on preserving the vehicles that conquered the skies and reached for the stars."</p>
+                
+                <h4>American History Interpreter</h4>
+                <p>"The National Museum of American History opened in 1964 to collect and preserve objects that tell the American story. Its three million artifacts range from the original Star-Spangled Banner that flew over Fort McHenry to Dorothy's ruby slippers from The Wizard of Oz. Visitors can explore a reconstructed Massachusetts home, an entire West Virginia post office, First Ladies' inaugural gowns, and items left at the Vietnam Memorial. The museum captures the full diversity of American experience through its extensive collections."</p>
+                
+                <h4>Natural History and Udvar-Hazy Expert</h4>
+                <p>"The National Museum of Natural History houses 121 million specimens, including the famous Hope Diamond and dinosaur fossils. Its Udvar-Hazy Center annex displays massive aircraft like the Space Shuttle Discovery, the Concorde, and the SR-71 Blackbird—a spy plane so advanced the CIA had to secretly acquire titanium from the Soviet Union to build it. The SR-71 still holds the transcontinental speed record, flying from LA to DC in 64 minutes. Together, these museums preserve everything from tiny insects to spacecraft, telling the complete story of our natural world and technological achievements."</p>
+            </div>
+        </div>
+        
+        <img src="https://www.si.edu/sites/default/files/newsdesk/press_releases/air_and_space_museum_udvar_hazy_center_0.jpg" alt="Udvar-Hazy Center with Space Shuttle Discovery" class="museum-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why is the Smithsonian named after an Englishman?</button>
+                <p id="answer1" class="hidden">James Smithson, an English scientist who never visited America, left his entire estate to the United States in 1829 to create "an establishment for the increase and diffusion of knowledge." Despite Congressional debate about accepting foreign money, his gift was eventually used to establish the Smithsonian Institution, which has grown into the world's largest museum and research complex.</p>
+                
+                <button onclick="showAnswer('answer2')">What makes the SR-71 Blackbird so remarkable?</button>
+                <p id="answer2" class="hidden">The SR-71 could fly at Mach 3 (over 2,000 mph) at 80,000 feet altitude, making it nearly invulnerable to interception. Its titanium construction presented a unique challenge since most titanium reserves were in the Soviet Union—the very country it was designed to spy on. The CIA created shell companies to secretly acquire Soviet titanium. The SR-71 still holds the transcontinental speed record: LA to DC in 64 minutes.</p>
+                
+                <button onclick="showAnswer('answer3')">What are some of the most iconic artifacts at the Smithsonian?</button>
+                <p id="answer3" class="hidden">The Smithsonian's most iconic artifacts include the Apollo 11 command module, the Spirit of St. Louis, the original Star-Spangled Banner, Dorothy's ruby slippers from The Wizard of Oz, the Hope Diamond, the Space Shuttle Discovery, and the Enola Gay B-29 bomber. These items represent pivotal moments in American history, culture, and technological achievement.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Design Your Smithsonian Exhibit</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Choose a theme for a new Smithsonian exhibit</li>
+                    <li>Select 5 artifacts that would represent this theme</li>
+                    <li>Design the layout and interactive elements</li>
+                    <li>Create a marketing plan to attract visitors</li>
+                    <li>Present their exhibit concept to the larger group</li>
+                    <li>Discuss how museums preserve and interpret history</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">Notable Artifacts at Udvar-Hazy Center</div>
+                <div class="facts-grid">
+                    <div class="fact-item">Space Shuttle Discovery</div>
+                    <div class="fact-item">Enola Gay B-29 Bomber</div>
+                    <div class="fact-item">Concorde Supersonic Jet</div>
+                    <div class="fact-item">SR-71 Blackbird Spy Plane</div>
+                    <div class="fact-item">Gemini VII Space Capsule</div>
+                    <div class="fact-item">Lockheed Constellation</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand the origin and mission of the Smithsonian Institution</li>
+                <li>Identify key artifacts and their historical significance across different museums</li>
+                <li>Analyze how museums preserve and interpret history and culture</li>
+                <li>Connect technological advancements to their historical contexts</li>
+                <li>Appreciate the diversity of collections that tell the American story</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your school trip to Washington, D.C. with</p>
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

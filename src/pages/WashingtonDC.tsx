@@ -18,6 +18,7 @@ import greekColumnsImg from "@/assets/greek-columns.jpg";
 import vietnamMemorialImg from "@/assets/vietnam-memorial.jpg";
 import koreanWarMemorialImg from "@/assets/korean-war-memorial.jpg";
 import whiteHouseImg from "@/assets/white-house.jpg";
+import smithsonianMuseumsImg from "@/assets/smithsonian-museums.jpg";
 
 const washingtonActivities = [
   {
@@ -149,6 +150,16 @@ const washingtonActivities = [
     difficulty: "Advanced",
     image: whiteHouseImg,
     isUnlocked: false
+  },
+  {
+    id: "smithsonian-museums",
+    title: "Smithsonian Institution Museums",
+    description: "Discover the world's largest museum complex and its incredible collections spanning history, science, and culture",
+    duration: "25-30 minutes",
+    participants: "4-5 students",
+    difficulty: "Advanced",
+    image: smithsonianMuseumsImg,
+    isUnlocked: false
   }
 ];
 
@@ -185,6 +196,8 @@ const WashingtonDC = () => {
         window.open("/activities/korean-war-memorial.html", "_blank");
       } else if (activity.id === "white-house") {
         window.open("/activities/white-house.html", "_blank");
+      } else if (activity.id === "smithsonian-museums") {
+        window.open("/activities/smithsonian-museums.html", "_blank");
       }
     } else {
       setSelectedActivity(activity.title);
