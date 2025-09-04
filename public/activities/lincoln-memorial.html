@@ -104,6 +104,24 @@
             max-width: 150px;
             margin: 10px auto;
         }
+        .breadcrumb {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #6c757d;
+            margin: 0 8px;
+        }
     </style>
 </head>
 <body>
@@ -114,6 +132,16 @@
         <h1>Lincoln Memorial Interactive Presentation</h1>
         <h2>Student Workshop Guide</h2>
     </div>
+    
+    <nav class="breadcrumb">
+        <a href="javascript:history.back()">← Back to Activities</a>
+        <span>|</span>
+        <a href="/">Home</a>
+        <span>></span>
+        <span>Washington DC</span>
+        <span>></span>
+        <span>Lincoln Memorial Activity</span>
+    </nav>
     
     <div class="container">
         <section id="overview">
