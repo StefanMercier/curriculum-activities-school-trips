@@ -7,13 +7,14 @@ import LeadCaptureForm from "./LeadCaptureForm";
 import washingtonDCImg from "@/assets/washington-dc.jpg";
 import newYorkCityImg from "@/assets/new-york-city.jpg";
 import bostonImg from "@/assets/boston.jpg";
+import gettysburgImg from "@/assets/gettysburg-battlefield.jpg";
 
 const destinations = [
   {
     id: "washington-dc",
     title: "Washington DC",
     description: "Lincoln Memorial, Washington Monument, US Capitol, WWII Memorial, MLK Memorial, Jefferson Memorial, Arlington Cemetery",
-    activities: 10,
+    activities: 15,
     duration: "2-3 hours",
     isUnlocked: true,
     image: washingtonDCImg
@@ -37,22 +38,13 @@ const destinations = [
     image: bostonImg
   },
   {
-    id: "williamsburg",
-    title: "Williamsburg",
-    description: "Colonial Williamsburg, Governor's Palace, Capitol Building",
-    activities: 0,
-    duration: "Coming Soon",
-    isUnlocked: false,
-    image: "/api/placeholder/400/300"
-  },
-  {
     id: "gettysburg",
     title: "Gettysburg",
-    description: "Battlefield Tours, Visitor Center, Cemetery Ridge",
-    activities: 0,
-    duration: "Coming Soon",
-    isUnlocked: false,
-    image: "/api/placeholder/400/300"
+    description: "Civil War battlefield, General Daniel Sickles story, Peach Orchard, Cemetery Ridge",
+    activities: 1,
+    duration: "2-3 hours",
+    isUnlocked: true,
+    image: gettysburgImg
   },
   {
     id: "chicago",
@@ -92,6 +84,8 @@ const DestinationsOverview = () => {
     if (destination.isUnlocked) {
       if (destination.id === "washington-dc") {
         navigate("/washington-dc");
+      } else if (destination.id === "gettysburg") {
+        navigate("/gettysburg");
       }
     } else {
       setSelectedDestination(destination.title);

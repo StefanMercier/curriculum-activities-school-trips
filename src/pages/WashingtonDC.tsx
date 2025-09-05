@@ -19,6 +19,7 @@ import vietnamMemorialImg from "@/assets/vietnam-memorial.jpg";
 import koreanWarMemorialImg from "@/assets/korean-war-memorial.jpg";
 import whiteHouseImg from "@/assets/white-house.jpg";
 import smithsonianMuseumsImg from "@/assets/smithsonian-museums.jpg";
+import danielSicklesImg from "@/assets/daniel-sickles.jpg";
 
 const washingtonActivities = [
   {
@@ -159,7 +160,17 @@ const washingtonActivities = [
     participants: "4-5 students",
     difficulty: "Advanced",
     image: smithsonianMuseumsImg,
-    isUnlocked: false
+    isUnlocked: true
+  },
+  {
+    id: "daniel-sickles",
+    title: "General Daniel Sickles",
+    description: "The scandalous and heroic tale of the Union general who made controversial decisions at Gettysburg, murdered a man in Washington D.C., and donated his amputated leg to a museum.",
+    duration: "45 minutes",
+    participants: "25-30 students",
+    difficulty: "Intermediate",
+    image: danielSicklesImg,
+    isUnlocked: true
   }
 ];
 
