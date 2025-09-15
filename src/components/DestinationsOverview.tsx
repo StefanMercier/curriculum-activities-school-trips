@@ -31,10 +31,10 @@ const destinations = [
   {
     id: "boston",
     title: "Boston",
-    description: "Freedom Trail, Boston Tea Party Ships, USS Constitution",
-    activities: 0,
-    duration: "Coming Soon",
-    isUnlocked: false,
+    description: "Freedom Trail, Boston Tea Party Ships, USS Constitution, James Otis Revolutionary Activities",
+    activities: 1,
+    duration: "2-3 hours",
+    isUnlocked: true,
     image: bostonImg
   },
   {
@@ -86,6 +86,8 @@ const DestinationsOverview = () => {
         navigate("/washington-dc");
       } else if (destination.id === "gettysburg") {
         navigate("/gettysburg");
+      } else if (destination.id === "boston") {
+        navigate("/boston");
       }
     } else {
       setSelectedDestination(destination.title);
