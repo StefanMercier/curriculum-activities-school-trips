@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import WashingtonDC from "./pages/WashingtonDC";
 import Gettysburg from "./pages/Gettysburg";
 import Boston from "./pages/Boston";
+import Quebec from "./pages/Quebec";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/washington-dc" element={<WashingtonDC />} />
           <Route path="/gettysburg" element={<Gettysburg />} />
           <Route path="/boston" element={<Boston />} />
+          <Route path="/quebec" element={<Quebec />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

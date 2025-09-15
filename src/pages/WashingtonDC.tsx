@@ -209,6 +209,8 @@ const WashingtonDC = () => {
         window.open("/activities/white-house.html", "_blank");
       } else if (activity.id === "smithsonian-museums") {
         window.open("/activities/smithsonian-museums.html", "_blank");
+      } else if (activity.id === "daniel-sickles") {
+        window.open("/activities/daniel-sickles.html", "_blank");
       }
     } else {
       setSelectedActivity(activity.title);

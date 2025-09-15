@@ -8,6 +8,7 @@ import washingtonDCImg from "@/assets/washington-dc.jpg";
 import newYorkCityImg from "@/assets/new-york-city.jpg";
 import bostonImg from "@/assets/boston.jpg";
 import gettysburgImg from "@/assets/gettysburg-battlefield.jpg";
+import quebecCityImg from "@/assets/quebec-city.jpg";
 
 const destinations = [
   {
@@ -67,11 +68,11 @@ const destinations = [
   {
     id: "quebec",
     title: "Quebec City",
-    description: "Old Quebec, Château Frontenac, Plains of Abraham",
-    activities: 0,
-    duration: "Coming Soon",
-    isUnlocked: false,
-    image: "/api/placeholder/400/300"
+    description: "Place Royale, Samuel de Champlain settlement, birthplace of French America",
+    activities: 1,
+    duration: "2-3 hours",
+    isUnlocked: true,
+    image: quebecCityImg
   }
 ];
 
@@ -88,6 +89,8 @@ const DestinationsOverview = () => {
         navigate("/gettysburg");
       } else if (destination.id === "boston") {
         navigate("/boston");
+      } else if (destination.id === "quebec") {
+        navigate("/quebec");
       }
     } else {
       setSelectedDestination(destination.title);
