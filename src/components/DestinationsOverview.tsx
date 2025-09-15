@@ -17,7 +17,7 @@ const destinations = [
     description: "Lincoln Memorial, Washington Monument, US Capitol, WWII Memorial, MLK Memorial, Jefferson Memorial, Arlington Cemetery",
     activities: 15,
     duration: "2-3 hours",
-    isUnlocked: true,
+    isUnlocked: true, // Only Lincoln Memorial is free
     image: washingtonDCImg
   },
   {
@@ -35,7 +35,7 @@ const destinations = [
     description: "Freedom Trail, Boston Tea Party Ships, USS Constitution, James Otis Revolutionary Activities",
     activities: 1,
     duration: "2-3 hours",
-    isUnlocked: true,
+    isUnlocked: false, // Requires authentication
     image: bostonImg
   },
   {
@@ -44,7 +44,7 @@ const destinations = [
     description: "Civil War battlefield, General Daniel Sickles story, Peach Orchard, Cemetery Ridge",
     activities: 1,
     duration: "2-3 hours",
-    isUnlocked: true,
+    isUnlocked: false, // Requires authentication
     image: gettysburgImg
   },
   {
@@ -71,7 +71,7 @@ const destinations = [
     description: "Place Royale, Samuel de Champlain settlement, birthplace of French America",
     activities: 1,
     duration: "2-3 hours",
-    isUnlocked: true,
+    isUnlocked: false, // Requires authentication
     image: quebecCityImg
   }
 ];
