@@ -32,7 +32,7 @@ const Navigation = () => {
           <div className="flex items-center">
             <a href="https://globaleducationaltours.com" target="_blank" rel="noopener noreferrer">
               <img 
-                src="http://staging2.globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" 
+                src="/global-educational-tours-logo.jpeg" 
                 alt="Global Educational Tours" 
                 className="h-10 w-auto"
               />

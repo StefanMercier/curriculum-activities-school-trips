@@ -15,7 +15,7 @@ const bostonActivities = [
     title: "James Otis & Revolutionary Boston",
     description: "Explore the philosophical foundations of the American Revolution through James Otis's speeches and Boston's revolutionary events.",
     image: jamesOtisImg,
-    duration: "2-3 hours",
+    duration: "10-20 minutes",
     students: "All grades",
     objectives: [
       "Understand Boston's role as the center of revolutionary activity",
@@ -68,7 +68,7 @@ const Boston = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
-                <span>2-3 hours per activity</span>
+                <span>10-20 min per activity</span>
               </div>
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4" />

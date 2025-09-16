@@ -17,7 +17,7 @@ const destinations = [
     title: "Washington DC",
     description: "Lincoln Memorial, Washington Monument, US Capitol, WWII Memorial, MLK Memorial, Jefferson Memorial, Arlington Cemetery",
     activities: 15,
-    duration: "2-3 hours",
+    duration: "10-20 min per activity",
     isUnlocked: true, // Only Lincoln Memorial is free
     image: washingtonDCImg
   },
@@ -35,7 +35,7 @@ const destinations = [
     title: "Boston",
     description: "Freedom Trail, Boston Tea Party Ships, USS Constitution, James Otis Revolutionary Activities",
     activities: 1,
-    duration: "2-3 hours",
+    duration: "10-20 min per activity",
     isUnlocked: false, // Requires authentication
     image: bostonImg
   },
@@ -44,7 +44,7 @@ const destinations = [
     title: "Gettysburg",
     description: "Civil War battlefield, General Daniel Sickles story, Peach Orchard, Cemetery Ridge",
     activities: 1,
-    duration: "2-3 hours",
+    duration: "10-20 min per activity",
     isUnlocked: false, // Requires authentication
     image: gettysburgImg
   },
@@ -71,7 +71,7 @@ const destinations = [
     title: "Quebec City",
     description: "Place Royale, Samuel de Champlain settlement, birthplace of French America",
     activities: 1,
-    duration: "2-3 hours",
+    duration: "10-20 min per activity",
     isUnlocked: false, // Requires authentication
     image: quebecCityImg
   }
@@ -117,7 +117,8 @@ const DestinationsOverview = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Interactive educational activities for America's most historic destinations. 
-            Each location features curriculum-aligned materials and engaging student activities.
+            Each activity takes 10-20 minutes, and with multiple activities per destination, 
+            total experience ranges from 1-3 hours depending on how many you choose.
           </p>
         </div>
 

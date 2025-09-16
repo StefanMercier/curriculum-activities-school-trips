@@ -15,7 +15,7 @@ const quebecActivities = [
     title: "Place Royale & Samuel de Champlain",
     description: "Explore the birthplace of French America and the first permanent French settlement in North America at Place Royale in Quebec City.",
     image: placeRoyaleImg,
-    duration: "2-3 hours",
+    duration: "10-20 minutes",
     students: "All grades",
     objectives: [
       "Understand Place Royale's significance as the birthplace of French America",
@@ -68,7 +68,7 @@ const Quebec = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
-                <span>2-3 hours per activity</span>
+                <span>10-20 min per activity</span>
               </div>
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4" />
