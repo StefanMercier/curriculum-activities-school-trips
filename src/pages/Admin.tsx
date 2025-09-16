@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Plus, Save, Trash2 } from "lucide-react";
+import { Plus, Save, Trash2, Users, Mail, Phone, MapPin } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { toast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Admin = () => {
   const [activities, setActivities] = useState([
@@ -20,6 +21,9 @@ const Admin = () => {
       htmlContent: "<div>Sample Lincoln Memorial Activity HTML Content</div>"
     }
   ]);
+
+  const [leads, setLeads] = useState([]);
+  const [loadingLeads, setLoadingLeads] = useState(true);
 
   const [newActivity, setNewActivity] = useState({
     title: "",
@@ -39,6 +43,37 @@ const Admin = () => {
     "Montreal",
     "Quebec City"
   ];
+
+  // Fetch leads from database
+  const fetchLeads = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('leads')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching leads:', error);
+        toast({
+          title: "Error",
+          description: "Failed to fetch leads",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      setLeads(data || []);
+    } catch (error) {
+      console.error('Error fetching leads:', error);
+    } finally {
+      setLoadingLeads(false);
+    }
+  };
+
+  // Load leads on component mount
+  useEffect(() => {
+    fetchLeads();
+  }, []);
 
   const handleSaveActivity = () => {
     if (!newActivity.title || !newActivity.destination || !newActivity.htmlContent) {
@@ -90,7 +125,7 @@ const Admin = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Add New Activity */}
             <Card>
               <CardHeader>
@@ -211,6 +246,78 @@ const Admin = () => {
                     </p>
                   )}
                 </div>
+              </CardContent>
+            </Card>
+
+            {/* Leads/Signups */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="h-5 w-5" />
+                  Signups ({leads.length})
+                </CardTitle>
+                <CardDescription>
+                  People who have requested access to materials
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                {loadingLeads ? (
+                  <div className="text-center py-8 text-muted-foreground">
+                    Loading signups...
+                  </div>
+                ) : (
+                  <div className="space-y-4 max-h-96 overflow-y-auto">
+                    {leads.map((lead) => (
+                      <div key={lead.id} className="border rounded-lg p-4 space-y-2">
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <h3 className="font-semibold">{lead.first_name} {lead.last_name}</h3>
+                            <div className="space-y-1 text-sm text-muted-foreground">
+                              <div className="flex items-center gap-2">
+                                <Mail className="h-3 w-3" />
+                                {lead.email}
+                              </div>
+                              {lead.phone_number && (
+                                <div className="flex items-center gap-2">
+                                  <Phone className="h-3 w-3" />
+                                  {lead.phone_number}
+                                </div>
+                              )}
+                              {lead.zip_code && (
+                                <div className="flex items-center gap-2">
+                                  <MapPin className="h-3 w-3" />
+                                  {lead.zip_code}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                          <span className={`text-xs px-2 py-1 rounded-full ${
+                            lead.access_granted 
+                              ? 'bg-green-100 text-green-800' 
+                              : 'bg-yellow-100 text-yellow-800'
+                          }`}>
+                            {lead.access_granted ? 'Access Granted' : 'Pending'}
+                          </span>
+                        </div>
+                        {lead.school_group && (
+                          <p className="text-sm"><strong>School:</strong> {lead.school_group}</p>
+                        )}
+                        {lead.activity_title && (
+                          <p className="text-sm"><strong>Activity Interest:</strong> {lead.activity_title}</p>
+                        )}
+                        <p className="text-xs text-muted-foreground">
+                          Signed up: {new Date(lead.created_at).toLocaleDateString()}
+                        </p>
+                      </div>
+                    ))}
+                    
+                    {leads.length === 0 && (
+                      <p className="text-center text-muted-foreground py-8">
+                        No signups yet. Share your materials to get started.
+                      </p>
+                    )}
+                  </div>
+                )}
               </CardContent>
             </Card>
           </div>
