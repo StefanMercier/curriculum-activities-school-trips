@@ -1,25 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lock, Users, BookOpen } from "lucide-react";
 import LeadCaptureForm from "./LeadCaptureForm";
+import { useUserAccess } from "@/hooks/useUserAccess";
 
 interface ActivityGateProps {
   children: React.ReactNode;
 }
 
 const ActivityGate = ({ children }: ActivityGateProps) => {
-  const [isUnlocked, setIsUnlocked] = useState(false);
   const [showLeadForm, setShowLeadForm] = useState(false);
+  const { hasAccess, grantAccess } = useUserAccess();
 
-  const handleLeadSubmit = (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => {
+  const handleLeadSubmit = async (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => {
     console.log("Lead captured:", data);
-    // In a real app, you would send this to your backend
     setShowLeadForm(false);
-    setIsUnlocked(true);
+    
+    // Grant access using the email
+    await grantAccess(data.email);
   };
 
-  if (isUnlocked) {
+  if (hasAccess) {
     return <>{children}</>;
   }
 

@@ -1,17 +1,22 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Shield, LogOut } from "lucide-react";
 import LeadCaptureForm from "./LeadCaptureForm";
+import AdminLogin from "./AdminLogin";
+import { useUserAccess } from "@/hooks/useUserAccess";
 
 const Navigation = () => {
   const [showLeadForm, setShowLeadForm] = useState(false);
+  const [showAdminLogin, setShowAdminLogin] = useState(false);
+  const { hasAccess, isAdmin, userEmail, revokeAccess, grantAccess } = useUserAccess();
 
-  const handleLeadSubmit = (data: { firstName: string; lastName: string; email: string; zipCode: string; phoneNumber: string }) => {
+  const handleLeadSubmit = async (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => {
     console.log("Lead captured:", data);
-    // In a real app, you would send this to your backend
     setShowLeadForm(false);
-    // Redirect to materials or show success message
+    
+    // Grant access using the email
+    await grantAccess(data.email);
   };
 
   const navItems = [
@@ -51,13 +56,40 @@ const Navigation = () => {
               <Phone className="h-4 w-4" />
               <span>802-377-3311</span>
             </div>
-            <Button 
-              variant="hero" 
-              size="sm"
-              onClick={() => setShowLeadForm(true)}
-            >
-              Access Materials
-            </Button>
+            
+            {hasAccess ? (
+              <div className="flex items-center gap-2">
+                <span className="text-sm">
+                  {isAdmin ? 'Admin Access' : `Welcome, ${userEmail}`}
+                </span>
+                <Button 
+                  onClick={revokeAccess}
+                  variant="outline" 
+                  size="sm"
+                >
+                  <LogOut className="h-4 w-4 mr-1" />
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <div className="flex gap-2">
+                <Button 
+                  onClick={() => setShowLeadForm(true)}
+                  variant="hero" 
+                  size="sm"
+                >
+                  Access Materials
+                </Button>
+                <Button 
+                  onClick={() => setShowAdminLogin(true)}
+                  variant="outline" 
+                  size="sm"
+                >
+                  <Shield className="h-4 w-4 mr-1" />
+                  Admin
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -68,6 +100,10 @@ const Navigation = () => {
           onClose={() => setShowLeadForm(false)}
           onSubmit={handleLeadSubmit}
         />
+      )}
+      
+      {showAdminLogin && (
+        <AdminLogin onClose={() => setShowAdminLogin(false)} />
       )}
     </nav>
   );

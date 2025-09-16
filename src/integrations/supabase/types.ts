@@ -14,13 +14,78 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admin_users: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+        }
+        Relationships: []
+      }
+      leads: {
+        Row: {
+          access_granted: boolean | null
+          activity_title: string | null
+          created_at: string
+          email: string
+          first_name: string
+          has_organized_trip: string | null
+          id: string
+          last_name: string
+          phone_number: string | null
+          school_group: string | null
+          updated_at: string
+          zip_code: string | null
+        }
+        Insert: {
+          access_granted?: boolean | null
+          activity_title?: string | null
+          created_at?: string
+          email: string
+          first_name: string
+          has_organized_trip?: string | null
+          id?: string
+          last_name: string
+          phone_number?: string | null
+          school_group?: string | null
+          updated_at?: string
+          zip_code?: string | null
+        }
+        Update: {
+          access_granted?: boolean | null
+          activity_title?: string | null
+          created_at?: string
+          email?: string
+          first_name?: string
+          has_organized_trip?: string | null
+          id?: string
+          last_name?: string
+          phone_number?: string | null
+          school_group?: string | null
+          updated_at?: string
+          zip_code?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      check_user_access: {
+        Args: { user_email: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never

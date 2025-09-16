@@ -5,6 +5,7 @@ import { ArrowLeft, Users, Clock, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { useUserAccess } from "@/hooks/useUserAccess";
 import lincolnMemorialImg from "@/assets/lincoln-memorial.jpg";
 import mlkMemorialImg from "@/assets/mlk-memorial.jpg";
 import jeffersonMemorialImg from "@/assets/jefferson-memorial.jpg";
@@ -177,6 +178,7 @@ const washingtonActivities = [
 const WashingtonDC = () => {
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [selectedActivity, setSelectedActivity] = useState<string>("");
+  const { hasAccess, grantAccess } = useUserAccess();
 
   const handleActivityClick = (activity: typeof washingtonActivities[0]) => {
     if (activity.isUnlocked) {
@@ -289,10 +291,10 @@ const WashingtonDC = () => {
                   
                   <Button 
                     variant="default"
-                    className={activity.isUnlocked ? "w-full" : "w-full bg-yellow-500 hover:bg-yellow-600 text-black"}
+                    className={hasAccess || activity.isUnlocked ? "w-full" : "w-full bg-yellow-500 hover:bg-yellow-600 text-black"}
                     onClick={() => handleActivityClick(activity)}
                   >
-                    {activity.isUnlocked ? "View Activity Details" : "Unlock Activity"}
+                    {hasAccess || activity.isUnlocked ? "View Activity Details" : "Unlock Activity"}
                   </Button>
                 </CardContent>
               </Card>

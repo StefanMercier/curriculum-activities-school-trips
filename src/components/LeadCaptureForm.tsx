@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { X } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 interface LeadCaptureFormProps {
   activityTitle: string;
@@ -22,8 +23,29 @@ const LeadCaptureForm = ({ activityTitle, onClose, onSubmit }: LeadCaptureFormPr
     hasOrganizedTrip: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Save to database
+    try {
+      const { error } = await supabase.from('leads').insert({
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        school_group: formData.schoolGroup,
+        zip_code: formData.zipCode,
+        phone_number: formData.phoneNumber,
+        has_organized_trip: formData.hasOrganizedTrip,
+        activity_title: activityTitle,
+      });
+
+      if (error) {
+        console.error('Error saving lead:', error);
+      }
+    } catch (error) {
+      console.error('Error saving lead:', error);
+    }
+
     onSubmit(formData);
   };
 

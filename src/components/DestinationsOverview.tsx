@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { MapPin, Users, Clock, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import LeadCaptureForm from "./LeadCaptureForm";
+import { useUserAccess } from "@/hooks/useUserAccess";
 import washingtonDCImg from "@/assets/washington-dc.jpg";
 import newYorkCityImg from "@/assets/new-york-city.jpg";
 import bostonImg from "@/assets/boston.jpg";
@@ -80,9 +81,10 @@ const DestinationsOverview = () => {
   const navigate = useNavigate();
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [selectedDestination, setSelectedDestination] = useState<string>("");
+  const { hasAccess, grantAccess } = useUserAccess();
 
   const handleDestinationClick = (destination: typeof destinations[0]) => {
-    if (destination.isUnlocked) {
+    if (hasAccess || destination.isUnlocked) {
       if (destination.id === "washington-dc") {
         navigate("/washington-dc");
       } else if (destination.id === "gettysburg") {
@@ -98,10 +100,12 @@ const DestinationsOverview = () => {
     }
   };
 
-  const handleLeadSubmit = (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => {
+  const handleLeadSubmit = async (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => {
     console.log("Lead captured:", data);
     setShowLeadForm(false);
-    // In a real app, this would unlock the destination
+    
+    // Grant access using the email
+    await grantAccess(data.email);
   };
 
   return (
@@ -159,11 +163,11 @@ const DestinationsOverview = () => {
                 </div>
                 
                   <Button 
-                    variant={destination.isUnlocked ? "default" : "hero"}
-                    className={destination.isUnlocked ? "w-full" : "w-full bg-yellow-500 hover:bg-yellow-600 text-black"}
                     onClick={() => handleDestinationClick(destination)}
+                    variant={hasAccess || destination.isUnlocked ? "default" : "hero"}
+                    className={hasAccess || destination.isUnlocked ? "w-full" : "w-full bg-yellow-500 hover:bg-yellow-600 text-black"}
                   >
-                    {destination.isUnlocked ? "Explore Activities" : (destination.activities > 0 ? "Unlock Activities" : "Coming Soon")}
+                    {hasAccess || destination.isUnlocked ? "Explore Activities" : (destination.activities > 0 ? "Unlock Activities" : "Coming Soon")}
                   </Button>
               </CardContent>
             </Card>

@@ -5,6 +5,7 @@ import { ArrowLeft, Users, Clock, MapPin, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import { useUserAccess } from "@/hooks/useUserAccess";
 import danielSicklesImg from "@/assets/daniel-sickles.jpg";
 import battleOfGettysburgImg from "@/assets/battle-of-gettysburg.jpg";
 
@@ -34,10 +35,10 @@ const gettysburgActivities = [
 const Gettysburg = () => {
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [selectedActivity, setSelectedActivity] = useState<string>("");
+  const { hasAccess, grantAccess } = useUserAccess();
 
   const handleActivityClick = (activity: typeof gettysburgActivities[0]) => {
-    if (activity.isUnlocked) {
-      // Open the activity HTML file in a new tab
+    if (hasAccess || activity.isUnlocked) {
       window.open(`/activities/${activity.id}.html`, '_blank');
     } else {
       setSelectedActivity(activity.title);
@@ -45,9 +46,12 @@ const Gettysburg = () => {
     }
   };
 
-  const handleLeadSubmit = (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => {
+  const handleLeadSubmit = async (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => {
     console.log("Lead captured:", data);
     setShowLeadForm(false);
+    
+    // Grant access using the email
+    await grantAccess(data.email);
   };
 
   return (
@@ -129,11 +133,11 @@ const Gettysburg = () => {
                 </div>
                 
                 <Button 
-                  variant={activity.isUnlocked ? "default" : "hero"}
-                  className={activity.isUnlocked ? "w-full" : "w-full bg-yellow-500 hover:bg-yellow-600 text-black"}
                   onClick={() => handleActivityClick(activity)}
+                  variant={hasAccess || activity.isUnlocked ? "default" : "hero"}
+                  className={hasAccess || activity.isUnlocked ? "w-full" : "w-full bg-yellow-500 hover:bg-yellow-600 text-black"}
                 >
-                  {activity.isUnlocked ? "Start Activity" : "Unlock Activity"}
+                  {hasAccess || activity.isUnlocked ? "Start Activity" : "Unlock Activity"}
                 </Button>
               </CardContent>
             </Card>
