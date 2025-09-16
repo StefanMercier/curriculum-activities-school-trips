@@ -36,14 +36,18 @@ export const useUserAccess = () => {
 
   const checkIsAdmin = async (email: string) => {
     try {
-      const { data, error } = await supabase
-        .from('admin_users')
-        .select('email')
-        .eq('email', email)
-        .single();
+      const { data, error } = await supabase.rpc('check_is_admin', {
+        user_email: email,
+      });
 
-      return !error && !!data;
+      if (error) {
+        console.error('Error checking admin status:', error);
+        return false;
+      }
+
+      return data;
     } catch (error) {
+      console.error('Error checking admin status:', error);
       return false;
     }
   };
