@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import danielSicklesImg from "@/assets/daniel-sickles.jpg";
+import battleOfGettysburgImg from "@/assets/battle-of-gettysburg.jpg";
 
 const gettysburgActivities = [
   {
@@ -16,7 +17,17 @@ const gettysburgActivities = [
     participants: "25-30 students",
     difficulty: "Intermediate",
     image: danielSicklesImg,
-    isUnlocked: true
+    isUnlocked: false // Requires authentication
+  },
+  {
+    id: "battle-of-gettysburg",
+    title: "Battle of Gettysburg",
+    description: "Explore the decisive three-day engagement that marked the turning point of the American Civil War through strategic analysis, timeline events, and interactive battlefield decision-making.",
+    duration: "60 minutes",
+    participants: "25-35 students",
+    difficulty: "Advanced",
+    image: battleOfGettysburgImg,
+    isUnlocked: false // Requires authentication
   }
 ];
 

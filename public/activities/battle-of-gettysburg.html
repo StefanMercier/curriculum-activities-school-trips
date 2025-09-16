@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle of Gettysburg | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .gettysburg-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .battle-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .battle-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .casualty-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .casualty-table th, .casualty-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .casualty-table th {
+            background-color: #f2f2f2;
+        }
+        .general-card {
+            background-color: #f0f7fc;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .general-name {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Battle of Gettysburg</h1>
+        <h2>The Turning Point of the Civil War</h2>
+    </div>
+    
+    <img src="https://www.nps.gov/gett/learn/historyculture/images/gettysburg-battle-map.jpg" alt="Battle of Gettysburg Map" class="gettysburg-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores the Battle of Gettysburg—the decisive three-day engagement that marked the turning point of the American Civil War. We'll examine the strategies, key moments, leadership decisions, and profound human cost of this pivotal battle that ended Confederate hopes for Northern invasion.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Background and Strategic Context
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> Day 1 - The Battle Begins
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> Day 2 - Flanking Maneuvers
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Day 3 - Pickett's Charge and Aftermath
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">Gettysburg Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Dates: July 1-3, 1863</div>
+                <div class="fact-item">Union Commander: George Meade</div>
+                <div class="fact-item">Confederate Commander: Robert E. Lee</div>
+                <div class="fact-item">Union Strength: ~85,000</div>
+                <div class="fact-item">Confederate Strength: ~75,000</div>
+                <div class="fact-item">Total Casualties: ~51,000</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Strategic Context Analyst</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Why did Robert E. Lee risk his entire army on a second invasion of Northern territory just two months after his greatest victory?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">Post-Chancellorsville Confidence</div>
+                        <p>After his stunning victory at Chancellorsville (May 2-4, 1863), Lee divided his Army of Northern Virginia into three corps commanded by:</p>
+                        <div class="general-card">
+                            <span class="general-name">James Longstreet</span> - First Corps
+                        </div>
+                        <div class="general-card">
+                            <span class="general-name">Richard S. Ewell</span> - Second Corps (replacing Stonewall Jackson)
+                        </div>
+                        <div class="general-card">
+                            <span class="general-name">A.P. Hill</span> - Third Corps
+                        </div>
+                        <p>This reorganization followed Stonewall Jackson's death after Chancellorsville.</p>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Lee's Strategic Objectives:</div>
+                        <p>• Relieve pressure on war-torn Virginia<br>
+                        • Threaten Northern cities to demoralize Union population<br>
+                        • Win a decisive victory on Northern soil<br>
+                        • Potentially force European recognition of the Confederacy<br>
+                        • Encourage Northern peace movements</p>
+                    </div>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">The Invasion Route</div>
+                        <p>Lee's army crossed the Blue Ridge Mountains, moved up the Shenandoah Valley, crossed Maryland, and entered Pennsylvania. The campaign aimed to live off Northern resources while drawing the Union army into battle under favorable conditions.</p>
+                    </div>
+                    
+                    <div class="quote">
+                        "The enemy is there, and I am going to attack him there." - Robert E. Lee, upon learning Union forces were concentrated at Gettysburg
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Lee's decision to invade Pennsylvania represented both strategic calculation and overconfidence—a gamble that the Army of Northern Virginia could win any battle, anywhere, despite being outnumbered and deep in enemy territory."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Day 1 Chronologist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did a chance encounter between searching Confederates and waiting Union troops escalate into the largest battle ever fought in North America?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">June 30 - The Prelude</div>
+                        <p>Confederate troops searching for supplies spotted Union cavalry under General John Buford positioned west of Gettysburg. Both sides realized the strategic importance of the road network converging at this small Pennsylvania town.</p>
+                    </div>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">July 1 - The Battle Begins</div>
+                        <p>The battle opened with an encounter between A.P. Hill's Confederate corps and Union cavalry under General Buford, who dismounted his troopers to fight as infantry while buying time for Union reinforcements.</p>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Key Events - Day 1:</div>
+                        <p>• <strong>First Shot:</strong> Fired by Lt. Marcellus Jones of the 8th Illinois Cavalry at a mounted Confederate officer<br>
+                        • <strong>Union General John Reynolds</strong> killed while directing troops<br>
+                        • Confederates forced Union troops back through town to defensive positions on Cemetery Hill and Culp's Hill<br>
+                        • <strong>Over 4,000 Union soldiers</strong> captured during retreat through Gettysburg<br>
+                        • <strong>General James Archer</strong> became first Confederate general captured since Lee took command</p>
+                    </div>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">End of Day 1</div>
+                        <p>By evening, Confederates held the town but Union forces established strong defensive positions on the high ground south of Gettysburg—Cemetery Hill, Culp's Hill, and Cemetery Ridge. This "fishhook" formation would prove crucial in the coming days.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The first day's fighting established the battle lines that would define the next two days—with Union forces securing the defensive high ground that Confederate attacks would repeatedly fail to dislodge."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Day 2 Tactician</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did Union defense and Confederate coordination failures on the second day determine the battle's outcome before Pickett's famous charge?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">Union Defensive Positions</div>
+                        <p>General Meade arranged his Army of the Potomac in a strong "fishhook" formation: <br>
+                        • Right flank: Culp's Hill<br>
+                        • Center: Cemetery Ridge<br>
+                        • Left flank: Little Round Top and Round Top<br>
+                        This position allowed interior lines and rapid troop movement between threatened sectors.</p>
+                    </div>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">Lee's Flanking Plan</div>
+                        <p>Lee ordered coordinated attacks on both Union flanks: <br>
+                        • Ewell to attack Culp's Hill and Cemetery Hill<br>
+                        • Longstreet to attack the Union left flank<br>
+                        • Hill to maintain center and support where needed<br>
+                        However, the attacks were poorly coordinated and delayed.</p>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Key Battles - Day 2:</div>
+                        <p>• <strong>Little Round Top:</strong> Colonel Joshua Chamberlain's 20th Maine held the extreme left flank in desperate fighting<br>
+                        • <strong>Peach Orchard, Wheatfield, Devil's Den:</strong> Fierce fighting as Longstreet's corps attacked Union positions<br>
+                        • <strong>Culp's Hill:</strong> Confederates captured part of the hill but couldn't break Union lines<br>
+                        • <strong>Longstreet's Delay:</strong> His late attack allowed Union reinforcements to strengthen positions</p>
+                    </div>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">Evening Council of War</div>
+                        <p>Despite heavy losses and pressure on both flanks, Meade's lines held. At an evening council, Union commanders voted unanimously to stay and fight rather than retreat—a crucial decision that set the stage for the third day.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The second day's fighting demonstrated both the strength of Union defensive positions and the coordination problems that would doom Confederate efforts—foreshadowing the failure of Lee's strategy even before the famous charge on the third day."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Day 3 and Legacy Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Why did Lee order Pickett's Charge against overwhelming odds, and how did its failure transform the entire Civil War?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">Pickett's Charge</div>
+                        <p>On July 3, Lee ordered a massive assault on the Union center on Cemetery Ridge: <br>
+                        • Approximately 12,500 Confederate soldiers across three divisions<br>
+                        • Preceded by the largest artillery bombardment of the war<br>
+                        • Attack delayed until afternoon due to coordination issues<br>
+                        • Faced devastating Union artillery and rifle fire across open ground</p>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">The Charge and Repulse:</div>
+                        <p>• Confederates briefly breached Union lines at the "Angle"<br>
+                        • Union reinforcements rushed to plug the gap<br>
+                        • Attackers suffered over 50% casualties<br>
+                        • Only a few hundred Confederates reached Union lines<br>
+                        • The attack collapsed in less than an hour</p>
+                    </div>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">Aftermath and Retreat</div>
+                        <p>With Pickett's Charge repulsed, the battle effectively ended. On July 4, Lee began his retreat to Virginia, expecting a counterattack that never came due to heavy rains and Union exhaustion. The Army of Northern Virginia had suffered losses from which it would never fully recover.</p>
+                    </div>
+                    
+                    <table class="casualty-table">
+                        <thead>
+                            <tr>
+                                <th>Army</th>
+                                <th>Killed</th>
+                                <th>Wounded</th>
+                                <th>Missing/Captured</th>
+                                <th>Total</th>
+                                <th>% of Force</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Union</td>
+                                <td>3,155</td>
+                                <td>14,530</td>
+                                <td>5,365</td>
+                                <td>23,040</td>
+                                <td>27%</td>
+                            </tr>
+                            <tr>
+                                <td>Confederate</td>
+                                <td>3,903*</td>
+                                <td>18,735*</td>
+                                <td>5,425*</td>
+                                <td>28,063*</td>
+                                <td>39%*</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-style: italic; text-align: center;">*Estimated figures - Confederate records were less complete</p>
+                    
+                    <div class="battle-card">
+                        <div class="battle-name">Historical Significance</div>
+                        <p>Gettysburg marked: <br>
+                        • The end of Confederate offensive operations in the North<br>
+                        • The failure of Lee's invasion strategy<br>
+                        • A psychological turning point in the war<br>
+                        • The beginning of the end for the Confederacy<br>
+                        • The site of Lincoln's Gettysburg Address months later</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Pickett's Charge represented the high-water mark of the Confederacy—both literally and symbolically. Its failure ensured that Gettysburg would be remembered not just as a battle loss, but as the turning point that doomed the Confederate cause and preserved the United States."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Strategic Context Analyst</h4>
+                <p>"After his victory at Chancellorsville, Robert E. Lee reorganized his army into three corps under Longstreet, Ewell, and Hill, then invaded Pennsylvania seeking to relieve pressure on Virginia, demoralize the North, and potentially force European recognition of the Confederacy. His Army of Northern Virginia crossed the Blue Ridge Mountains, moved up the Shenandoah Valley, and entered Pennsylvania, living off Northern resources while trying to draw Union forces into battle under favorable conditions. When Lee learned Union troops were concentrated at Gettysburg, he decided to attack there despite being outnumbered, believing his army could win any engagement."</p>
+                
+                <h4>Day 1 Chronologist</h4>
+                <p>"The battle began accidentally on July 1 when Confederate troops searching for supplies encountered Union cavalry west of Gettysburg. The first shot was fired by Lt. Marcellus Jones of the 8th Illinois Cavalry. General John Buford's dismounted cavalry fought a delaying action against A.P. Hill's corps until Union infantry arrived. Tragically, General John Reynolds was killed directing reinforcements. Confederates drove Union forces through the town, capturing over 4,000 soldiers, but the Union established strong defensive positions on Cemetery Hill, Culp's Hill, and Cemetery Ridge—the 'fishhook' formation that would prove crucial. By day's end, Confederates held the town but faced Union troops on the high ground."</p>
+                
+                <h4>Day 2 Tactician</h4>
+                <p>"On July 2, Meade arranged his forces in a strong defensive 'fishhook' from Culp's Hill to Little Round Top. Lee planned coordinated attacks on both Union flanks, but poor coordination and delays plagued Confederate efforts. Longstreet's late attack on the Union left led to fierce fighting at Little Round Top (where Chamberlain's 20th Maine held the flank), Devil's Den, the Wheatfield, and Peach Orchard. On the right, Ewell attacked Culp's Hill but only captured part of it. Despite heavy pressure, Union lines held. At an evening council, Meade's commanders unanimously voted to stay and fight—a crucial decision that set the stage for the third day's dramatic events."</p>
+                
+                <h4>Day 3 and Legacy Expert</h4>
+                <p>"On July 3, Lee ordered Pickett's Charge—a massive assault by 12,500 Confederates against the Union center on Cemetery Ridge. After the largest artillery bombardment of the war, the infantry advanced across open ground into devastating Union fire. Though briefly penetrating Union lines at the 'Angle,' the attack collapsed with over 50% casualties. This repulse marked the 'high-water mark of the Confederacy.' Lee retreated on July 4, his army never to recover fully. The battle cost approximately 51,000 total casualties, making it the bloodiest of the war. Gettysburg ended Confederate offensive operations in the North and marked the turning point of the Civil War, setting the stage for ultimate Union victory."</p>
+            </div>
+        </div>
+        
+        <img src="https://www.nps.gov/gett/learn/historyculture/images/High-Water-Mark.jpg" alt="High Water Mark at Gettysburg" class="gettysburg-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why is Gettysburg considered the turning point of the Civil War?</button>
+                <p id="answer1" class="hidden">Gettysburg is considered the turning point because it ended Confederate offensive operations in the North, destroyed Lee's aura of invincibility, and caused casualties from which the Army of Northern Virginia never fully recovered. Combined with the fall of Vicksburg the next day, it reversed the war's momentum permanently in favor of the Union. The defeat ended Confederate hopes for European recognition and forced Lee to fight a defensive war that ultimately led to defeat due to the North's superior resources and manpower.</p>
+                
+                <button onclick="showAnswer('answer2')">What was Lee's biggest mistake at Gettysburg?</button>
+                <p id="answer2" class="hidden">Most historians identify several key mistakes: (1) Ordering Pickett's Charge against entrenched positions across open ground; (2) Failing to coordinate attacks properly on July 2; (3) Attacking the Union army while outnumbered and in strong defensive positions; (4) Dispensing with cavalry (J.E.B. Stuart was absent gathering intelligence) which left him blind to Union positions; and (5) Underestimating the Army of the Potomac's fighting ability after Chancellorsville. Lee's characteristic aggressiveness, which served him well previously, proved disastrous at Gettysburg.</p>
+                
+                <button onclick="showAnswer('answer3')">Why didn't Meade pursue Lee after the battle?</button>
+                <p id="answer3" class="hidden">Meade didn't pursue Lee aggressively for several reasons: (1) The Army of the Potomac had suffered nearly 23,000 casualties and was exhausted; (2) Heavy rains made roads impassable and hindered movement; (3) Meade needed to reorganize his battered army; (4) He feared a Confederate counterattack if he advanced recklessly; (5) The Union command structure was still consolidating after Meade had only recently taken command. While Lincoln was frustrated by the lack of pursuit, most military historians believe Meade's caution was reasonable given his army's condition and the need to preserve this hard-won victory.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Battlefield Decision Simulation</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Take on roles of Union and Confederate commanders</li>
+                    <li>Analyze maps of Gettysburg battlefield positions</li>
+                    <li>Consider the same decisions faced by Lee and Meade each day</li>
+                    <li>Debate alternative strategies and their potential outcomes</li>
+                    <li>Compare their decisions with historical choices</li>
+                    <li>Create a presentation on key turning points in the battle</li>
+                    <li>Discuss how leadership decisions impact historical outcomes</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">Gettysburg Human Stories</div>
+                <div class="facts-grid">
+                    <div class="fact-item">Jennie Wade: Only civilian killed</div>
+                    <div class="fact-item">Artillery shell in Trostle Barn</div>
+                    <div class="fact-item">First monument: 1879</div>
+                    <div class="fact-item">Lincoln's Address: Nov 1863</div>
+                    <div class="fact-item">Chamberlain's bayonet charge</div>
+                    <div class="fact-item">Stuart's absence affected Lee</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand Gettysburg's significance as the Civil War's turning point</li>
+                <li>Analyze the strategic decisions made by Union and Confederate commanders</li>
+                <li>Identify key locations and their importance in the battle's outcome</li>
+                <li>Recognize the human cost and personal stories of the battle</li>
+                <li>Connect military events to broader historical consequences</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your educational trip to Gettysburg with</p>
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
