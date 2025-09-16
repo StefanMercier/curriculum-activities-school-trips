@@ -8,6 +8,7 @@ import LeadCaptureForm from "@/components/LeadCaptureForm";
 import bostonHeroImg from "@/assets/boston.jpg";
 import jamesOtisImg from "@/assets/james-otis.jpg";
 import { useNavigate } from "react-router-dom";
+import { useUserAccess } from "@/hooks/useUserAccess";
 
 const bostonActivities = [
   {
@@ -30,14 +31,48 @@ const Boston = () => {
   const navigate = useNavigate();
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [selectedActivity, setSelectedActivity] = useState<string>("");
+  const { hasAccess, grantAccess, loading } = useUserAccess();
 
   const handleActivityClick = (activityId: string) => {
-    window.open(`/activities/${activityId}.html`, '_blank');
+    // Check access before launching activity
+    if (hasAccess) {
+      window.open(`/activities/${activityId}.html`, '_blank');
+    } else {
+      setSelectedActivity(activityId);
+      setShowLeadForm(true);
+    }
+  };
+
+  const handleLeadSubmit = async (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => {
+    console.log("Lead captured:", data);
+    setShowLeadForm(false);
+    
+    // Grant access using the email
+    await grantAccess(data.email);
+    
+    // Launch the activity after granting access
+    if (selectedActivity) {
+      window.open(`/activities/${selectedActivity}.html`, '_blank');
+    }
   };
 
   const handleBackToDestinations = () => {
     navigate("/");
   };
+
+  // Show loading state while checking authentication
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="container mx-auto px-4 py-20">
+          <div className="text-center">
+            <p className="text-muted-foreground">Loading...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -129,10 +164,11 @@ const Boston = () => {
                   </div>
                   
                   <Button 
-                    className="w-full" 
+                    className={hasAccess ? "w-full" : "w-full bg-yellow-500 hover:bg-yellow-600 text-black"}
+                    variant={hasAccess ? "default" : "hero"}
                     onClick={() => handleActivityClick(activity.id)}
                   >
-                    Launch Activity
+                    {hasAccess ? "Launch Activity" : "Unlock Activity"}
                   </Button>
                 </CardContent>
               </Card>
@@ -145,9 +181,9 @@ const Boston = () => {
 
       {showLeadForm && (
         <LeadCaptureForm
-          activityTitle={selectedActivity}
+          activityTitle={`Boston: ${selectedActivity}`}
           onClose={() => setShowLeadForm(false)}
-          onSubmit={() => setShowLeadForm(false)}
+          onSubmit={handleLeadSubmit}
         />
       )}
     </div>

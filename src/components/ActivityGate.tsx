@@ -11,7 +11,7 @@ interface ActivityGateProps {
 
 const ActivityGate = ({ children }: ActivityGateProps) => {
   const [showLeadForm, setShowLeadForm] = useState(false);
-  const { hasAccess, grantAccess } = useUserAccess();
+  const { hasAccess, grantAccess, loading } = useUserAccess();
 
   const handleLeadSubmit = async (data: { firstName: string; lastName: string; email: string; schoolGroup: string; zipCode: string; phoneNumber: string; hasOrganizedTrip: string }) => {
     console.log("Lead captured:", data);
@@ -20,6 +20,15 @@ const ActivityGate = ({ children }: ActivityGateProps) => {
     // Grant access using the email
     await grantAccess(data.email);
   };
+
+  // Don't show gate while loading authentication status
+  if (loading) {
+    return (
+      <div className="py-20 text-center">
+        <p className="text-muted-foreground">Loading...</p>
+      </div>
+    );
+  }
 
   if (hasAccess) {
     return <>{children}</>;

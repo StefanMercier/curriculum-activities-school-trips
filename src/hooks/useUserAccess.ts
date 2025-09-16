@@ -53,8 +53,11 @@ export const useUserAccess = () => {
   };
 
   const grantAccess = async (email: string) => {
+    console.log('🔐 Granting access for:', email);
     const hasAccess = await checkUserAccess(email);
     const isAdmin = await checkIsAdmin(email);
+    
+    console.log('✅ Access check result:', { hasAccess, isAdmin });
     
     setUserAccess({
       hasAccess,
@@ -84,16 +87,24 @@ export const useUserAccess = () => {
 
   // Check stored access on mount
   useEffect(() => {
-    const storedEmail = localStorage.getItem('userEmail');
-    const storedAccess = localStorage.getItem('hasAccess') === 'true';
-    const storedAdmin = localStorage.getItem('isAdmin') === 'true';
+    const checkStoredAccess = async () => {
+      const storedEmail = localStorage.getItem('userEmail');
+      const storedAccess = localStorage.getItem('hasAccess') === 'true';
+      const storedAdmin = localStorage.getItem('isAdmin') === 'true';
 
-    if (storedEmail && storedAccess) {
-      // Verify access is still valid
-      grantAccess(storedEmail);
-    } else {
-      setUserAccess(prev => ({ ...prev, loading: false }));
-    }
+      console.log('🚀 Checking stored access:', { storedEmail, storedAccess, storedAdmin });
+
+      if (storedEmail && storedAccess) {
+        console.log('🔄 Verifying stored access...');
+        // Verify access is still valid
+        await grantAccess(storedEmail);
+      } else {
+        console.log('❌ No valid stored access found');
+        setUserAccess(prev => ({ ...prev, loading: false }));
+      }
+    };
+
+    checkStoredAccess();
   }, []);
 
   return {
