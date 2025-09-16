@@ -113,7 +113,7 @@ const ContactSection = () => {
                 <div className="flex items-center justify-center">
                   <a href="https://globaleducationaltours.com" target="_blank" rel="noopener noreferrer">
                     <img 
-                      src="http://staging2.globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" 
+                      src="/global-educational-tours-logo.jpeg" 
                       alt="Global Educational Tours" 
                       className="h-16 w-auto"
                     />
@@ -140,19 +140,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-primary">Email Support</h3>
-                  <p className="text-muted-foreground">globaleducational@go.com or info@globeltours.com</p>
+                  <p className="text-muted-foreground">ca@GlobalEducationalTours.com</p>
                   <p className="text-sm text-muted-foreground">Response within 24 hours</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="bg-primary/10 p-3 rounded-full">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-primary">Washington DC Focus</h3>
-                  <p className="text-muted-foreground">Specialized activities for monuments and memorials</p>
-                  <p className="text-sm text-muted-foreground">Perfect for school trips and group visits</p>
                 </div>
               </div>
             </div>
