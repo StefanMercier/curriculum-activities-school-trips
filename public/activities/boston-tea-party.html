@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston Tea Party | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .breadcrumb {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+        }
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .tea-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .house-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .house-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .bullet-list {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .bullet-list li {
+            margin-bottom: 8px;
+        }
+        .glossary-term {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="/boston">← Back to Boston Activities</a>
+    </div>
+
+    <div class="header">
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Boston Tea Party</h1>
+        <h2>The Defiant Act That Sparked a Revolution</h2>
+    </div>
+    
+    <img src="/src/assets/boston-tea-party.jpg" alt="Boston Tea Party Historical Depiction" class="tea-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores the Boston Tea Party, the "boldest stroke which had yet been struck in America." We'll examine the economic policies that led to colonial unrest, the events of December 16, 1773, and how this act of defiance became a catalyst for the American Revolution.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Mercantilism and Colonial Tensions
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> The Tea Act and Colonial Response
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> The Night of December 16, 1773
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Aftermath and Legacy
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">Boston Tea Party Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Date: December 16, 1773</div>
+                <div class="fact-item">Location: Griffin's Wharf, Boston</div>
+                <div class="fact-item">Ships: Dartmouth, Eleanor, and Beaver</div>
+                <div class="fact-item">Tea Destroyed: 342 chests</div>
+                <div class="fact-item">Value Lost: ~£18,000</div>
+                <div class="fact-item">Modern Value: ~$1.7 million</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Economic Policy Analyst</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did an economic theory developed in Europe create the conditions for rebellion in the American colonies?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Mercantilism: Britain's Economic Policy</div>
+                        <ul class="bullet-list">
+                            <li>Economic theory prevailing in 16th-18th century Europe</li>
+                            <li>National strength increased by exports exceeding imports</li>
+                            <li>Colonies existed to benefit the mother country</li>
+                            <li>Raw materials from colonies, manufactured goods from Britain</li>
+                            <li>Navigation Acts restricted colonial trade with other nations</li>
+                            <li>Colonies prohibited from manufacturing certain goods</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Taxation Without Representation</div>
+                        <ul class="bullet-list">
+                            <li>Series of taxes imposed on American imports and exports</li>
+                            <li>Sugar Act (1764), Stamp Act (1765), Townshend Acts (1767)</li>
+                            <li>Colonists argued they couldn't be taxed without representation in Parliament</li>
+                            <li>"No taxation without representation" became rallying cry</li>
+                            <li>Most taxes repealed due to colonial resistance except tea tax</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quote">
+                        "The Parliament of Great Britain hath no right to tax the colonies because they are not represented in that assembly." - James Otis, 1764
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Mercantilism created an inherently unequal economic relationship between Britain and its colonies, setting the stage for conflict when the British government attempted to exert greater control and extract more revenue from increasingly prosperous and independent-minded colonists."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Tea Act Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Why did a law that actually lowered the price of tea provoke the most famous protest in American history?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">The Tea Act of 1773</div>
+                        <ul class="bullet-list">
+                            <li>Passed by British Parliament on May 10, 1773</li>
+                            <li>Designed to save the struggling British East India Company</li>
+                            <li>Allowed company to sell tea directly to colonies, bypassing merchants</li>
+                            <li>Actually made British tea cheaper than smuggled Dutch tea</li>
+                            <li>Maintained the hated Townshend duty on tea</li>
+                            <li>Created a monopoly that threatened colonial merchants</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Colonial Response to the Tea Act</div>
+                        <ul class="bullet-list">
+                            <li>Colonists saw it as a subtle trick to accept Parliament's right to tax them</li>
+                            <li>Merchants feared being put out of business by the monopoly</li>
+                            <li>Smugglers like John Hancock stood to lose considerable profits</li>
+                            <li>Committees of Correspondence organized resistance across colonies</li>
+                            <li>Protests occurred in Philadelphia, New York, Charleston, and Boston</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">The Principle Behind the Protest</div>
+                        <p>While the Tea Act made tea cheaper for colonists, it maintained Parliament's right to tax the colonies. Accepting cheaper tea meant accepting Parliament's authority to tax without representation. Patriots argued this would reduce free subjects to slaves, making the principle more important than the price.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The Tea Act proved to be the final straw not because it made tea more expensive, but because it represented Parliament's assertion of authority over the colonies and threatened both the economic interests of colonial merchants and the political principle of representative government."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Event Chronologist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did a dispute over tea transform into a carefully orchestrated act of political protest that would change history?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">The Ships Arrive</div>
+                        <ul class="bullet-list">
+                            <li>November 28, 1773: The Dartmouth arrives in Boston Harbor carrying tea</li>
+                            <li>December 2: The Eleanor arrives with more tea</li>
+                            <li>December 7: The Beaver arrives, but with smallpox onboard, requiring quarantine</li>
+                            <li>Customs law required taxes to be paid within 20 days of arrival</li>
+                            <li>December 16: Deadline for paying taxes on the Dartmouth's cargo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">December 16, 1773: The Day of Protest</div>
+                        <ul class="bullet-list">
+                            <li>Morning: Over 5,000 colonists meet at Old South Meeting House</li>
+                            <li>Francis Rotch (ship owner) sent to ask Governor Hutchinson to send ships back</li>
+                            <li>Evening: Rotch returns with Hutchinson's refusal</li>
+                            <li>Samuel Adams declares: "This meeting can do nothing more to save the country!"</li>
+                            <li>War whoops heard from outside—signal for action</li>
+                            <li>Group of men disguised as Mohawk Indians proceed to Griffin's Wharf</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">The Tea Destruction</div>
+                        <ul class="bullet-list">
+                            <li>Between 6:00-7:00 PM: Patriots board the three ships</li>
+                            <li>They methodically break open 342 chests of tea</li>
+                            <li>Tea thrown into harbor—approximately 92,000 pounds</li>
+                            <li>Process takes approximately 3 hours</li>
+                            <li>Crowds watch from shore as tea forms floating masses in water</li>
+                            <li>No other cargo damaged—focus solely on tea</li>
+                            <li>No violence occurs during the operation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">The Mohawk Disguise</div>
+                        <p>The disguises served multiple purposes: they provided some anonymity to protect participants from prosecution, symbolized that the protesters identified as Americans rather than British subjects, and referenced a potent symbol of American identity distinct from European culture.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The Boston Tea Party was not a spontaneous riot but a carefully planned and executed political protest that demonstrated the colonists' organizational abilities, their commitment to principle over property, and their willingness to take direct action against what they perceived as unconstitutional authority."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Legacy Interpreter</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did the destruction of property worth millions in today's dollars ultimately lead to the creation of a new nation?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">British Response: The Coercive Acts</div>
+                        <ul class="bullet-list">
+                            <li>March-June 1774: Parliament passes Coercive (Intolerable) Acts</li>
+                            <li>Boston Port Act: Closed Boston Harbor until tea paid for</li>
+                            <li>Massachusetts Government Act: Reduced self-government</li>
+                            <li>Administration of Justice Act: Allowed trials to be moved to Britain</li>
+                            <li>Quartering Act: Required housing of British soldiers in homes</li>
+                            <li>Quebec Act: Extended Canadian territory, seen as threat to expansion</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Colonial Response and Unification</div>
+                        <ul class="bullet-list">
+                            <li>Other colonies sent supplies to support Boston</li>
+                            <li>September 1774: First Continental Congress meets in Philadelphia</li>
+                            <li>Colonies agree to boycott British goods</li>
+                            <li>Agree to meet again if grievances not addressed</li>
+                            <li>April 19, 1775: Battles of Lexington and Concord begin fighting</li>
+                            <li>July 4, 1776: Declaration of Independence adopted</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Historical Significance</div>
+                        <ul class="bullet-list">
+                            <li>Point of no return in British-American relations</li>
+                            <li>Demonstrated effectiveness of organized resistance</li>
+                            <li>United previously divided colonies against common cause</li>
+                            <li>Inspired similar "tea parties" in other colonies</li>
+                            <li>Became powerful symbol of protest against unjust authority</li>
+                            <li>Influenced subsequent protest movements worldwide</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quote">
+                        "The die is now cast. The colonies must either submit or triumph." - King George III, 1774
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The Boston Tea Party transformed a local protest over tea into a continental struggle for liberty, creating the chain of events that would lead from the Coercive Acts to the First Continental Congress, then to armed conflict, and finally to American independence—making it one of the most significant acts of civil disobedience in world history."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Economic Policy Analyst</h4>
+                <p>"Mercantilism was the economic policy that governed Britain's relationship with its American colonies throughout the 17th and 18th centuries. Under this system, colonies existed primarily to benefit the mother country by providing raw materials and markets for manufactured goods. The Navigation Acts restricted colonial trade with other nations, and various taxes—including the Sugar Act, Stamp Act, and Townshend Acts—were imposed to extract revenue from the increasingly prosperous colonies. Colonists objected to 'taxation without representation,' arguing that as British subjects they could not be taxed by a Parliament in which they had no elected representatives. This fundamental disagreement over rights and governance created growing tension that would eventually erupt into open conflict."</p>
+                
+                <h4>Tea Act Specialist</h4>
+                <p>"The Tea Act of 1773 was designed to save the struggling British East India Company by allowing it to sell tea directly to the colonies, bypassing colonial merchants and making British tea cheaper than smuggled Dutch tea. While this actually lowered the price of tea for colonists, it maintained Parliament's hated right to tax the colonies and created a monopoly that threatened colonial merchants' livelihoods. Patriots saw the Act as a subtle trick to get colonists to accept Parliament's authority to tax them. Committees of Correspondence organized resistance across the colonies, with protests occurring in major ports. The stage was set for confrontation when ships carrying East India Company tea arrived in American harbors in late 1773."</p>
+                
+                <h4>Event Chronologist</h4>
+                <p>"On December 16, 1773, over 5,000 colonists gathered at Boston's Old South Meeting House as the deadline approached for paying taxes on tea aboard the ship Dartmouth. When shipowner Francis Rotch returned from meeting with Governor Thomas Hutchinson—who refused to allow the ships to leave without paying the tax—Samuel Adams declared, 'This meeting can do nothing more to save the country!' This was the signal for action. A group of men disguised as Mohawk Indians proceeded to Griffin's Wharf, where they boarded three ships—the Dartmouth, Eleanor, and Beaver—and methodically dumped 342 chests of tea (approximately 92,000 pounds) into Boston Harbor. The operation took about three hours and was conducted without violence or damage to other property."</p>
+                
+                <h4>Legacy Interpreter</h4>
+                <p>"The British response to the Boston Tea Party was swift and severe. Parliament passed the Coercive Acts (called Intolerable Acts by colonists), which closed Boston Harbor, reduced self-government in Massachusetts, allowed trials to be moved to Britain, and required housing of British soldiers in private homes. Rather than isolating Massachusetts, these measures united the colonies. The First Continental Congress met in 1774 to coordinate resistance, and fighting began at Lexington and Concord in April 1775. The Tea Party thus transformed a local protest into a continental struggle for liberty, creating the chain of events that would lead to American independence and establishing a powerful legacy of protest against unjust authority that continues to inspire movements worldwide."</p>
+            </div>
+        </div>
+        
+        <img src="/src/assets/boston-tea-party.jpg" alt="Boston Tea Party Engraving" class="tea-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">What was the name of the economic policy Britain maintained in relation to its colonies?</button>
+                <p id="answer1" class="hidden">The economic policy was called <span class="glossary-term">mercantilism</span>. This policy held that colonies existed primarily to benefit the mother country by providing raw materials and markets for manufactured goods. Under mercantilism, the British government exercised control over colonial industry and trade based on the theory that national strength increased through a preponderance of exports over imports.</p>
+                
+                <button onclick="showAnswer('answer2')">What disguise were American patriots wearing when they boarded the tea ships?</button>
+                <p id="answer2" class="hidden">The American patriots disguised themselves as Mohawk Indians. This disguise served multiple purposes: it provided some anonymity to protect participants from prosecution, symbolized that the protesters identified as Americans rather than British subjects, and referenced a potent symbol of American identity distinct from European culture. The disguises consisted of blankets, soot-darkened faces, and makeshift Native American clothing.</p>
+                
+                <button onclick="showAnswer('answer3')">Approximately how many cups of tea were floating in Boston Harbor after the protest?</button>
+                <p id="answer3" class="hidden">The protesters dumped approximately 92,000 pounds of tea from 342 chests. This would equal roughly 18.5 million cups of tea—enough to fill over 25 Olympic-sized swimming pools. The modern value of the destroyed tea would be approximately $1.7 million. The tea formed massive floating masses in the harbor that persisted for days, and some residents reportedly tried to scoop up the tea for personal use.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Protest and Representation Debate</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Research different perspectives on the Tea Act and Boston Tea Party</li>
+                    <li>Stage a debate between Loyalists and Patriots about the protest</li>
+                    <li>Create a newspaper front page covering the events of December 16-17, 1773</li>
+                    <li>Compare the Boston Tea Party to modern protest movements</li>
+                    <li>Discuss when civil disobedience is justified in a democratic society</li>
+                    <li>Analyze the economic arguments from both British and colonial perspectives</li>
+                    <li>Create a timeline showing how the Tea Party led to the Revolution</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">Key Figures in the Boston Tea Party</div>
+                <div class="facts-grid">
+                    <div class="fact-item">Samuel Adams: Political organizer</div>
+                    <div class="fact-item">John Hancock: Smuggler and financier</div>
+                    <div class="fact-item">Paul Revere: Messenger and engraver</div>
+                    <div class="fact-item">Thomas Hutchinson: MA Governor</div>
+                    <div class="fact-item">George III: British King</div>
+                    <div class="fact-item">Lord North: British Prime Minister</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand the economic policies that led to colonial unrest</li>
+                <li>Analyze how protest can influence political change</li>
+                <li>Connect specific events to larger historical movements</li>
+                <li>Recognize multiple perspectives on historical events</li>
+                <li>Appreciate how symbolic actions can have concrete consequences</li>
+            </ul>
+        </section>
+
+        <section id="glossary">
+            <h3>Glossary of Key Terms</h3>
+            <div class="house-card">
+                <div class="house-name">Essential Vocabulary</div>
+                <ul class="bullet-list">
+                    <li><span class="glossary-term">Mercantilism</span>: Economic policy where colonies exist to benefit mother country</li>
+                    <li><span class="glossary-term">Decree</span>: Official order issued by legal authority</li>
+                    <li><span class="glossary-term">Pound</span>: British monetary unit (£)</li>
+                    <li><span class="glossary-term">Townshend Acts</span>: 1767 laws imposing duties on imported goods</li>
+                    <li><span class="glossary-term">Coercive Acts</span>: British response to Tea Party (called Intolerable Acts by colonists)</li>
+                    <li><span class="glossary-term">Committee of Correspondence</span>: Colonial communication network organizing resistance</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your educational trip to Boston with</p>
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

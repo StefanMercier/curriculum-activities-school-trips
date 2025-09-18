@@ -7,6 +7,7 @@ import ContactSection from "@/components/ContactSection";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import bostonHeroImg from "@/assets/boston.jpg";
 import jamesOtisImg from "@/assets/james-otis.jpg";
+import bostonTeaPartyImg from "@/assets/boston-tea-party.jpg";
 import { useNavigate } from "react-router-dom";
 import { useUserAccess } from "@/hooks/useUserAccess";
 
@@ -23,6 +24,21 @@ const bostonActivities = [
       "Analyze James Otis's contributions to revolutionary thought",
       "Trace the escalation from protest to revolution",
       "Examine multiple perspectives on key historical events"
+    ]
+  },
+  {
+    id: "boston-tea-party",
+    title: "Boston Tea Party",
+    description: "Discover the defiant act that sparked a revolution - from mercantilism and colonial tensions to the events of December 16, 1773.",
+    image: bostonTeaPartyImg,
+    duration: "15-25 minutes",
+    students: "All grades",
+    objectives: [
+      "Understand the economic policies that led to colonial unrest",
+      "Analyze how protest can influence political change",
+      "Connect specific events to larger historical movements",
+      "Recognize multiple perspectives on historical events",
+      "Appreciate how symbolic actions can have concrete consequences"
     ]
   }
 ];
