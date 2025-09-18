@@ -192,7 +192,7 @@ const WashingtonDC = () => {
   const { hasAccess, grantAccess } = useUserAccess();
 
   const handleActivityClick = (activity: typeof washingtonActivities[0]) => {
-    if (activity.isUnlocked) {
+    if (activity.isUnlocked || hasAccess) {
       // Open the HTML activity in a new window
       if (activity.id === "lincoln-memorial") {
         window.open("/activities/lincoln-memorial.html", "_blank");
