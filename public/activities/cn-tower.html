@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CN Tower | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .tower-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .house-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .house-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .bullet-list {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .bullet-list li {
+            margin-bottom: 8px;
+        }
+        .glossary-term {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="javascript:history.back()">← Back to Toronto Activities</a>
+    </div>
+    
+    <div class="header">
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>CN Tower</h1>
+        <h2>Toronto's Iconic Engineering Marvel</h2>
+    </div>
+    
+    <img src="https://www.cntower.ca/content/dam/cntower/images/hero-images/home-hero-new.jpg" alt="CN Tower against Toronto skyline" class="tower-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores the CN Tower, once the world's tallest free-standing structure and an iconic symbol of Toronto. We'll examine its engineering marvels, environmental considerations, and cultural significance as both a telecommunications hub and tourist destination.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Construction and Engineering Feat
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> Telecommunications Function
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> Environmental Initiatives
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Cultural Significance and Records
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">CN Tower Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Height: 553.3 meters (1,815 ft)</div>
+                <div class="fact-item">Construction: 1973-1976</div>
+                <div class="fact-item">Cost: $63 million CAD ($250M today)</div>
+                <div class="fact-item">Elevators: 6 (6 m/s speed)</div>
+                <div class="fact-item">Visitors: 1.8 million/year</div>
+                <div class="fact-item">Steps: 1,776 to SkyPod</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Engineering and Construction Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did engineers overcome immense technical challenges to build what was once the world's tallest free-standing structure in just 40 months?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Construction Timeline</div>
+                        <ul class="bullet-list">
+                            <li>February 1973: Construction begins</li>
+                            <li>April 1974: Concrete pouring for main shaft completed</li>
+                            <li>March 1975: SkyPod construction begins</li>
+                            <li>August 1975: Antenna installation using helicopter</li>
+                            <li>June 26, 1976: Official opening to public</li>
+                            <li>40 months total construction time</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Engineering Innovations</div>
+                        <ul class="bullet-list">
+                            <li>Built by Canadian National Railway to demonstrate strength of Canadian industry</li>
+                            <li>Slipform method used for continuous concrete pouring (24/7 for 8 months)</li>
+                            <li>Foundation extends 15 meters (49 ft) into ground</li>
+                            <li>Designed to withstand 420 km/h (260 mph) winds</li>
+                            <li>Uses 40,500 cubic meters (53,000 cu yd) of concrete</li>
+                            <li>Contains 129 elevator bolts extending 16 m (52 ft) into bedrock</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quote">
+                        "We weren't just building a tower; we were building Canada's pride." - Roger D. Fox, Construction Manager
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The CN Tower stands as a testament to Canadian engineering ingenuity, overcoming immense technical challenges through innovative construction methods and careful planning to create a structure that would capture the world's imagination and hold the title of world's tallest free-standing structure for over three decades."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Telecommunications Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Why was such an immense tower necessary for telecommunications in an era before satellite dominance?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Line-of-Sight Communication</div>
+                        <ul class="bullet-list">
+                            <li>Radio waves travel horizontally through the atmosphere</li>
+                            <li>When below the horizon, stations cannot receive transmissions</li>
+                            <li>Tall structures allow signals to travel farther without interference</li>
+                            <li>CN Tower solved Toronto's communication problems caused by skyscrapers</li>
+                            <li>Originally transmitted UHF and VHF television and FM radio signals</li>
+                            <li>Now handles microwave transmissions, mobile communications, and more</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Technical Specifications</div>
+                        <ul class="bullet-list">
+                            <li>Main observatory: 342 meters (1,122 ft)</li>
+                            <li>SkyPod: 447 meters (1,465 ft) - highest observation platform</li>
+                            <li>Metal antenna: 102 meters (335 ft)</li>
+                            <li>360 Restaurant: 351 meters (1,151 ft) - world's highest wine cellar</li>
+                            <li>Glass floor: 342 meters up, can withstand 4,100 kg (9,000 lb)</li>
+                            <li>EdgeWalk: 356 meters (1,168 ft) - world's highest hands-free walk</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Changing Communication Technology</div>
+                        <p>While the CN Tower was essential for line-of-sight communications in the 1970s, the advent of satellite technology has reduced its telecommunications necessity. However, it remains an important transmission site and stands as one of the last giant communication towers built during this technological era.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The CN Tower represents a pivotal moment in communication history—a massive investment in line-of-sight technology just before satellite communications would revolutionize the industry, making it both a practical solution to Toronto's signal problems and a monument to a specific technological era."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Environmental Steward</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How does one of the world's tallest man-made structures protect some of nature's smallest migratory travelers?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Friends of the Birds Initiative</div>
+                        <ul class="bullet-list">
+                            <li>During spring and fall migration, the CN Tower closes unnecessary lights</li>
+                            <li>Lights can disorient birds, causing injuries and fatalities</li>
+                            <li>Toronto lies on the Atlantic Flyway migration route</li>
+                            <li>Over 300 bird species migrate through Toronto area</li>
+                            <li>Program started in the 1990s as awareness grew about bird collisions</li>
+                            <li>Part of Fatal Light Awareness Program (FLAP) Canada initiatives</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Other Environmental Initiatives</div>
+                        <ul class="bullet-list">
+                            <li>Energy-efficient LED lighting system installed</li>
+                            <li>Waste reduction and recycling programs</li>
+                            <li>Water conservation measures</li>
+                            <li>Participates in Urban Wildlife Coalition programs</li>
+                            <li>Educational programs about urban wildlife conservation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Impact of the Initiative</div>
+                        <p>The CN Tower's lights-out policy has significantly reduced bird collisions during migration seasons. Before the program, thousands of birds died annually from colliding with illuminated structures. The Tower's high profile has helped raise awareness about this issue, inspiring other buildings in Toronto and beyond to implement similar measures during migration periods.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The CN Tower's environmental initiatives demonstrate how even the most imposing man-made structures can coexist with nature through thoughtful policies, proving that technological progress and environmental stewardship can work together to protect vulnerable species like migratory birds."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Cultural Historian</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did a functional communications tower become an iconic symbol of Canadian identity and a time capsule for future generations?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Time Capsule</div>
+                        <ul class="bullet-list">
+                            <li>Sealed during the Tower's official opening in 1976</li>
+                            <li>Scheduled to be reopened in 2076 for the centennial</li>
+                            <li>Contents include letters from dignitaries and students</li>
+                            <li>Contains copies of local newspapers from 1976</li>
+                            <li>Includes various coins and cultural artifacts</li>
+                            <li>Represents a snapshot of Canadian life in 1976</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Records and Achievements</div>
+                        <ul class="bullet-list">
+                            <li>World's tallest free-standing structure (1976-2007)</li>
+                            <li>World's tallest tower (1976-2009)</li>
+                            <li>World's highest wine cellar at 360 Restaurant</li>
+                            <li>World's highest hands-free walk (EdgeWalk)</li>
+                            <li>Brendon Keenoy's 1989 record: 7 min 52 sec for 1,760 steps</li>
+                            <li>Annual stair climb fundraiser for United Way</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Cultural Significance</div>
+                        <ul class="bullet-list">
+                            <li>Symbol of Canadian engineering and innovation</li>
+                            <li>Featured on Canadian postage stamps</li>
+                            <li>Iconic feature of Toronto's skyline</li>
+                            <li>Appears in numerous films and television shows</li>
+                            <li>One of the Seven Wonders of the Modern World (1995)</li>
+                            <li>National historic site and cultural landmark</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quote">
+                        "The CN Tower is more than a structure; it's a symbol of what Canadians can achieve when we set our minds to something extraordinary." - Prime Minister Pierre Trudeau, 1976
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The CN Tower has transcended its original purpose as a communications hub to become an enduring symbol of Canadian identity, innovation, and ambition—a structure that not only looks toward the future through its technological functions but also preserves the past through its time capsule, creating a bridge between 1976 and 2076 for future generations to discover."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Engineering and Construction Specialist</h4>
+                <p>"The CN Tower was constructed between 1973 and 1976 by Canadian National Railway as a demonstration of Canadian engineering prowess. Using innovative slipform construction, workers poured concrete continuously for 8 months to create the main shaft. The project employed over 1,500 workers and cost $63 million CAD (equivalent to $250 million today). Engineers designed the tower to withstand extreme weather, including winds up to 420 km/h. The antenna was lifted into place by a giant helicopter named Olga, completing the structure that would stand as the world's tallest free-standing building for 32 years. The construction took exactly 40 months from groundbreaking to public opening."</p>
+                
+                <h4>Telecommunications Expert</h4>
+                <p>"The CN Tower was originally built to solve Toronto's communication problems caused by its growing skyline. Radio waves travel horizontally and require line-of-sight between transmission and reception points. The tower's height of 553.3 meters allowed signals to travel over obstacles and beyond the horizon. It initially transmitted UHF and VHF television and FM radio signals across the Greater Toronto Area. While satellite technology has reduced its telecommunications necessity, it still serves as an important transmission site for various communications. The tower features multiple observation levels including the main deck at 342 meters, the SkyPod at 447 meters, and the 360 Restaurant at 351 meters, which houses the world's highest wine cellar."</p>
+                
+                <h4>Environmental Steward</h4>
+                <p>"The CN Tower participates in important environmental initiatives, particularly the 'Friends of the Birds' program. During spring and fall migration periods, the tower extinguishes all non-essential lights to prevent disorienting migratory birds. Toronto lies on the Atlantic Flyway, and over 300 bird species pass through the area during migration. Bright lights can cause birds to become confused, leading to collisions and fatalities. This initiative, part of FLAP Canada's efforts, has significantly reduced bird deaths. The tower also employs other environmental measures including energy-efficient LED lighting, waste reduction programs, and educational initiatives about urban wildlife conservation, demonstrating how man-made structures can coexist with nature."</p>
+                
+                <h4>Cultural Historian</h4>
+                <p>"Beyond its functional purposes, the CN Tower holds significant cultural importance for Canada. A time capsule buried during its 1976 opening contains letters from dignitaries and students, newspapers, and coins, scheduled to be opened in 2076. The tower held the title of world's tallest free-standing structure for over three decades and was named one of the Seven Wonders of the Modern World. It has been featured on postage stamps and in numerous films. The tower also hosts the annual CN Tower Climb for United Way and holds records including Brendon Keenoy's 1989 stair climb record of 7 minutes 52 seconds. The CN Tower has become an iconic symbol of Canadian innovation and a beloved Toronto landmark."</p>
+            </div>
+        </div>
+        
+        <img src="https://www.cntower.ca/content/dam/cntower/images/hero-images/edgewalk-hero.jpg" alt="CN Tower EdgeWalk experience" class="tower-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Originally, why did we build the CN Tower?</button>
+                <p id="answer1" class="hidden">The CN Tower was originally built by Canadian National Railway to solve Toronto's telecommunications problems caused by its growing skyline. The tower was needed for line-of-sight communications, as radio waves travel horizontally and tall structures allow signals to travel farther without interference from buildings. It also served as a demonstration of Canadian engineering prowess and became an iconic symbol of Canadian innovation.</p>
+                
+                <button onclick="showAnswer('answer2')">What is the name of the restaurant at the CN Tower, and what record does it hold?</button>
+                <p id="answer2" class="hidden">The restaurant is called <strong>360 Restaurant</strong>, located at 351 meters (1,151 feet) above ground. It holds the record for the world's highest wine cellar. The restaurant completes a full rotation every 72 minutes, offering diners panoramic views of Toronto and beyond, including on clear days the spray from Niagara Falls and parts of New York state.</p>
+                
+                <button onclick="showAnswer('answer3')">How long did it take Brendon Keenoy to climb the 1,760 steps of the CN Tower to set his world record in 1989?</button>
+                <p id="answer3" class="hidden">Brendon Keenoy set the world record in 1989 by climbing the CN Tower's 1,776 steps in <strong>7 minutes and 52 seconds</strong>. This remarkable feat demonstrated extraordinary athleticism and endurance. The tower continues to host an annual stair climb fundraiser for United Way, where participants climb the same steps to raise money for charity, though typically taking considerably longer than Keenoy's record time.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Engineering and Environmental Design</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Research the engineering challenges of building super-tall structures</li>
+                    <li>Design their own tower with both functional and environmental considerations</li>
+                    <li>Create a time capsule representing current culture for opening in 50 years</li>
+                    <li>Develop a migration protection plan for their local community</li>
+                    <li>Compare the CN Tower to other famous towers worldwide</li>
+                    <li>Debate the balance between technological progress and environmental protection</li>
+                    <li>Create a presentation on how communication technology has evolved</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">CN Tower Comparison with Other Structures</div>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Structure</th>
+                        <th>Height</th>
+                        <th>Location</th>
+                        <th>Year Completed</th>
+                    </tr>
+                    <tr>
+                        <td>CN Tower</td>
+                        <td>553.3 m (1,815 ft)</td>
+                        <td>Toronto, Canada</td>
+                        <td>1976</td>
+                    </tr>
+                    <tr>
+                        <td>Burj Khalifa</td>
+                        <td>828 m (2,717 ft)</td>
+                        <td>Dubai, UAE</td>
+                        <td>2010</td>
+                    </tr>
+                    <tr>
+                        <td>Shanghai Tower</td>
+                        <td>632 m (2,073 ft)</td>
+                        <td>Shanghai, China</td>
+                        <td>2015</td>
+                    </tr>
+                    <tr>
+                        <td>Eiffel Tower</td>
+                        <td>330 m (1,083 ft)</td>
+                        <td>Paris, France</td>
+                        <td>1889</td>
+                    </tr>
+                    <tr>
+                        <td>Empire State Building</td>
+                        <td>443 m (1,454 ft)</td>
+                        <td>New York, USA</td>
+                        <td>1931</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand the engineering principles behind super-tall structures</li>
+                <li>Learn about line-of-sight communication technology</li>
+                <li>Explore how human structures can impact wildlife and mitigation strategies</li>
+                <li>Appreciate the cultural significance of architectural landmarks</li>
+                <li>Connect technological innovation with environmental responsibility</li>
+            </ul>
+        </section>
+
+        <section id="glossary">
+            <h3>Glossary of Key Terms</h3>
+            <div class="house-card">
+                <div class="house-name">Essential Vocabulary</div>
+                <ul class="bullet-list">
+                    <li><span class="glossary-term">Line-of-sight communication</span>: Transmission that requires direct path between sender and receiver</li>
+                    <li><span class="glossary-term">Slipform construction</span>: Method where concrete is continuously poured into moving formwork</li>
+                    <li><span class="glossary-term">Migration flyway</span>: Route used by birds traveling between breeding and wintering grounds</li>
+                    <li><span class="glossary-term">Time capsule</span>: Container storing items from current era for future discovery</li>
+                    <li><span class="glossary-term">Free-standing structure</span>: Building that doesn't use guy-wires for support</li>
+                    <li><span class="glossary-term">Observatory</span>: Location providing panoramic views for observation</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your educational trip to Toronto with</p>
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

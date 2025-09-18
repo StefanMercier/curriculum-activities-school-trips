@@ -5,6 +5,7 @@ import { MapPin, Users, Clock, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import LeadCaptureForm from "./LeadCaptureForm";
 import { useUserAccess } from "@/hooks/useUserAccess";
+import torontoImg from "@/assets/toronto.jpg";
 import washingtonDCImg from "@/assets/washington-dc.jpg";
 import newYorkCityImg from "@/assets/new-york-city.jpg";
 import bostonImg from "@/assets/boston.jpg";
@@ -74,6 +75,15 @@ const destinations = [
     duration: "10-20 min per activity",
     isUnlocked: false, // Requires authentication
     image: quebecCityImg
+  },
+  {
+    id: "toronto",
+    title: "Toronto",
+    description: "CN Tower engineering marvel, telecommunications history, environmental stewardship",
+    activities: 1,
+    duration: "10-20 min per activity",
+    isUnlocked: false, // Requires authentication
+    image: torontoImg
   }
 ];
 
@@ -93,6 +103,8 @@ const DestinationsOverview = () => {
         navigate("/boston");
       } else if (destination.id === "quebec") {
         navigate("/quebec");
+      } else if (destination.id === "toronto") {
+        navigate("/toronto");
       }
     } else {
       setSelectedDestination(destination.title);
