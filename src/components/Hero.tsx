@@ -21,8 +21,7 @@ const Hero = () => {
             <span className="block text-accent"> Destination Curriculum</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90">
-            Engaging student activities for America's historic destinations. 
-            From Washington DC to Boston, interactive presentations and hands-on learning materials.
+            Engaging student activities for school groups from DC to Boston, Quebec to Toronto, and soon overseas.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -73,7 +72,7 @@ const Hero = () => {
                 <MapPin className="h-8 w-8 text-accent" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Multiple Destinations</h3>
-              <p className="text-white/80">Activities for DC, NYC, Boston, and more historic locations</p>
+              <p className="text-white/80">Activities for DC, Boston, Quebec, Toronto, and soon overseas</p>
             </div>
           </div>
         </div>
