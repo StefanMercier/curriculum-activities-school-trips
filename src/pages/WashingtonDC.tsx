@@ -21,6 +21,7 @@ import koreanWarMemorialImg from "@/assets/korean-war-memorial.jpg";
 import whiteHouseImg from "@/assets/white-house.jpg";
 import smithsonianMuseumsImg from "@/assets/smithsonian-museums.jpg";
 import danielSicklesImg from "@/assets/daniel-sickles.jpg";
+import iwoJimaMemorialImg from "@/assets/iwo-jima-memorial.jpg";
 
 const washingtonActivities = [
   {
@@ -172,6 +173,16 @@ const washingtonActivities = [
     difficulty: "Intermediate",
     image: danielSicklesImg,
     isUnlocked: true
+  },
+  {
+    id: "iwo-jima-memorial",
+    title: "US Marine Corps War Memorial",
+    description: "Explore the iconic Iwo Jima Memorial, the famous photograph that inspired it, and the complex stories of the Marines it honors",
+    duration: "20-25 minutes",
+    participants: "4-5 students",
+    difficulty: "Advanced",
+    image: iwoJimaMemorialImg,
+    isUnlocked: false
   }
 ];
 
@@ -213,6 +224,8 @@ const WashingtonDC = () => {
         window.open("/activities/smithsonian-museums.html", "_blank");
       } else if (activity.id === "daniel-sickles") {
         window.open("/activities/daniel-sickles.html", "_blank");
+      } else if (activity.id === "iwo-jima-memorial") {
+        window.open("/activities/iwo-jima-memorial.html", "_blank");
       }
     } else {
       setSelectedActivity(activity.title);

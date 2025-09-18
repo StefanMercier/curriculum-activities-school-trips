@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Marine Corps War Memorial | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .memorial-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .marine-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .marine-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .stat-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .breadcrumb {
+            background-color: #e8f4f8;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="javascript:history.back()">← Back to Washington DC Activities</a>
+    </div>
+
+    <div class="header">
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>US Marine Corps War Memorial</h1>
+        <h2>Iwo Jima Memorial</h2>
+    </div>
+    
+    <img src="https://www.nps.gov/articles/images/Marine-Corps-War-Memorial_2.jpg" alt="US Marine Corps War Memorial" class="memorial-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores the US Marine Corps War Memorial, commonly known as the Iwo Jima Memorial. We'll examine the historic battle that inspired it, the famous photograph that captured a pivotal moment, the creation of the memorial, and the complex story behind the men depicted in this iconic symbol of American valor.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> The Battle of Iwo Jima
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> The Famous Photograph
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> Creating the Memorial
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> The Flag Raisers' Stories
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">Iwo Jima Memorial Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Dedicated: 1954</div>
+                <div class="fact-item">Sculptor: Felix de Weldon</div>
+                <div class="fact-item">Photographer: Joe Rosenthal</div>
+                <div class="fact-item">Figure height: 32 feet</div>
+                <div class="fact-item">Flagpole: 60 feet</div>
+                <div class="fact-item">Largest bronze statue</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Battle of Iwo Jima Historian</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Why was a tiny island two-thirds the size of Manhattan so strategically important that it became the site of one of World War II's bloodiest battles?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    <ul>
+                        <li>Iwo Jima was a small volcanic island 660 miles south of Tokyo</li>
+                        <li>Strategic importance: contained airfields crucial for bombing campaigns against mainland Japan</li>
+                        <li>First time foreign forces occupied Japanese territory in nearly 500 years</li>
+                        <li>The battle lasted from February 19 to March 26, 1945</li>
+                        <li>Extremely costly: 6,821 Americans killed, 19,217 wounded</li>
+                        <li>Almost all 21,000 Japanese defenders fought to death or committed suicide</li>
+                        <li>The capture of Mount Suribachi was a key objective</li>
+                    </ul>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Strategic Significance:</div>
+                        <p>"Iwo Jima provided emergency landing fields for damaged B-29 bombers returning from missions over Japan. The island's capture saved approximately 2,400 airmen and 24,000 aircrew members who would otherwise have crashed at sea."</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The brutal Battle of Iwo Jima, while extraordinarily costly in human lives, provided a crucial strategic advantage that ultimately helped bring the Pacific War to a conclusion and saved thousands of American airmen."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Photography and Iconography Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did one photograph become perhaps the most iconic image of World War II and inspire a national monument?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="marine-card">
+                        <div class="marine-name">Joe Rosenthal's Photograph</div>
+                        <p>On February 23, 1945, Associated Press photographer Joe Rosenthal captured the second flag raising on Mount Suribachi. The image shows six soldiers raising a larger replacement flag to ensure it would be visible across the island.</p>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">The Two Flag Raisings:</div>
+                        <p>• <strong>First Flag Raising:</strong> A small flag was raised around 10:30 AM to signal the capture of Mount Suribachi</p>
+                        <p>• <strong>Second Flag Raising:</strong> A larger flag was raised around 12:35 PM to ensure visibility across the island</p>
+                        <p>• Rosenthal's famous photo captured the second raising</p>
+                        <p>• The photo was initially mistaken for the first raising</p>
+                    </div>
+                    
+                    <ul>
+                        <li>The photograph was transmitted to the US and published nationwide</li>
+                        <li>It immediately became a symbol of American determination and victory</li>
+                        <li>Won the Pulitzer Prize in 1945</li>
+                        <li>Inspired a resurgence of national pride and support for war bonds</li>
+                        <li>Three of the six men in the photo died in subsequent fighting on Iwo Jima</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Rosenthal's photograph captured not just a military action, but the spirit of American resilience and sacrifice, instantly becoming an iconic symbol that would eventually be immortalized in bronze."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Memorial Creation Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did a photograph become the world's largest cast bronze statue, honoring all Marines who have died in service since 1775?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="marine-card">
+                        <div class="marine-name">Creating the Memorial</div>
+                        <p>Sculptor Felix de Weldon was so moved by Rosenthal's photograph that he created a maquette (small model) within 48 hours of seeing it. This eventually led to the creation of the full-scale memorial.</p>
+                    </div>
+                    
+                    <div class="stat-grid">
+                        <div class="stat-item">32-foot tall figures</div>
+                        <div class="stat-item">60-foot bronze flagpole</div>
+                        <div class="stat-item">100-ton memorial weight</div>
+                        <div class="stat-item">78-foot overall height</div>
+                        <div class="stat-item">9 years to complete</div>
+                        <div class="stat-item">Dedicated November 10, 1954</div>
+                    </div>
+                    
+                    <ul>
+                        <li>Dedicated by President Dwight D. Eisenhower</li>
+                        <li>Inscriptions list every major Marine Corps action since 1775</li>
+                        <li>The base bears the inscription: "Uncommon Valor Was a Common Virtue"</li>
+                        <li>Also inscribed: "In honor and memory of the men of the United States Marine Corps who have given their lives to their country since November 10, 1775"</li>
+                        <li>Three survivors of the flag raising attended the dedication</li>
+                    </ul>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The memorial transforms a momentary act of victory into an eternal tribute to Marine Corps sacrifice, honoring all Marines who have died in service throughout American history."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Flag Raisers' Storyteller</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"The story behind the famous photograph involves confusion, tragedy, and a seven-decade-long mystery about the identities of the men depicted."</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="marine-card">
+                        <div class="marine-name">The Six Flag Raisers</div>
+                        <p>For 71 years, it was believed the six men in the photo were:
+                        <ul>
+                            <li>Ira Hayes (Pima Indian)</li>
+                            <li>John Bradley (Navy Corpsman)</li>
+                            <li>Rene Gagnon</li>
+                            <li>Michael Strank (killed March 1)</li>
+                            <li>Franklin Sousley (killed March 21)</li>
+                            <li>Harlon Block (killed March 1)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">The Bond Tour Controversy:</div>
+                        <p>After the photo's publication, the three survivors were ordered to return to the US for a war bond tour. However:
+                        • Ira Hayes resisted publicity and didn't want to be identified
+                        • Rene Gagnon was forced to identify Hayes
+                        • Confusion existed because there were two flag raisings
+                        • John Bradley rarely spoke about his experience</p>
+                    </div>
+                    
+                    <div class="marine-card">
+                        <div class="marine-name">The 2016 Revelation</div>
+                        <p>In 2016, historical research revealed that:
+                        • John Bradley was in the first flag raising, not the second
+                        • Harold Schultz was actually the sixth man in the famous photo
+                        • This was determined through photographic analysis of uniforms, equipment, and body positions
+                        • The discovery came 71 years after the event</p>
+                    </div>
+                    
+                    <div class="quote">
+                        "The true story behind the photo is more complex than the legend, but no less heroic. All who fought on Iwo Jima displayed extraordinary courage." - James Bradley, son of John Bradley and author of "Flags of Our Fathers"
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The evolving understanding of the flag raisers' identities reminds us that history is often more complex than legend, but the collective courage and sacrifice of all who fought at Iwo Jima remains undiminished."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Battle of Iwo Jima Historian</h4>
+                <p>"The Battle of Iwo Jima was fought from February 19 to March 26, 1945, on a small volcanic island just 660 miles from Tokyo. Though only two-thirds the size of Manhattan, Iwo Jima was strategically crucial because its airfields could support B-29 bombing campaigns against mainland Japan. The battle was extraordinarily costly: 6,821 Americans were killed and 19,217 wounded, while nearly all 21,000 Japanese defenders fought to the death. The capture of Mount Suribachi on February 23rd marked a turning point, with the famous flag raising signaling the first time foreign forces had occupied Japanese territory in nearly 500 years."</p>
+                
+                <h4>Photography and Iconography Expert</h4>
+                <p>"Associated Press photographer Joe Rosenthal captured the iconic flag raising image on February 23, 1945, during the second flag raising on Mount Suribachi. The Marines raised a larger replacement flag to ensure visibility across the island. Rosenthal's photograph was transmitted to the US where it immediately became a symbol of American determination, winning the Pulitzer Prize and inspiring increased support for the war effort through bond drives. Tragically, three of the six men in the photograph—Michael Strank, Franklin Sousley, and Harlon Block—were killed in subsequent fighting on Iwo Jima before the photo was published."</p>
+                
+                <h4>Memorial Creation Specialist</h4>
+                <p>"Sculptor Felix de Weldon created the US Marine Corps War Memorial after being deeply moved by Rosenthal's photograph. He made a small model within 48 hours of seeing the image, which eventually led to the creation of the massive bronze memorial. Dedicated in 1954 by President Eisenhower, the memorial features 32-foot-tall figures raising a 60-foot flagpole, making it the largest cast bronze statue in the world. The base lists every major Marine Corps action since 1775 and bears the inscription 'Uncommon Valor Was a Common Virtue,' honoring all Marines who have died in service to their country."</p>
+                
+                <h4>Flag Raisers' Storyteller</h4>
+                <p>"For 71 years, it was believed the six flag raisers were Ira Hayes, John Bradley, Rene Gagnon, Michael Strank, Franklin Sousley, and Harlon Block. The three survivors were ordered home for a war bond tour, though Ira Hayes resisted the publicity. In 2016, research revealed that John Bradley was actually in the first flag raising, not the second photographed by Rosenthal. Harold Schultz was identified as the sixth man through analysis of uniforms and equipment. This discovery, detailed in James Bradley's book 'Flags of Our Fathers,' shows history is often more complex than legend, but doesn't diminish the courage of all who fought at Iwo Jima."</p>
+            </div>
+        </div>
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Raising_the_Flag_on_Iwo_Jima_-_small.jpg/800px-Raising_the_Flag_on_Iwo_Jima_-_small.jpg" alt="Original Iwo Jima Photograph by Joe Rosenthal" class="memorial-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why was Iwo Jima so strategically important?</button>
+                <p id="answer1" class="hidden">Iwo Jima was crucial because its airfields were located just 660 miles from Tokyo, making them ideal for supporting B-29 bombing campaigns against mainland Japan. The island provided emergency landing fields for damaged bombers returning from missions, ultimately saving approximately 2,400 airmen and 24,000 aircrew members who would otherwise have crashed at sea. Its capture marked the first time foreign forces had occupied Japanese territory in nearly 500 years.</p>
+                
+                <button onclick="showAnswer('answer2')">What was controversial about the famous photograph?</button>
+                <p id="answer2" class="hidden">There were two flag raisings on Mount Suribachi, and Rosenthal's famous photo captured the second one. This led to initial confusion about which raising was photographed. Later, there was controversy about the identities of the men—for 71 years, it was believed Navy Corpsman John Bradley was in the photo, but research in 2016 revealed he was actually in the first raising, and Harold Schultz was the sixth man in the famous second raising. Additionally, the bond tour that followed created tension, with Ira Hayes resisting publicity.</p>
+                
+                <button onclick="showAnswer('answer3')">What makes the memorial architecturally significant?</button>
+                <p id="answer3" class="hidden">The US Marine Corps War Memorial is the largest cast bronze statue in the world. It features 32-foot-tall figures raising a 60-foot bronze flagpole, with the entire memorial standing 78 feet tall and weighing 100 tons. It took sculptor Felix de Weldon nine years to complete. The memorial is unique in that it honors all Marines who have died in service since 1775, with inscriptions listing every major Marine Corps action throughout American history.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Analyzing Historical Photographs</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Examine Joe Rosenthal's famous photograph closely</li>
+                    <li>Research the historical context of the Battle of Iwo Jima</li>
+                    <li>Compare the photograph with the memorial sculpture</li>
+                    <li>Discuss how icons are created from historical moments</li>
+                    <li>Consider the ethical questions around war photography</li>
+                    <li>Create a presentation on how images shape historical memory</li>
+                    <li>Discuss the 2016 revelation about the flag raisers' identities</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">The Flag Raisers</div>
+                <div class="facts-grid">
+                    <div class="fact-item">Ira Hayes (Pima Indian)</div>
+                    <div class="fact-item">Harold Schultz (identified 2016)</div>
+                    <div class="fact-item">Michael Strank (KIA)</div>
+                    <div class="fact-item">Franklin Sousley (KIA)</div>
+                    <div class="fact-item">Harlon Block (KIA)</div>
+                    <div class="fact-item">Rene Gagnon</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand the strategic importance of the Battle of Iwo Jima in World War II</li>
+                <li>Analyze how iconic images shape historical memory and national identity</li>
+                <li>Recognize the sacrifices made by Marines throughout American history</li>
+                <li>Explore the complex process of memorialization and historical accuracy</li>
+                <li>Appreciate how historical understanding evolves with new evidence</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your school trip to Washington, D.C. with</p>
+        <a href="https://globaleducationaltours.com/school-trip/3-day-classic-washington-dc-school-trip/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

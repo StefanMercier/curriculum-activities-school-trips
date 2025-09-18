@@ -112,7 +112,12 @@ const SampleActivity = () => {
                           <Download className="mr-2 h-4 w-4" />
                           Student Scripts (PDF)
                         </Button>
-                        <Button variant="outline" size="sm" className="w-full justify-start">
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="w-full justify-start"
+                          onClick={() => window.open("/teacher-guidelines.html", "_blank")}
+                        >
                           <Download className="mr-2 h-4 w-4" />
                           Teacher Guidelines
                         </Button>

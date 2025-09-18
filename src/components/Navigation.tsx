@@ -21,7 +21,7 @@ const Navigation = () => {
 
   const navItems = [
     { label: "More Activities", href: "#activities" },
-    { label: "Teacher Resources", href: "#resources" },
+    { label: "Teacher Resources", href: "/teacher-guidelines.html", target: "_blank" },
     { label: "Browse Destinations", href: "/#destinations" },
   ];
 
@@ -44,6 +44,7 @@ const Navigation = () => {
               <a
                 key={item.label}
                 href={item.href}
+                target={item.target}
                 className="text-foreground hover:text-primary transition-colors duration-200"
               >
                 {item.label}
