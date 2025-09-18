@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Users, BookOpen } from "lucide-react";
 import cnTowerImage from "@/assets/cn-tower.jpg";
+import casaLomaImage from "@/assets/casa-loma.jpg";
 
 const Toronto = () => {
   const activities = [
@@ -13,6 +14,14 @@ const Toronto = () => {
       duration: "45 minutes",
       participants: "4-6 students",
       href: "/activities/cn-tower.html"
+    },
+    {
+      title: "Casa Loma",
+      description: "Discover Toronto's Gothic Revival castle and the story of Sir Henry Pellatt",
+      image: casaLomaImage,
+      duration: "45 minutes",
+      participants: "4-6 students",
+      href: "/activities/casa-loma.html"
     }
   ];
 
@@ -57,7 +66,7 @@ const Toronto = () => {
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Interactive presentations designed to engage students with Toronto's unique blend of 
-              engineering achievements, environmental stewardship, and cultural significance.
+              engineering achievements, architectural heritage, and cultural significance.
             </p>
           </div>
 

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Loma | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .castle-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .house-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .house-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .bullet-list {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .bullet-list li {
+            margin-bottom: 8px;
+        }
+        .glossary-term {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .architecture-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .architecture-table th, .architecture-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .architecture-table th {
+            background-color: #f2f2f2;
+        }
+        .family-crest {
+            text-align: center;
+            margin: 20px 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Casa Loma</h1>
+        <h2>Toronto's Gothic Revival Castle</h2>
+    </div>
+    
+    <img src="https://www.casaloma.ca/wp-content/uploads/2020/12/Exterior-1.jpg" alt="Casa Loma Castle exterior" class="castle-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores Casa Loma, Toronto's magnificent castle that stands as a testament to the ambition and vision of Sir Henry Mill Pellatt. We'll examine its architectural splendor, historical significance, and the fascinating story of its creation and eventual transformation into a public landmark.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Sir Henry Pellatt - The Visionary Behind the Castle
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> Architectural Marvel and Design
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> The Castle's Features and Amenities
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Legacy and Cultural Significance
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">Casa Loma Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Construction: 1911-1914</div>
+                <div class="fact-item">Rooms: 98</div>
+                <div class="fact-item">Cost: $3.5 million</div>
+                <div class="fact-item">Bathrooms: 30</div>
+                <div class="fact-item">Fireplaces: 25</div>
+                <div class="fact-item">Workers: 300+</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Historical Biographer</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Who was the visionary industrialist who dared to build a European-style castle in early 20th century Toronto, and what drove him to create such an extravagant home?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Sir Henry Mill Pellatt</div>
+                        <ul class="bullet-list">
+                            <li>Born January 6, 1859, in Kingston, Canada West</li>
+                            <li>Wealthy Canadian financier and industrialist</li>
+                            <li>Made fortune in electricity, mining, insurance, and transportation</li>
+                            <li>Commanding Officer of The Queen's Own Rifles of Canada</li>
+                            <li>Knighted in 1905 for his military service</li>
+                            <li>Married to Mary Dodgson (1882) and later Catharine Welland Merritt (1927)</li>
+                            <li>Known for his flamboyant lifestyle and extravagant tastes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">The Pellatt Family Motto</div>
+                        <div class="family-crest">
+                            <p>"Devant Si Je Puis"</p>
+                            <p>(Forward If I Can)</p>
+                        </div>
+                        <p>This motto reflected Sir Henry's ambitious nature and forward-thinking business approach. It embodied his philosophy of progress and determination, which was evident in both his business ventures and his personal projects like Casa Loma.</p>
+                    </div>
+                    
+                    <div class="quote">
+                        "Sir Henry Pellatt was a man of grand visions and even grander ambitions, whose dreams were literally set in stone at Casa Loma." - Historical accounts
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Sir Henry Pellatt embodied the optimism and ambition of Canada's industrial age—a visionary who transformed his wealth into a tangible symbol of success, only to see changing economic circumstances turn his dream home into a financial burden that would ultimately lead to his departure from the castle after less than a decade of residence."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Architectural Analyst</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did architect E.J. Lennox blend European architectural styles to create a unique North American castle that both honored tradition and embraced modernity?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Origin of the Name "Casa Loma"</div>
+                        <p>The name "Casa Loma" translates from Spanish as "Hill House" or "House on the Hill," reflecting its prominent location on one of the highest points in Toronto. Sir Henry Pellatt chose this name during a trip to Spain, where he was inspired by the hilltop homes and castles he saw throughout the countryside.</p>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Architectural Styles</div>
+                        <ul class="bullet-list">
+                            <li><strong>Gothic Revival</strong>: Pointed arches, ribbed vaults, flying buttresses</li>
+                            <li><strong>Romanesque</strong>: Rounded arches, thick walls, sturdy pillars</li>
+                            <li><strong>Norman</strong>: Massive proportions, simple geometric forms</li>
+                            <li>Eclectic blend creating a unique North American interpretation of European castle architecture</li>
+                        </ul>
+                    </div>
+                    
+                    <table class="architecture-table">
+                        <tr>
+                            <th>Architectural Style</th>
+                            <th>Identifying Features</th>
+                            <th>Examples at Casa Loma</th>
+                        </tr>
+                        <tr>
+                            <td>Gothic</td>
+                            <td>Pointed arches, ribbed vaults, flying buttresses, elaborate tracery</td>
+                            <td>Great Hall ceiling, stained glass windows, turrets</td>
+                        </tr>
+                        <tr>
+                            <td>Romanesque</td>
+                            <td>Rounded arches, thick walls, sturdy pillars, symmetrical planning</td>
+                            <td>Main entrance, exterior walls, tunnel to stables</td>
+                        </tr>
+                        <tr>
+                            <td>Norman</td>
+                            <td>Massive proportions, simple geometric forms, minimal decoration</td>
+                            <td>Tower design, overall castle massing</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Identifying Gothic Style</div>
+                        <p>Gothic architecture can be identified by several key features: pointed arches that create a sense of height and grandeur; ribbed vaults that allow for taller structures; flying buttresses that support walls from the outside; large stained glass windows that flood interiors with light; and elaborate stone tracery and ornamentation. At Casa Loma, the Great Hall exemplifies Gothic style with its oak beam ceiling, stone carvings, and majestic proportions that create a sense of medieval splendor.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Casa Loma represents a unique architectural experiment—a North American interpretation of European castle styles that blended Gothic grandeur with Romanesque solidity and Norman simplicity, creating a building that was both a faithful homage to historical traditions and a distinctly modern residence for early 20th century living."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Castle Features Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"What extraordinary features made Casa Loma not just a home, but a self-contained world of luxury and innovation for its time?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Notable Rooms and Features</div>
+                        <ul class="bullet-list">
+                            <li><strong>Great Hall</strong>: 60-foot ceiling with oak beams and girders</li>
+                            <li><strong>Conservatory</strong>: Magnificent greenhouse with Italian marble floor</li>
+                            <li><strong>Library</strong>: Multiple libraries with custom oak shelving</li>
+                            <li><strong>Ballroom</strong>: Designed for lavish parties and entertainment</li>
+                            <li><strong>Underground Tunnel</strong>: 800-foot passage to stables and coach house</li>
+                            <li><strong>Secret Passages</strong>: Hidden staircases and concealed doors</li>
+                            <li><strong>Stables</strong>:
+                                <ul>
+                                    <li>Housing for Sir Henry's prized horses</li>
+                                    <li>Spanish tile flooring</li>
+                                    <li>Mahogany stalls with brass fittings</li>
+                                    <li>Automated watering system</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Modern Amenities (1914)</div>
+                        <ul class="bullet-list">
+                            <li>Central vacuum system</li>
+                            <li>Dumbwaiters between floors</li>
+                            <li>Telephone system with 59 stations</li>
+                            <li>Two vertical passages for pipe organs</li>
+                            <li>Oversized oven capable of cooking a whole steer</li>
+                            <li>Walk-in refrigerators</li>
+                            <li>Swimming pool (never completed)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">The Gardens</div>
+                        <p>The exterior gardens at Casa Loma were designed to complement the castle's grandeur. They featured meticulously maintained formal gardens, winding paths, and scenic overlooks taking advantage of the hilltop location. The gardens provided a beautiful setting for outdoor entertaining and offered stunning views of the city below, further enhancing the castle's fortress-like presence overlooking Toronto.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Casa Loma was more than a residence—it was a technological marvel of its time that combined medieval grandeur with modern convenience, creating a self-contained world where every detail from the secret passages to the automated stables reflected Sir Henry's desire to create a North American castle that rivaled its European inspirations in both splendor and functionality."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Legacy Interpreter</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did a private dream home become a public treasure, and what does Casa Loma's transformation tell us about changing fortunes and cultural preservation?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Financial Challenges and Abandonment</div>
+                        <ul class="bullet-list">
+                            <li>Sir Henry lived in Casa Loma for less than a decade (1914-1923)</li>
+                            <li>Financial problems began with changes to hydroelectric regulations</li>
+                            <li>The City of Toronto increased property taxes dramatically</li>
+                            <li>Maintenance costs became unsustainable ($1,250,000 annually in today's dollars)</li>
+                            <li>Pellatt was forced to abandon the castle in 1923</li>
+                            <li>Most contents were sold at auction in 1924</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Second Life as Public Attraction</div>
+                        <ul class="bullet-list">
+                            <li>Operated briefly as a luxury hotel in the late 1920s</li>
+                            <li>Served as a research facility for sonar development during WWII</li>
+                            <li>Purchased by the City of Toronto in 1937 for back taxes ($27,303)</li>
+                            <li>Managed by the Kiwanis Club of West Toronto from 1937-2011</li>
+                            <li>Now operated by the Casa Loma Corporation</li>
+                            <li>Designated a National Historic Site in 1987</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Cultural Significance</div>
+                        <ul class="bullet-list">
+                            <li>Toronto's only full-sized castle</li>
+                            <li>Major tourist attraction with over 650,000 visitors annually</li>
+                            <li>Popular venue for weddings, events, and film productions</li>
+                            <li>Featured in movies like X-Men, Chicago, and Scott Pilgrim vs. The World</li>
+                            <li>Symbol of Toronto's architectural heritage</li>
+                            <li>Example of Gilded Age extravagance and its consequences</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quote">
+                        "Casa Loma stands as a monument to the power of dreams and the changing fortunes of time—a private fantasy made public, reminding us that even the grandest visions must eventually adapt to new realities." - Toronto Heritage Foundation
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Casa Loma's journey from private residence to public treasure represents a fascinating chapter in Toronto's history—a story of ambition, extravagance, financial reversal, and ultimately preservation that transformed one man's dream castle into a beloved public landmark that continues to capture the imagination of visitors nearly a century after its creator was forced to abandon his magnificent hilltop home."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Historical Biographer</h4>
+                <p>"Sir Henry Mill Pellatt was a wealthy Canadian financier and industrialist who made his fortune in electricity, mining, insurance, and transportation. Knighted in 1905 for his military service with The Queen's Own Rifles of Canada, Pellatt embodied the ambition and optimism of Canada's industrial age. His family motto 'Devant Si Je Puis' (Forward If I Can) reflected his determined nature. Inspired by European castles he had seen during his travels, Pellatt commissioned architect E.J. Lennox to design Casa Loma (Spanish for 'House on the Hill') as a demonstration of his success and vision. The castle took three years to build (1911-1914) with over 300 workers at a cost of $3.5 million, an enormous sum for the time that reflected Pellatt's extravagant tastes and grand ambitions."</p>
+                
+                <h4>Architectural Analyst</h4>
+                <p>"Casa Loma represents a unique blend of architectural styles, primarily Gothic Revival with Romanesque and Norman influences. The name 'Casa Loma' translates from Spanish as 'Hill House,' reflecting its prominent location. Gothic elements can be identified by pointed arches, ribbed vaults, and elaborate stone tracery, particularly evident in the Great Hall with its 60-foot oak beam ceiling. Romanesque influences appear in the rounded arches and thick walls, while Norman style is seen in the massive proportions and simple geometric forms. Architect E.J. Lennox, who also designed Toronto's Old City Hall, created an eclectic North American interpretation of European castle architecture that honored tradition while incorporating modern amenities, resulting in a building that was both historically inspired and functionally contemporary for its time."</p>
+                
+                <h4>Castle Features Specialist</h4>
+                <p>"Casa Loma featured 98 rooms including a magnificent Great Hall with 60-foot ceiling, a conservatory with Italian marble floor, multiple libraries, a ballroom, 30 bathrooms, and 25 fireplaces. Unique features included an 800-foot underground tunnel connecting to the stables, secret passages, and modern amenities like a central vacuum system, dumbwaiters, and an extensive telephone system with 59 stations. The stables housed Sir Henry's prized horses in mahogany stalls with brass fittings and featured an automated watering system and Spanish tile flooring. The castle was designed for lavish entertainment, with an oven large enough to cook a whole steer and walk-in refrigerators. Though a swimming pool was planned, it was never completed. The exterior gardens provided beautiful settings for outdoor events with stunning views of Toronto."</p>
+                
+                <h4>Legacy Interpreter</h4>
+                <p>"Sir Henry Pellatt enjoyed Casa Loma for less than a decade before financial problems forced him to abandon the castle in 1923. Changes to hydroelectric regulations and dramatically increased property taxes made maintenance unsustainable. After Pellatt's departure, the castle operated briefly as a hotel and served during WWII as a research facility for sonar development. The City of Toronto acquired Casa Loma in 1937 for back taxes and eventually turned it into a public attraction. Designated a National Historic Site in 1987, it now hosts over 650,000 visitors annually and serves as a popular venue for weddings, events, and film productions. Casa Loma's transformation from private residence to public treasure represents a fascinating story of changing fortunes and cultural preservation, making it one of Toronto's most beloved landmarks and a symbol of both Gilded Age extravagance and adaptive reuse."</p>
+            </div>
+        </div>
+        
+        <img src="https://www.casaloma.ca/wp-content/uploads/2020/12/Great-Hall-1.jpg" alt="Casa Loma Great Hall" class="castle-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">What is the origin of the name "Casa Loma"?</button>
+                <p id="answer1" class="hidden">The name "Casa Loma" translates from Spanish as "Hill House" or "House on the Hill." Sir Henry Pellatt chose this name during a trip to Spain, where he was inspired by the hilltop homes and castles he saw throughout the countryside. The name perfectly describes the castle's prominent location on one of the highest points in Toronto, which was originally known as Walmer Road Hill and offered commanding views of the city below.</p>
+                
+                <button onclick="showAnswer('answer2')">What was the motto of the Pellatt family?</button>
+                <p id="answer2" class="hidden">The Pellatt family motto was <strong>"Devant Si Je Puis"</strong>, which is French for <strong>"Forward If I Can"</strong>. This motto reflected Sir Henry's ambitious nature and forward-thinking approach to business and life. It embodied his philosophy of progress and determination, which was evident in both his successful business ventures and his ambitious personal projects like Casa Loma. The motto captures the spirit of innovation and perseverance that characterized the industrial age in which Pellatt built his fortune.</p>
+                
+                <button onclick="showAnswer('answer3')">How do you identify Gothic architectural style?</button>
+                <p id="answer3" class="hidden">Gothic architecture can be identified by several distinctive features: <strong>pointed arches</strong> that create a sense of height and grandeur; <strong>ribbed vaults</strong> that allow for taller structures and distribute weight efficiently; <strong>flying buttresses</strong> that support walls from the outside; <strong>large stained glass windows</strong> that flood interiors with colored light; and <strong>elaborate stone tracery and ornamentation</strong> including gargoyles, pinnacles, and detailed carvings. At Casa Loma, the Great Hall exemplifies Gothic style with its impressive oak beam ceiling, stone carvings, and majestic proportions that create a sense of medieval splendor and verticality.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Castle Design and History</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Research different architectural styles present at Casa Loma</li>
+                    <li>Design their own castle incorporating multiple architectural elements</li>
+                    <li>Create a timeline of Casa Loma's history from construction to present day</li>
+                    <li>Debate the balance between historic preservation and modern use</li>
+                    <li>Compare Casa Loma to other famous castles around the world</li>
+                    <li>Develop a business plan for maintaining a historic property</li>
+                    <li>Create a presentation on Gilded Age architecture and its social context</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">Casa Loma By The Numbers</div>
+                <div class="facts-grid">
+                    <div class="fact-item">Construction: 3 years</div>
+                    <div class="fact-item">Workers: 300+</div>
+                    <div class="fact-item">Cost: $3.5 million</div>
+                    <div class="fact-item">Rooms: 98</div>
+                    <div class="fact-item">Bathrooms: 30</div>
+                    <div class="fact-item">Fireplaces: 25</div>
+                    <div class="fact-item">Stable Tunnels: 800 ft</div>
+                    <div class="fact-item">Telephone Stations: 59</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand architectural styles and their identifying features</li>
+                <li>Learn about Canada's industrial age and prominent figures</li>
+                <li>Explore the relationship between wealth, ambition, and cultural legacy</li>
+                <li>Appreciate historic preservation and adaptive reuse of buildings</li>
+                <li>Connect architectural design to social and historical context</li>
+            </ul>
+        </section>
+
+        <section id="glossary">
+            <h3>Glossary of Key Terms</h3>
+            <div class="house-card">
+                <div class="house-name">Essential Vocabulary</div>
+                <ul class="bullet-list">
+                    <li><span class="glossary-term">Fortress</span>: A fortified place organized for defense or security</li>
+                    <li><span class="glossary-term">Gothic architecture</span>: Style characterized by pointed arches, ribbed vaults, and flying buttresses</li>
+                    <li><span class="glossary-term">Romanesque architecture</span>: Style featuring rounded arches, thick walls, and sturdy pillars</li>
+                    <li><span class="glossary-term">Norman architecture</span>: Style known for massive proportions and simple geometric forms</li>
+                    <li><span class="glossary-term">Decade</span>: A period of ten years</li>
+                    <li><span class="glossary-term">Conservatory</span>: A room with glass walls and roof used as a greenhouse</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your educational trip to Toronto with</p>
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
