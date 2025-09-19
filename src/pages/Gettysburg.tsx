@@ -38,7 +38,8 @@ const Gettysburg = () => {
   const { hasAccess, grantAccess } = useUserAccess();
 
   const handleActivityClick = (activity: typeof gettysburgActivities[0]) => {
-    if (hasAccess || activity.isUnlocked) {
+    // Check access before launching activity - authenticated users bypass individual locks
+    if (hasAccess) {
       window.open(`/activities/${activity.id}.html`, '_blank');
     } else {
       setSelectedActivity(activity.title);
@@ -93,7 +94,7 @@ const Gettysburg = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {gettysburgActivities.map((activity) => (
             <Card key={activity.id} className="relative overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group">
-              {!activity.isUnlocked && (
+              {!hasAccess && !activity.isUnlocked && (
                 <div className="absolute top-4 right-4 z-10">
                   <div className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
                     <Lock className="h-4 w-4" />
@@ -134,10 +135,10 @@ const Gettysburg = () => {
                 
                 <Button 
                   onClick={() => handleActivityClick(activity)}
-                  variant={hasAccess || activity.isUnlocked ? "default" : "hero"}
-                  className={hasAccess || activity.isUnlocked ? "w-full" : "w-full bg-yellow-500 hover:bg-yellow-600 text-black"}
+                  variant={hasAccess ? "default" : "hero"}
+                  className={hasAccess ? "w-full" : "w-full bg-yellow-500 hover:bg-yellow-600 text-black"}
                 >
-                  {hasAccess || activity.isUnlocked ? "Start Activity" : "Unlock Activity"}
+                  {hasAccess ? "Start Activity" : "Unlock Activity"}
                 </Button>
               </CardContent>
             </Card>
