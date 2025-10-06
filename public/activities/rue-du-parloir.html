@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rue du Parloir | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .street-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .house-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .house-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .bullet-list {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .bullet-list li {
+            margin-bottom: 8px;
+        }
+        .glossary-term {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #f2f2f2;
+        }
+        .architecture-feature {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .feature-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .building-comparison {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .building {
+            width: 48%;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .building-title {
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .building {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Rue du Parloir</h1>
+        <h2>Architectural Time Capsule of Quebec</h2>
+    </div>
+    
+    <img src="https://www.quebec-cite.com/sites/otq/files/styles/large/public/2021-06/rue-du-parloir-quebec-0001.jpg" alt="Rue du Parloir in Quebec City" class="street-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores Rue du Parloir, a street that serves as an architectural timeline of Quebec City's history. We'll examine how to identify building ages through architectural clues, learn about fire safety in early Quebec, and discover the historical significance of the Ursuline Convent.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Architectural Analysis - Dating Buildings by Design
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> Fire Safety in Early Quebec
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> The Ursuline Convent and Its Legacy
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Urban Development and Notable Features
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">Rue du Parloir Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Location: Old Quebec</div>
+                <div class="fact-item">Ursuline Convent: Established 1639</div>
+                <div class="fact-item">Convent Grounds: 7 acres</div>
+                <div class="fact-item">Narrowest House: 6 Donnacona (1842)</div>
+                <div class="fact-item">Historic Status: UNESCO World Heritage Site</div>
+                <div class="fact-item">Montcalm Burial: Presumed on convent grounds</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Architectural Detective</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How can you determine a building's age when facades can be deceivingly resurfaced, and what clues reveal the true historical period of construction?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="building-comparison">
+                        <div class="building">
+                            <div class="building-title">Number 8 (Older Building)</div>
+                            <ul class="bullet-list">
+                                <li>Rough-hewn stone construction</li>
+                                <li>Smaller square windows</li>
+                                <li>High-pitched roof designed for snow</li>
+                                <li>Firewall chimneys for safety</li>
+                                <li>Simple rectangular design</li>
+                                <li>Ladder hooks on roof for chimney access</li>
+                                <li>No elaborate ornamentation</li>
+                            </ul>
+                        </div>
+                        <div class="building">
+                            <div class="building-title">Number 10 (Victorian Building)</div>
+                            <ul class="bullet-list">
+                                <li>Upright building with no sloping roof</li>
+                                <li>Elaborate detail work</li>
+                                <li>Wrought-iron decorations</li>
+                                <li>Larger scale than older neighbors</li>
+                                <li>More sophisticated craftsmanship</li>
+                                <li>Potentially deceptive mansard-style elements</li>
+                                <li>Ornate sculpting and details</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Key Dating Principles</div>
+                        <ul class="bullet-list">
+                            <li>Older buildings are often simpler due to limited skills and resources</li>
+                            <li>Building facades can be resurfaced, misleading age assessment</li>
+                            <li>Rooflines, window proportions, and structural details reveal true age</li>
+                            <li>Fire safety features indicate pre-modern construction</li>
+                            <li>Ornamentation increased with technological advances and wealth</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">The Importance of Looking Beyond Facades</div>
+                        <p>When dating buildings, especially in historic districts where facades may have been updated for modern aesthetics, it's essential to examine structural elements rather than surface appearances. The high-pitched roof, rough stonework, and functional elements like ladder hooks tell the true story of Number 8's age, while Number 10's elaborate decorations and vertical proportions reveal its Victorian origins despite any potentially misleading design elements.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Architectural detective work requires looking beyond surface appearances to understand the structural clues that reveal a building's true age—from the practical considerations of snow loads and fire safety in older structures to the decorative exuberance of later periods that had greater resources and technical capabilities."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Fire Safety Historian</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Why was fire the most feared disaster in early Quebec, and what innovative solutions did colonists develop to protect their wooden cities from destruction?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Fire Hazards in Early Quebec</div>
+                        <ul class="bullet-list">
+                            <li>Most buildings constructed entirely of wood</li>
+                            <li>Heating and cooking relied on fireplaces</li>
+                            <li>Chimneys were constant fire hazards when poorly maintained</li>
+                            <li>Close proximity of buildings allowed fires to spread rapidly</li>
+                            <li>Limited water access for firefighting</li>
+                            <li>No organized fire departments in early colonial period</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Fire Prevention Solutions</div>
+                        <ul class="bullet-list">
+                            <li><strong>Firewalls</strong>: Stone walls extending above rooflines to prevent fire spread</li>
+                            <li><strong>Chimney maintenance laws</strong>: Stiff penalties for poorly maintained chimneys</li>
+                            <li><strong>Ladder hooks</strong>: Roof fixtures for quick chimney access during fires</li>
+                            <li><strong>Stone construction</strong>: Increasing use of stone for party walls between buildings</li>
+                            <li><strong>Firewatch systems</strong>: Early warning systems for detecting fires</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="architecture-feature">
+                        <div class="feature-title">Origin of Firewalls</div>
+                        <p>The term "firewall" literally originated from walls designed to prevent fires from jumping from one roof to another. In an era when most buildings were constructed of wood and heated with fireplaces, the risk of catastrophic fires was constant. Firewalls—substantial stone walls that extended above the roofline—created barriers that could slow or stop the progression of flames from one structure to the next, buying precious time for firefighters to contain blazes.</p>
+                    </div>
+                    
+                    <div class="architecture-feature">
+                        <div class="feature-title">Chimney Maintenance</div>
+                        <p>Plugged or damaged chimneys were the primary fire hazard in early Quebec. Creosote buildup could ignite, sending flames into wooden roof structures. Laws imposed stiff penalties on homeowners who neglected chimney maintenance. The ladder hooks seen on older roofs like Number 8 Rue du Parloir allowed quick access to douse chimney fires before they could spread to the entire building.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The constant threat of fire in early Quebec led to innovative architectural solutions and strict regulations that prioritized safety over aesthetics—from the functional firewall that gave the safety feature its name to the ladder hooks that enabled rapid response to chimney fires, representing a fascinating chapter in the history of urban safety planning."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Religious Heritage Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did a group of nuns from France establish North America's first educational institution for women and create a legacy that continues nearly 400 years later?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Ursuline Convent History</div>
+                        <ul class="bullet-list">
+                            <li>Established in 1639 by Ursuline nuns from France</li>
+                            <li>Founded North America's first school for girls</li>
+                            <li>Original mission: Catholic education for Indigenous girls</li>
+                            <li>Taught catechism, writing, and arithmetic</li>
+                            <li>Covered 7 acres in the heart of Quebec City</li>
+                            <li>Destroyed twice by fire over 300 years, rebuilt each time</li>
+                            <li>Few sections of original 17th-century walls remain</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Marie de l'Incarnation</div>
+                        <ul class="bullet-list">
+                            <li>Key founder of the Ursuline Convent in Quebec</li>
+                            <li>Beatified by the Catholic Church in June 1980</li>
+                            <li>Beatification is a step toward sainthood recognition</li>
+                            <li>Pioneered education for women in New France</li>
+                            <li>Corresponded extensively about life in the colony</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Educational Mission</div>
+                        <ul class="bullet-list">
+                            <li>Original focus on Indigenous girls' education</li>
+                            <li>Hoped some students would become nuns to aid conversion efforts</li>
+                            <li>Curriculum included religious and practical education</li>
+                            <li>Reputation for excellence attracted students from elite families</li>
+                            <li>Continued educational mission for centuries</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quote">
+                        "The Ursuline Convent represents an extraordinary chapter in North American education—a testament to the vision of women who crossed an ocean to establish learning where none existed, creating a legacy of education that would endure for centuries." - Historical accounts
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The Ursuline Convent stands as a monument to educational pioneering and religious dedication—from its original mission of educating Indigenous girls to its enduring legacy as North America's first institution for women's education, representing both the religious fervor of New France and the extraordinary determination of women who built educational institutions against formidable odds."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Urban Exploration Guide</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"What hidden historical gems and architectural curiosities can be discovered by exploring the streets surrounding Rue du Parloir?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Notable Features Around Rue du Parloir</div>
+                        <ul class="bullet-list">
+                            <li><strong>Ursuline Museum</strong>: Contains relic reputed to be General Montcalm's skull</li>
+                            <li><strong>General Montcalm's burial site</strong>: Presumed to be somewhere on convent grounds (1759)</li>
+                            <li><strong>Former nun's stable</strong>: Visible in courtyard with hay hoist above window</li>
+                            <li><strong>Narrowest house in Quebec</strong>: At 6 Donnacona Street (built 1842)</li>
+                            <li><strong>Original 17th-century walls</strong>: Few sections remain in convent structure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">General Montcalm Connection</div>
+                        <ul class="bullet-list">
+                            <li>French general during Seven Years' War</li>
+                            <li>Died during Battle of Quebec (1759)</li>
+                            <li>Presumed buried on Ursuline Convent grounds</li>
+                            <li>Exact burial location remains uncertain</li>
+                            <li>Skull relic displayed in Ursuline Museum</li>
+                            <li>Represents French colonial military history</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="architecture-feature">
+                        <div class="feature-title">Hay Hoist System</div>
+                        <p>In the courtyard beyond Rue du Parloir, visitors can see a section of the nuns' old stable with a hoist above the window. This practical device was used to haul loads of hay into storage above the stables, demonstrating how even religious communities engaged in practical agricultural activities to sustain themselves. The preservation of this feature offers insight into the daily operations and self-sufficiency of early religious communities in Quebec.</p>
+                    </div>
+                    
+                    <div class="architecture-feature">
+                        <div class="feature-title">Urban Development Patterns</div>
+                        <p>The area around Rue du Parloir demonstrates the organic growth of Quebec City from its religious core outward. The Ursuline Convent established an early anchor point around which other development occurred. The mix of building ages and styles along the street provides a visible timeline of architectural trends and construction techniques from the 17th century to the Victorian era and beyond.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The streets surrounding Rue du Parloir offer a microcosm of Quebec's urban development—from the religious foundations represented by the Ursuline Convent to the practical agricultural implements like hay hoists, from the final resting place of a French general to the charming curiosity of Quebec's narrowest house, creating a rich tapestry of historical layers waiting to be discovered by curious explorers."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Architectural Detective</h4>
+                <p>"When examining buildings on Rue du Parloir, look beyond surface appearances to identify true age. Number 8 is the older building, characterized by rough-hewn stone construction, smaller square windows, a high-pitched roof designed for snow load, firewall chimneys for safety, and simple rectangular design with no elaborate ornamentation. The ladder hooks on the roof allowed quick access to douse chimney fires. In contrast, Number 10 is Victorian with elaborate detail work, wrought-iron decorations, and an upright design with no sloping roof. Remember that older buildings are often simpler due to limited skills and resources, and facades can be misleadingly resurfaced. Focus on rooflines, window proportions, and structural details rather than surface decorations to accurately date buildings."</p>
+                
+                <h4>Fire Safety Historian</h4>
+                <p>"Fire was the most feared disaster in early Quebec due to predominantly wooden construction and reliance on fireplaces for heating and cooking. The term 'firewall' literally originated from walls designed to prevent fires from jumping between buildings. These stone walls extended above rooflines to create barriers against spreading flames. Chimneys were constant hazards when poorly maintained, with creosote buildup potentially igniting and spreading to wooden roofs. Laws imposed stiff penalties for neglected chimney maintenance. The ladder hooks seen on older roofs like Number 8 Rue du Parloir enabled quick access to douse chimney fires before they could destroy entire buildings. These innovations represent early urban safety planning in response to constant fire threats."</p>
+                
+                <h4>Religious Heritage Specialist</h4>
+                <p>"The Ursuline Convent, established in 1639 by nuns from France, founded North America's first school for girls with an original mission of providing Catholic education for Indigenous girls. The convent taught catechism, writing, and arithmetic, hoping some students would become nuns to aid conversion efforts. Marie de l'Incarnation, a key founder, was beatified by the Catholic Church in 1980, a step toward sainthood. The convent covered 7 acres and was destroyed twice by fire over 300 years, with few sections of original 17th-century walls remaining. This institution represents extraordinary educational pioneering by women who crossed an ocean to establish learning where none existed, creating a enduring legacy of women's education in North America."</p>
+                
+                <h4>Urban Exploration Guide</h4>
+                <p>"The area around Rue du Parloir contains several historical gems. The Ursuline Museum displays a relic reputed to be General Montcalm's skull; the French general is presumed buried somewhere on the convent grounds after dying in the 1759 Battle of Quebec. In the courtyard beyond Rue du Parloir, you can see the nuns' old stable with a hay hoist above the window used to lift hay into storage. At 6 Donnacona Street stands Quebec's narrowest house, built in 1842. These features represent the rich historical layers of Quebec City—from religious foundations and military history to practical agricultural implements and architectural curiosities—all within a small area that demonstrates the city's organic development from its religious core outward."</p>
+            </div>
+        </div>
+        
+        <img src="https://www.quebec-cite.com/sites/otq/files/styles/large/public/2021-06/monastere-des-ursulines-quebec-0001.jpg" alt="Ursuline Convent in Quebec City" class="street-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">What architectural features help identify the older building at Number 8 Rue du Parloir?</button>
+                <p id="answer1" class="hidden">The older building at Number 8 can be identified by several key features: <strong>rough-hewn stone construction</strong> (not smooth or elaborate), <strong>smaller square windows</strong> (reflecting limited glass technology), <strong>high-pitched roof</strong> (designed for snow load), <strong>firewall chimneys</strong> (for fire safety), <strong>simple rectangular design</strong> (no ornate sculpting), and <strong>ladder hooks on the roof</strong> (for chimney fire access). These practical, unadorned features characterize older Quebec buildings constructed when resources were limited and safety concerns prioritized over aesthetics. The building's smaller scale compared to neighbors also indicates earlier construction.</p>
+                
+                <button onclick="showAnswer('answer2')">Why were firewalls so important in early Quebec architecture?</button>
+                <p id="answer2" class="hidden">Firewalls were critically important in early Quebec because <strong>most buildings were constructed of wood</strong> and <strong>fire was a constant threat</strong> due to heating and cooking practices. The term "firewall" literally originated from walls designed to prevent fires from jumping from one roof to another. These stone walls extended above the roofline to create barriers that could slow or stop the progression of flames between structures. In an era before organized fire departments and with limited water access for firefighting, firewalls provided crucial protection against the catastrophic spread of fires that could destroy entire neighborhoods of closely-built wooden structures.</p>
+                
+                <button onclick="showAnswer('answer3')">What was significant about the Ursuline Convent's educational mission?</button>
+                <p id="answer3" class="hidden">The Ursuline Convent was significant for establishing <strong>North America's first school for girls</strong> in 1639. Its original mission focused on providing Catholic education for Indigenous girls, teaching catechism, writing, and arithmetic. The nuns hoped some students would become nuns themselves to assist in converting Indigenous populations to Catholicism. Beyond its religious aims, the convent represented a pioneering institution in women's education at a time when formal schooling for girls was rare. The curriculum combined religious instruction with practical education, and the institution maintained a reputation for excellence that attracted students from elite families. Its enduring operation for nearly 400 years makes it an extraordinary chapter in the history of education in North America.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Architectural Investigation</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Create a guide to identifying building ages through architectural features</li>
+                    <li>Design a fire safety plan for a historic wooden city</li>
+                    <li>Research the history of women's education in New France</li>
+                    <li>Compare different architectural styles found in Old Quebec</li>
+                    <li>Debate preservation versus modernization in historic districts</li>
+                    <li>Study the impact of climate (snow load) on architectural design</li>
+                    <li>Create a presentation on daily life in early religious communities</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">Architectural Identification Guide</div>
+                <div class="facts-grid">
+                    <div class="fact-item">Rough Stone: Older</div>
+                    <div class="fact-item">Elaborate Details: Newer</div>
+                    <div class="fact-item">Pitched Roof: Snow climate</div>
+                    <div class="fact-item">Ladder Hooks: Chimney access</div>
+                    <div class="fact-item">Small Windows: Older glass tech</div>
+                    <div class="fact-item">Firewalls: Safety feature</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Learn to identify architectural features that indicate building age</li>
+                <li>Understand historical fire safety challenges and solutions</li>
+                <li>Appreciate the significance of early educational institutions</li>
+                <li>Recognize urban development patterns in historic cities</li>
+                <li>Develop skills in historical observation and analysis</li>
+            </ul>
+        </section>
+
+        <section id="glossary">
+            <h3>Glossary of Key Terms</h3>
+            <div class="house-card">
+                <div class="house-name">Essential Vocabulary</div>
+                <ul class="bullet-list">
+                    <li><span class="glossary-term">Firewall</span>: Wall extending above roofline to prevent fire spread</li>
+                    <li><span class="glossary-term">Mansard roof</span>: Roof with two slopes on each side, often associated with French architecture</li>
+                    <li><span class="glossary-term">Ladder hooks</span>: Roof fixtures for emergency chimney access</li>
+                    <li><span class="glossary-term">Beatification</span>: Catholic Church recognition as blessed, step toward sainthood</li>
+                    <li><span class="glossary-term">Creosote</span>: Flammable buildup in chimneys from wood combustion</li>
+                    <li><span class="glossary-term">High-pitched roof</span>: Steeply sloped roof designed for snow shedding</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your educational trip to Quebec with</p>
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

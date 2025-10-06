@@ -7,6 +7,7 @@ import ContactSection from "@/components/ContactSection";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import quebecHeroImg from "@/assets/quebec-city.jpg";
 import placeRoyaleImg from "@/assets/place-royale-quebec.jpg";
+import rueParloirImg from "@/assets/rue-du-parloir.jpg";
 import { useNavigate } from "react-router-dom";
 import { useUserAccess } from "@/hooks/useUserAccess";
 
@@ -23,6 +24,21 @@ const quebecActivities = [
       "Analyze the challenges faced by early French settlers",
       "Recognize the multiple functions of public spaces in colonial society",
       "Identify architectural features of New France buildings"
+    ]
+  },
+  {
+    id: "rue-du-parloir",
+    title: "Rue du Parloir - Architectural Time Capsule",
+    description: "Discover how to identify building ages through architectural clues, learn about fire safety in early Quebec, and explore the Ursuline Convent's legacy. (English Version)",
+    image: rueParloirImg,
+    duration: "15-25 minutes",
+    students: "All grades",
+    objectives: [
+      "Learn to identify architectural features that indicate building age",
+      "Understand historical fire safety challenges and solutions",
+      "Appreciate the significance of early educational institutions",
+      "Recognize urban development patterns in historic cities",
+      "Develop skills in historical observation and analysis"
     ]
   }
 ];
