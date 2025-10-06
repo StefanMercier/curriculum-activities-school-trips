@@ -71,7 +71,7 @@ const destinations = [
     id: "quebec",
     title: "Quebec City",
     description: "Place Royale, Samuel de Champlain settlement, birthplace of French America",
-    activities: 1,
+    activities: 2,
     duration: "10-20 min per activity",
     isUnlocked: false, // Requires authentication
     image: quebecCityImg
