@@ -35,7 +35,7 @@ const destinations = [
     id: "boston",
     title: "Boston",
     description: "Freedom Trail, Boston Tea Party Ships, USS Constitution, James Otis Revolutionary Activities",
-    activities: 1,
+    activities: 2,
     duration: "10-20 min per activity",
     isUnlocked: false, // Requires authentication
     image: bostonImg
@@ -44,7 +44,7 @@ const destinations = [
     id: "gettysburg",
     title: "Gettysburg",
     description: "Civil War battlefield, General Daniel Sickles story, Peach Orchard, Cemetery Ridge",
-    activities: 1,
+    activities: 2,
     duration: "10-20 min per activity",
     isUnlocked: false, // Requires authentication
     image: gettysburgImg
@@ -80,7 +80,7 @@ const destinations = [
     id: "toronto",
     title: "Toronto",
     description: "CN Tower engineering marvel, telecommunications history, environmental stewardship",
-    activities: 1,
+    activities: 2,
     duration: "10-20 min per activity",
     isUnlocked: false, // Requires authentication
     image: torontoImg
