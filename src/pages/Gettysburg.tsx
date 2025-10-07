@@ -8,6 +8,7 @@ import LeadCaptureForm from "@/components/LeadCaptureForm";
 import { useUserAccess } from "@/hooks/useUserAccess";
 import danielSicklesImg from "@/assets/daniel-sickles.jpg";
 import battleOfGettysburgImg from "@/assets/battle-of-gettysburg.jpg";
+import jennieWadeImg from "@/assets/jennie-wade.jpg";
 
 const gettysburgActivities = [
   {
@@ -28,6 +29,16 @@ const gettysburgActivities = [
     participants: "25-35 students",
     difficulty: "Advanced",
     image: battleOfGettysburgImg,
+    isUnlocked: false // Requires authentication
+  },
+  {
+    id: "jennie-wade",
+    title: "Jennie Wade House",
+    description: "The tragic story of the only civilian killed during the Battle of Gettysburg—Mary Virginia 'Jennie' Wade, a 20-year-old woman baking bread for Union soldiers when struck by a stray bullet.",
+    duration: "45 minutes",
+    participants: "25-30 students",
+    difficulty: "Intermediate",
+    image: jennieWadeImg,
     isUnlocked: false // Requires authentication
   }
 ];

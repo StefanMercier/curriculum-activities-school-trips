@@ -44,7 +44,7 @@ const destinations = [
     id: "gettysburg",
     title: "Gettysburg",
     description: "Civil War battlefield, General Daniel Sickles story, Peach Orchard, Cemetery Ridge",
-    activities: 2,
+    activities: 3,
     duration: "10-20 min per activity",
     isUnlocked: false, // Requires authentication
     image: gettysburgImg

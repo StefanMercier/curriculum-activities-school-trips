@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jennie Wade House | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .jennie-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .house-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .house-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .bullet-list {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .bullet-list li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>Jennie Wade House</h1>
+        <h2>The Human Cost of the Battle of Gettysburg</h2>
+    </div>
+    
+    <img src="https://cdn.gettysburg.travel/imager/files/18167/Jennie-Wade-House_9e2b8e72c8b5179b36b8c2b8d51b2d7e.jpg" alt="Jennie Wade House in Gettysburg" class="jennie-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores the Jennie Wade House and the story of the only civilian killed during the Battle of Gettysburg. We'll examine the human cost of war, civilian experiences during the battle, and how one woman's tragic death became a symbol of the civilian sacrifice during the Civil War.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Mary Virginia "Jennie" Wade - Her Life and Family
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> The Battle Comes to Gettysburg
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> The Tragic Event - July 3, 1863
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Legacy and Remembrance
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">Jennie Wade Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Full Name: Mary Virginia Wade</div>
+                <div class="fact-item">Born: May 21, 1843</div>
+                <div class="fact-item">Died: July 3, 1863</div>
+                <div class="fact-item">Age at Death: 20 years</div>
+                <div class="fact-item">Status: Only civilian killed</div>
+                <div class="fact-item">House Location: 548 Baltimore Street</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Biographical Historian</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Who was the real woman behind the legendary name 'Jennie Wade,' and what was her life like before the battle transformed her into a historical symbol?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Mary Virginia "Jennie" Wade</div>
+                        <ul class="bullet-list">
+                            <li>Born May 21, 1843, to Mary Ann and James Wade</li>
+                            <li>Nickname "Ginnie" was misprinted as "Jennie" in newspapers after her death</li>
+                            <li>Worked as a seamstress before the battle</li>
+                            <li>Engaged to Johnston "Jack" Skelly, a Union corporal</li>
+                            <li>Jack was wounded in Battle of Winchester (June 1863) and died July 12 without knowing of Jennie's death</li>
+                            <li>Lived with her mother and younger brother Harry at 528 Baltimore Street</li>
+                            <li>Moved to her sister Georgia's house at 548 Baltimore Street during the battle for safety</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">The Wade Family</div>
+                        <ul class="bullet-list">
+                            <li>Father: James Wade - suffered from mental illness and was institutionalized</li>
+                            <li>Mother: Mary Ann Wade - widowed, took in boarders to support family</li>
+                            <li>Brother: Samuel "Harry" Wade - 15 years old during the battle</li>
+                            <li>Sister: Georgia Anna Wade McClellan - married to Louis McClellan</li>
+                            <li>Georgia had given birth to a son just days before the battle began</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quote">
+                        "She was known among her friends for her amiable disposition and cheerful character." - Contemporary description of Jennie Wade
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Jennie Wade was much more than a historical statistic—she was a real person with dreams, relationships, and a future planned with her fiancé, all tragically cut short by a stray bullet during the battle that engulfed her hometown."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Battle Context Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"What was life like for Gettysburg civilians as 160,000 soldiers descended upon their small Pennsylvania town in the summer of 1863?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Gettysburg Before the Battle</div>
+                        <ul class="bullet-list">
+                            <li>Population: Approximately 2,400 residents</li>
+                            <li>Economy: Market town serving surrounding agricultural area</li>
+                            <li>Several colleges: Pennsylvania College (now Gettysburg College) and Lutheran Theological Seminary</li>
+                            <li>Road network: 10 roads converged at Gettysburg, making it strategically important</li>
+                            <li>No military significance before the battle—just another small town</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Civilian Experience During the Battle</div>
+                        <ul class="bullet-list">
+                            <li>Approximately 2,400 civilians trapped between two massive armies</li>
+                            <li>Most residents hid in cellars for protection</li>
+                            <li>Homes were commandeered for field hospitals</li>
+                            <li>Food and supplies became scarce</li>
+                            <li>Constant danger from artillery and stray bullets</li>
+                            <li>Some residents provided aid to wounded soldiers from both sides</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">The House at 548 Baltimore Street</div>
+                        <p>Jennie's sister Georgia Wade McClellan had recently given birth. The family believed her brick home would be safer than their wood-frame house at 528 Baltimore Street. The house was in the path of Confederate sharpshooters targeting Union positions on Cemetery Hill. Despite being in a dangerous location, the family felt they had no safer option.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"For Gettysburg's civilians, the battle was not a historical event but a terrifying reality that transformed their homes into battlefields and cellars into shelters, with daily life punctuated by the constant danger of artillery fire and stray bullets."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Event Chronologist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did a young woman baking bread for Union soldiers become the only civilian casualty of the bloodiest battle in North American history?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">The Morning of July 3, 1863</div>
+                        <ul class="bullet-list">
+                            <li>Third day of the Battle of Gettysburg</li>
+                            <li>Jennie was in the kitchen of her sister's home at 548 Baltimore Street</li>
+                            <li>She was baking bread for Union soldiers stationed nearby</li>
+                            <li>Her mother Mary Ann was also in the house</li>
+                            <li>Her sister Georgia was upstairs recovering from childbirth</li>
+                            <li>Georgia's newborn son was also in the house</li>
+                            <li>Confederate sharpshooters were targeting Union positions on Cemetery Hill</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">The Tragic Moment</div>
+                        <ul class="bullet-list">
+                            <li>Approximately 8:30 AM on July 3, 1863</li>
+                            <li>A Confederate bullet penetrated two wooden doors of the house</li>
+                            <li>The bullet struck Jennie in the back, piercing her heart and left lung</li>
+                            <li>She died instantly, collapsing while kneading dough</li>
+                            <li>Her mother witnessed the tragic event</li>
+                            <li>Despite the danger, Union soldiers helped bury her temporarily in the backyard</li>
+                            <li>The family continued to shelter in the dangerous house throughout the battle</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">The Bullet's Path</div>
+                        <p>The fatal bullet came from a Confederate sharpshooter's rifle approximately ¾ mile away. It passed through the north door of the house, then through the south door of the kitchen, before striking Jennie in the back. The bullet holes are still visible in the preserved house today, testament to the tragic accuracy of the shot that ended her life.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Jennie Wade's death represents the random tragedy of war—a young woman engaged in the simple, compassionate act of baking bread for soldiers, struck down by a bullet meant for military targets, becoming an unintended casualty in a conflict that engulfed her home and community."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. Legacy Interpreter</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did the death of one civilian woman become such an enduring symbol of the Battle of Gettysburg and the human cost of war?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Immediate Aftermath</div>
+                        <ul class="bullet-list">
+                            <li>Jennie was temporarily buried in the backyard on July 4, 1863</li>
+                            <li>Her body was later moved to Evergreen Cemetery</li>
+                            <li>She was buried next to her fiancé Jack Skelly, who had died without knowing of her death</li>
+                            <li>Her mother Mary Ann received a pension from the U.S. government for her daughter's death</li>
+                            <li>The family home became a site of pilgrimage almost immediately</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">The Jennie Wade House Museum</div>
+                        <ul class="bullet-list">
+                            <li>The house at 548 Baltimore Street was preserved as a museum</li>
+                            <li>Still contains original bullet holes from the fatal shot</li>
+                            <li>Displays artifacts including the dough tray Jennie was using</li>
+                            <li>One of the most visited sites in Gettysburg</li>
+                            <li>Designated a National Historic Landmark</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="house-card">
+                        <div class="house-name">Symbolic Significance</div>
+                        <ul class="bullet-list">
+                            <li>Represents the civilian cost of the Civil War</li>
+                            <li>Symbolizes how war affects non-combatants</li>
+                            <li>Her story personalizes the massive casualty numbers of Gettysburg</li>
+                            <li>Represents domesticity and compassion amid violence</li>
+                            <li>Her death while helping soldiers exemplifies civilian contributions to the war effort</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="quote">
+                        "The name of Miss Jenny [sic] Wade has become a household word, a name that will live in history." - 19th century account
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Jennie Wade's enduring legacy transforms her from a tragic statistic into a powerful symbol of the civilian experience during the Civil War—a reminder that behind the grand strategies and heroic charges, war exacts its toll on ordinary people going about their daily lives in the wrong place at the wrong time."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Biographical Historian</h4>
+                <p>"Mary Virginia 'Jennie' Wade was born May 21, 1843, to Mary Ann and James Wade in Gettysburg, Pennsylvania. Her nickname 'Ginnie' was misprinted as 'Jennie' in newspaper accounts after her death, creating the name by which she's remembered. She worked as a seamstress and was engaged to Union Corporal Johnston 'Jack' Skelly, who was wounded at the Battle of Winchester in June 1863. Tragically, Jack died on July 12 without knowing of Jennie's death. When the battle approached Gettysburg, Jennie moved with her mother and brother to her sister Georgia's house at 548 Baltimore Street, believing the brick structure would be safer than their wood-frame home. Georgia had recently given birth, and the family was caring for her newborn son."</p>
+                
+                <h4>Battle Context Specialist</h4>
+                <p>"Gettysburg was a small market town of approximately 2,400 residents when 160,000 soldiers descended upon it in July 1863. The town had no military significance—it was simply where the two armies accidentally collided. Civilians found themselves trapped between massive armies, hiding in cellars while their homes became field hospitals. The house at 548 Baltimore Street where Jennie Wade took shelter was dangerously positioned in the line of fire between Confederate sharpshooters and Union positions on Cemetery Hill. Despite the danger, families had few options for safety, and many continued their daily routines as best they could, with some like Jennie even providing support to soldiers despite the risks."</p>
+                
+                <h4>Event Chronologist</h4>
+                <p>"On the morning of July 3, 1863—the third day of battle—20-year-old Jennie Wade was in her sister's kitchen baking bread for Union soldiers. Approximately at 8:30 AM, a Confederate bullet from a sharpshooter nearly ¾ mile away penetrated two wooden doors of the house and struck Jennie in the back, piercing her heart and left lung. She died instantly while kneading dough, collapsing in the kitchen as her mother watched in horror. Despite the ongoing battle, Union soldiers helped bury her temporarily in the backyard. The family continued to shelter in the dangerous house throughout the remainder of the battle, with bullets repeatedly striking the home but miraculously sparing other family members including Georgia's newborn son."</p>
+                
+                <h4>Legacy Interpreter</h4>
+                <p>"Jennie Wade's death made her the only civilian killed during the Battle of Gettysburg, transforming her into an enduring symbol of the civilian cost of war. She was temporarily buried in the backyard before being moved to Evergreen Cemetery beside her fiancé Jack Skelly, who had died days later unaware of her death. Her mother received a government pension for her daughter's death. The house at 548 Baltimore Street was preserved as a museum with the original bullet holes still visible. Jennie's story personalizes the massive casualty numbers of Gettysburg, representing how war affects non-combatants and how ordinary people demonstrate extraordinary compassion even amid violence. Her legacy continues to remind visitors of the human cost of conflict beyond military casualties."</p>
+            </div>
+        </div>
+        
+        <img src="https://cdn.gettysburg.travel/imager/files/18167/Jennie-Wade-Grave_9e2b8e72c8b5179b36b8c2b8d51b2d7e.jpg" alt="Jennie Wade's Grave" class="jennie-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Why was Jennie Wade in such a dangerous location during the battle?</button>
+                <p id="answer1" class="hidden">Jennie and her family had moved to her sister Georgia's house at 548 Baltimore Street because they believed the brick structure would be safer than their own wood-frame home at 528 Baltimore Street. Georgia had recently given birth, and the family was caring for her newborn son. Unfortunately, this house was directly in the line of fire between Confederate sharpshooters and Union positions on Cemetery Hill. Like many Gettysburg residents, they had limited options for safety and likely underestimated how intense the fighting would become in their neighborhood.</p>
+                
+                <button onclick="showAnswer('answer2')">What was Jennie doing when she was killed, and why is this significant?</button>
+                <p id="answer2" class="hidden">Jennie was baking bread for Union soldiers when she was killed. This is significant because it represents the civilian contribution to the war effort and demonstrates compassion amid violence. Her actions show how ordinary citizens supported soldiers despite the dangers. The domestic nature of her task—baking bread—creates a poignant contrast with the violence that ended her life, highlighting how war disrupts normal civilian activities and how non-combatants often help military personnel at great personal risk.</p>
+                
+                <button onclick="showAnswer('answer3')">How has Jennie Wade's story been preserved and remembered?</button>
+                <p id="answer3" class="hidden">Jennie Wade's story has been preserved through multiple avenues: her home at 548 Baltimore Street was maintained as a museum with original bullet holes still visible; she was reburied in Evergreen Cemetery beside her fiancé with a memorial marker; her mother received a government pension recognizing her death as a war-related casualty; her story has been included in countless books, tours, and educational programs about Gettysburg; and she has become a symbolic figure representing civilian sacrifice during the Civil War. The preservation of her story helps personalize the historical events and reminds us of war's impact on non-combatants.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Civilian Experience Journal</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Research civilian experiences during the Battle of Gettysburg</li>
+                    <li>Create fictional journal entries from different perspectives (children, parents, elderly, etc.)</li>
+                    <li>Describe daily life challenges during the battle</li>
+                    <li>Imagine difficult decisions civilians faced about safety, helping soldiers, etc.</li>
+                    <li>Consider how different locations in town offered varying levels of danger</li>
+                    <li>Create a presentation comparing military and civilian experiences of the battle</li>
+                    <li>Discuss how war affects non-combatants differently than military personnel</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">Jennie Wade House Artifacts</div>
+                <div class="facts-grid">
+                    <div class="fact-item">Original bullet holes</div>
+                    <div class="fact-item">Dough tray she was using</div>
+                    <div class="fact-item">Family photographs</div>
+                    <div class="fact-item">Period furniture</div>
+                    <div class="fact-item">Historical documents</div>
+                    <div class="fact-item">Personal belongings</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand the civilian experience during the Battle of Gettysburg</li>
+                <li>Analyze how war affects non-combatant populations</li>
+                <li>Connect individual stories to larger historical events</li>
+                <li>Recognize the human cost of conflict beyond military casualties</li>
+                <li>Appreciate how personal stories help preserve historical memory</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your educational trip to Gettysburg with</p>
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
