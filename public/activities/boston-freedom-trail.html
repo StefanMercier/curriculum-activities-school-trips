@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Freedom Trail, Boston | Global Educational Tours</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+        .trail-image {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .role-card {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .script {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        .student-line {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .action {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #bdc3c7;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .quiz {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .hidden {
+            display: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        .footer-logo {
+            max-width: 150px;
+            margin: 10px auto;
+        }
+        .script-page {
+            page-break-after: always;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .script-page {
+                page-break-after: always;
+                height: 100vh;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .role-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .role-title {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .role-part {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        .part-title {
+            font-weight: bold;
+            color: #3498db;
+        }
+        .facts {
+            background-color: #f0f7fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .facts-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .fact-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            background-color: #f0f7fc;
+            margin: 15px 0;
+        }
+        .symbolism {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .symbol-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .site-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .site-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .term-definition {
+            font-style: italic;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="logo">
+        </a>
+        <h1>The Freedom Trail, Boston</h1>
+        <h2>Walking Through American History</h2>
+    </div>
+    
+    <img src="https://www.nps.gov/bost/learn/historyculture/images/Freedom-Trail-Map.jpg" alt="Freedom Trail Map" class="trail-image">
+    
+    <div class="container">
+        <section id="overview">
+            <h3>Presentation Overview</h3>
+            <p>Sponsored by <strong>Global Educational Tours</strong>, this interactive presentation explores Boston's Freedom Trail—the 2.5-mile red-brick path that connects 16 historically significant sites. We'll follow the trail from Boston Common to Charlestown, exploring the people, places, and events that shaped the American Revolution and the nation's founding.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Part 1:</strong> Boston Common to Granary Burying Ground
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 2:</strong> King's Chapel to Old South Meeting House
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 3:</strong> Old State House to Faneuil Hall
+                </div>
+                <div class="timeline-item">
+                    <strong>Part 4:</strong> Paul Revere House to USS Constitution
+                </div>
+            </div>
+        </section>
+
+        <div class="facts">
+            <div class="facts-title">Freedom Trail Quick Facts</div>
+            <div class="facts-grid">
+                <div class="fact-item">Length: 2.5 miles</div>
+                <div class="fact-item">Sites: 16 historic locations</div>
+                <div class="fact-item">Established: 1951</div>
+                <div class="fact-item">Start: Boston Common</div>
+                <div class="fact-item">End: USS Constitution</div>
+                <div class="fact-item">Marker: Red brick/ paint line</div>
+            </div>
+        </div>
+        
+        <section id="roles">
+            <h3>Student Roles</h3>
+            
+            <div class="role-section">
+                <h4 class="role-title">1. Trail Beginnings Guide</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How does a simple red line connect the most important sites of the American Revolution through the heart of modern Boston?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Boston Common</div>
+                        <p>Oldest public park in North America (1634). Originally owned by William Blackstone before Puritan arrival. Served as common grazing ground, military training field, and site of public punishments. Starting point of the Freedom Trail.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Massachusetts State House</div>
+                        <p>Legislative assembly since 1795. Designed by Charles Bulfinch. Golden dome originally made of wood, later covered with copper by Paul Revere, then gilded with 23-karat gold. Faces the wealthy Beacon Hill district.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Shaw 54th Regiment Memorial</div>
+                        <p>Honors the first all-volunteer black regiment from the North during Civil War. Led by Colonel Robert Gould Shaw who welcomed black Massachusetts residents to fight for Union cause and free enslaved people in the South.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Park Street Church ("Brimstone Church")</div>
+                        <p>Founded 1809. Nicknamed "Brimstone Church" for its fiery abolitionist and evangelical sermons. Site where "America" (My Country 'Tis of Thee) was first sung in 1831.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Granary Burying Ground</div>
+                        <p>Contains tombs of revolutionary leaders: James Otis (first patriotic leader), Samuel Adams (revolution organizer), and cenotaph of Benjamin Franklin's parents (Josiah and Abiah). Benjamin Franklin buried in Philadelphia.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The first section of the Freedom Trail introduces the foundations of Boston's revolutionary spirit—from the common land that symbolized shared community to the burial ground holding the patriots who dared to imagine independence."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">2. Colonial Center Interpreter</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did religious, educational, and governmental institutions in colonial Boston become centers of revolutionary thought and action?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">King's Chapel</div>
+                        <p>Anglican church symbolizing controversial British presence on Puritan soil. Nicknamed "Stone Chapel." First Anglican church in New England (1686). Current building (1754) never had a steeple—Puritans refused to contribute to "English church."</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">First Public School Site/Ben Franklin Statue</div>
+                        <p>Location of Boston Latin School (1635), oldest public school in America. Benjamin Franklin attended but didn't graduate—his statue honors his contributions despite his limited formal education.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Old Corner Bookstore</div>
+                        <p>Center of American literature in 1800s. Housed Ticknor and Fields, most important publisher of the era. Hosted authors like Hawthorne, Longfellow, Dickens, and Stowe.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Old South Meeting House</div>
+                        <p>One of the centers of the American Revolution. Largest building in colonial Boston, hosting crowds to hear famous speakers. Starting point of the Boston Tea Party (1773) after meetings about tea tax protests.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"Boston's colonial institutions—whether religious, educational, or commercial—became incubators of revolutionary ideas where citizens gathered to debate, educate themselves, and ultimately organize resistance to British rule."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">3. Revolutionary Heart Specialist</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"Which buildings witnessed the most dramatic confrontations between colonists and British authorities that ultimately led to revolution?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Old State House</div>
+                        <p>Oldest public building in Boston (1713). Served as legislative assembly and center of colonial authority. Site of many confrontations between settlers and British officials. Boston Massacre occurred in front of building (1770)—British soldiers killed five civilians. Now museum with exhibits on revolutionary history.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Faneuil Hall ("Cradle of American Liberty")</div>
+                        <p>Center of political and social life for 250 years. Gift from <span class="term-definition">Huguenot</span> merchant Peter Faneuil (1742). Huguenots were French Protestants persecuted by Louis XIV who fled to America. Building condition: marketplace on first floor, meeting hall on second. Sons of Liberty planned activities against British in secret top-floor meetings. Still functions as marketplace and meeting space today.</p>
+                    </div>
+                    
+                    <div class="symbolism">
+                        <div class="symbol-title">Sons of Liberty</div>
+                        <p>Secret patriotic society organized in American colonies. Leaders included Samuel Adams, Paul Revere, and John Hancock. Planned resistance to British policies through protests, boycotts, and eventually revolutionary action.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The Old State House and Faneuil Hall formed the revolutionary heart of Boston—where protests turned to confrontation, speeches became action, and the Sons of Liberty transformed philosophical objections into organized resistance."</p>
+                </div>
+            </div>
+            
+            <div class="role-section">
+                <h4 class="role-title">4. North End and Charlestown Expert</h4>
+                <div class="role-part">
+                    <div class="part-title">Introduction (Hook):</div>
+                    <p>"How did the North End's streets and Charlestown's heights become the setting for the revolution's most dramatic events and symbols?"</p>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Content:</div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Paul Revere House</div>
+                        <p>Oldest building in Boston (1680). Home of Paul Revere—silversmith, engraver, and Sons of Liberty leader. Preserved as memorial to his revolutionary activities, including his famous midnight ride.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Old North Church</div>
+                        <p>Christ Church (1723). Tallest building in colonial Boston. Site of famous "one if by land, two if by sea" signal (April 18, 1775). Robert Newman, church sexton, hung two lanterns in steeple to warn that British were coming "by sea" across Charles River. Immortalized in Longfellow's poem "Paul Revere's Ride."</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Copp's Hill Burying Ground</div>
+                        <p>Second oldest cemetery in Boston. Final resting place of merchants, artisans, and craftspeople who lived in North End. British used hill to aim cannons at Charlestown during Battle of Bunker Hill.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Charlestown Bridge</div>
+                        <p>Crosses Charles River from salt to fresh water. Leads to Charlestown district and final Freedom Trail sites.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">Bunker Hill Monument</div>
+                        <p>Honors Battle of Bunker Hill (actually fought on Breed's Hill, June 17, 1775). Though British technically won, high casualties proved Americans could fight professional soldiers. Crucial moral victory for patriots.</p>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div class="site-name">USS Constitution ("Old Ironsides")</div>
+                        <p>US Navy warship launched 1797. Oldest commissioned warship still afloat. Nicknamed "Old Ironsides" because cannonballs seemed to bounce off her strong oak hull. Still manned by active US Navy crew—living naval history.</p>
+                    </div>
+                </div>
+                <div class="role-part">
+                    <div class="part-title">Conclusion:</div>
+                    <p>"The Freedom Trail's northern sites represent the revolution's dramatic culmination—from the secret signals that launched armed conflict to the battlefields where independence was won and the ships that protected the new nation."</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="script-page">
+            <h3>Printable Student Scripts</h3>
+            
+            <div class="script">
+                <h4>Trail Beginnings Guide</h4>
+                <p>"The Freedom Trail begins at Boston Common, North America's oldest public park, originally owned by William Blackstone before Puritan arrival. The Massachusetts State House, with its gold dome once covered by Paul Revere's copper, has housed the legislative assembly since 1795. Nearby, the Shaw 54th Regiment Memorial honors the first all-black Northern regiment in the Civil War. Park Street Church earned the nickname 'Brimstone Church' for its fiery abolitionist sermons. The Granary Burying Ground contains revolutionary leaders like James Otis, Samuel Adams, and the cenotaph of Benjamin Franklin's parents—connecting the trail's start to the patriots who shaped America's founding."</p>
+                
+                <h4>Colonial Center Interpreter</h4>
+                <p>"King's Chapel symbolized the controversial Anglican presence in Puritan Boston, nicknamed 'Stone Chapel' for its unfinished appearance without a steeple. The site of the first public school honors Benjamin Franklin, who attended but didn't graduate. The Old Corner Bookstore was the 1800s center of American literature, publishing greats like Hawthorne and Longfellow. Old South Meeting House hosted revolutionary gatherings and launched the Boston Tea Party—transforming from religious space to political catalyst where protests against tea taxes escalated into direct action against British rule."</p>
+                
+                <h4>Revolutionary Heart Specialist</h4>
+                <p>"The Old State House, Boston's oldest public building, witnessed dramatic confrontations including the Boston Massacre where British soldiers killed five civilians. Faneuil Hall, gift from Huguenot merchant Peter Faneuil (French Protestant fleeing persecution), became the 'Cradle of American Liberty' with its dual marketplace and meeting hall design. Here, the Sons of Liberty—secret society including Samuel Adams and Paul Revere—planned resistance in top-floor meetings. These buildings hosted both the economic life and political debates that fueled revolution, maintaining their dual functions to this day as living monuments to Boston's revolutionary spirit."</p>
+                
+                <h4>North End and Charlestown Expert</h4>
+                <p>"Paul Revere's House, Boston's oldest building, memorializes the silversmith and Sons of Liberty leader. The Old North Church steeple hosted the famous 'one if by land, two if by sea' signal when sexton Robert Newman hung two lanterns warning of British movement by water. Across Charlestown Bridge, Bunker Hill Monument commemorates the battle that proved Americans could stand against British regulars. The USS Constitution, 'Old Ironsides,' launched in 1797 and earned its nickname when cannonballs bounced off her strong oak hull—still a commissioned warship with active crew, representing the navy that protected hard-won independence."</p>
+            </div>
+        </div>
+        
+        <img src="https://www.nps.gov/bost/learn/historyculture/images/Old-North-Church_1.jpg" alt="Old North Church" class="trail-image">
+        
+        <section id="interactive" class="no-print">
+            <h3>Interactive Elements</h3>
+            
+            <div class="quiz">
+                <h4>Audience Questions</h4>
+                <button onclick="showAnswer('answer1')">Who owned Boston Common before the Puritans arrived?</button>
+                <p id="answer1" class="hidden">William Blackstone (sometimes spelled Blaxton) owned the land that became Boston Common. He was a Anglican minister and England's first settler in the Boston area, living as a hermit on the peninsula he called Shawmut. When Puritans arrived in 1630 and settled in Charlestown, they faced water shortages. Blackstone invited them to move to his side of the river where spring water was plentiful. The Puritans purchased the land from him, and he moved to Rhode Island.</p>
+                
+                <button onclick="showAnswer('answer2')">What tragic event happened at the Old State House?</button>
+                <p id="answer2" class="hidden">The Boston Massacre occurred in front of the Old State House on March 5, 1770. British soldiers opened fire on a crowd of colonists, killing five men including Crispus Attucks, an African American considered the first casualty of the American Revolution. The event became a powerful propaganda tool for patriots. Interestingly, future president John Adams defended the British soldiers in court, demonstrating the colonists' commitment to rule of law even amidst revolutionary tension.</p>
+                
+                <button onclick="showAnswer('answer3')">Why is USS Constitution called "Old Ironsides"?</button>
+                <p id="answer3" class="hidden">During the War of 1812, the USS Constitution earned the nickname "Old Ironsides" when sailors observed British cannonballs seeming to bounce off her thick oak hull. The ship's live oak construction made her exceptionally strong and resistant to enemy fire. The name became famous after Oliver Wendell Holmes' poem "Old Ironsides" helped save the ship from being decommissioned. Today, it remains the world's oldest commissioned naval vessel still afloat, with an active US Navy crew.</p>
+                
+                <button onclick="showAnswer('answer4')">Why was King's Chapel controversial?</button>
+                <p id="answer4" class="hidden">King's Chapel was controversial because it was the first Anglican church in Puritan Boston. Puritans had left England to escape Anglican authority, so an Anglican church in their midst represented the authority they had rejected. Puritans refused to contribute to its construction or allow a steeple (which is why it's sometimes called "Stone Chapel"). The church symbolized British religious and political authority in a city founded to escape that very authority.</p>
+                
+                <button onclick="showAnswer('answer5')">Why is Park Street Church called "Brimstone Church"?</button>
+                <p id="answer5" class="hidden">Park Street Church earned the nickname "Brimstone Church" because of the fiery, hellfire-and-brimstone sermons preached there in the 19th century. The church was known for its strong evangelical and abolitionist stance. It was here that William Lloyd Garrison gave his first anti-slavery speech in 1829, and where the hymn "America" (My Country 'Tis of Thee) was first sung in 1831. The name reflects both the theological content and the passionate social activism that characterized the church.</p>
+            </div>
+            
+            <div>
+                <h4>Activity: Freedom Trail Scavenger Hunt</h4>
+                <p>Have students work in small groups to:</p>
+                <ol>
+                    <li>Research different Freedom Trail sites and their significance</li>
+                    <li>Create a map showing the trail's route and key locations</li>
+                    <li>Develop clues or questions about each site</li>
+                    <li>Design a timeline connecting the sites to historical events</li>
+                    <li>Create profiles of key figures associated with each location</li>
+                    <li>Present their scavenger hunt to other groups</li>
+                    <li>Discuss how physical spaces preserve and communicate history</li>
+                </ol>
+            </div>
+            
+            <div class="facts">
+                <div class="facts-title">Key Historical Figures</div>
+                <div class="facts-grid">
+                    <div class="fact-item">Samuel Adams: Revolutionary leader</div>
+                    <div class="fact-item">Paul Revere: Silversmith, messenger</div>
+                    <div class="fact-item">James Otis: Early patriot thinker</div>
+                    <div class="fact-item">Peter Faneuil: Huguenot merchant</div>
+                    <div class="fact-item">Robert Newman: Church sexton</div>
+                    <div class="fact-item">William Blackstone: First settler</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="conclusion">
+            <h3>Educational Objectives</h3>
+            <ul>
+                <li>Understand the historical significance of Freedom Trail sites</li>
+                <li>Identify key figures and events of the American Revolution in Boston</li>
+                <li>Analyze how physical spaces preserve and communicate history</li>
+                <li>Connect architectural features to historical events and movements</li>
+                <li>Appreciate Boston's role as the cradle of the American Revolution</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Plan your educational trip to Boston with</p>
+        <a href="https://globaleducationaltours.com/" target="_blank">
+            <img src="http://globaleducationaltours.com/wp-content/uploads/2025/04/cropped-cropped-cropped-cropped-2-1.png" alt="Global Educational Tours" class="footer-logo">
+        </a>
+        <p>© 2025 Global Educational Tours. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

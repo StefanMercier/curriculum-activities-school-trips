@@ -8,6 +8,7 @@ import LeadCaptureForm from "@/components/LeadCaptureForm";
 import bostonHeroImg from "@/assets/boston.jpg";
 import jamesOtisImg from "@/assets/james-otis.jpg";
 import bostonTeaPartyImg from "@/assets/boston-tea-party.jpg";
+import bostonFreedomTrailImg from "@/assets/boston-freedom-trail.jpg";
 import { useNavigate } from "react-router-dom";
 import { useUserAccess } from "@/hooks/useUserAccess";
 
@@ -39,6 +40,21 @@ const bostonActivities = [
       "Connect specific events to larger historical movements",
       "Recognize multiple perspectives on historical events",
       "Appreciate how symbolic actions can have concrete consequences"
+    ]
+  },
+  {
+    id: "boston-freedom-trail",
+    title: "The Freedom Trail",
+    description: "Walk through American history on Boston's 2.5-mile red-brick path connecting 16 historically significant Revolutionary War sites.",
+    image: bostonFreedomTrailImg,
+    duration: "10-20 minutes",
+    students: "All grades",
+    objectives: [
+      "Understand the historical significance of Freedom Trail sites",
+      "Identify key figures and events of the American Revolution in Boston",
+      "Analyze how physical spaces preserve and communicate history",
+      "Connect architectural features to historical events and movements",
+      "Appreciate Boston's role as the cradle of the American Revolution"
     ]
   }
 ];

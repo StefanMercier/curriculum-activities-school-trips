@@ -35,7 +35,7 @@ const destinations = [
     id: "boston",
     title: "Boston",
     description: "Freedom Trail, Boston Tea Party Ships, USS Constitution, James Otis Revolutionary Activities",
-    activities: 2,
+    activities: 3,
     duration: "10-20 min per activity",
     isUnlocked: false, // Requires authentication
     image: bostonImg
