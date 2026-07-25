@@ -32,6 +32,47 @@ export type Database = {
         }
         Relationships: []
       }
+      itineraries: {
+        Row: {
+          created_at: string
+          destination: string
+          id: string
+          name: string
+          share_token: string
+          sites: Json
+          teacher_id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          destination: string
+          id?: string
+          name: string
+          share_token?: string
+          sites?: Json
+          teacher_id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          destination?: string
+          id?: string
+          name?: string
+          share_token?: string
+          sites?: Json
+          teacher_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "itineraries_teacher_id_fkey"
+            columns: ["teacher_id"]
+            isOneToOne: false
+            referencedRelation: "teacher_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       leads: {
         Row: {
           access_granted: boolean | null
@@ -77,19 +118,50 @@ export type Database = {
         }
         Relationships: []
       }
+      teacher_profiles: {
+        Row: {
+          consent_educator: boolean
+          consent_marketing: boolean
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          last_name: string
+          phone: string | null
+          school_name: string | null
+        }
+        Insert: {
+          consent_educator?: boolean
+          consent_marketing?: boolean
+          created_at?: string
+          email: string
+          first_name: string
+          id: string
+          last_name: string
+          phone?: string | null
+          school_name?: string | null
+        }
+        Update: {
+          consent_educator?: boolean
+          consent_marketing?: boolean
+          created_at?: string
+          email?: string
+          first_name?: string
+          id?: string
+          last_name?: string
+          phone?: string | null
+          school_name?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      check_is_admin: {
-        Args: { user_email: string }
-        Returns: boolean
-      }
-      check_user_access: {
-        Args: { user_email: string }
-        Returns: boolean
-      }
+      check_is_admin: { Args: { user_email: string }; Returns: boolean }
+      check_user_access: { Args: { user_email: string }; Returns: boolean }
+      get_itinerary_by_token: { Args: { token: string }; Returns: Json }
     }
     Enums: {
       [_ in never]: never
